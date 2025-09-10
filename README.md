@@ -1,2 +1,3 @@
-# configuration
-My configuration (dot files).
+# My configuration (dot files)
+
+> Currently under construction.
