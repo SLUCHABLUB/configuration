@@ -49,7 +49,6 @@ export MICRO_TRUECOLOR=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 alias cat='bat'
-alias code='codium'
 alias edit='$EDITOR'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
