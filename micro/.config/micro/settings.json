@@ -1,0 +1,15 @@
+{
+    "clipboard": "terminal",
+    "colorscheme": "current",
+    "cursorline": true,
+    "hltaberrors": true,
+    "hltrailingws": true,
+    "scrollspeed": 1,
+
+    "divreverse": false,
+    "tabreverse": false,
+
+    "tabstospaces": true,
+
+    "tabAutocomplete": true
+}

@@ -1,0 +1,49 @@
+color-link default "#575279,#faf4ed"
+color-link selection "#575279,#dfdad9"
+
+color-link comment "#9893a5,#faf4ed"
+
+color-link identifier "#575279,#faf4ed"
+color-link identifier.class "#d7827e,#faf4ed" # "Also used for functions"
+color-link constant "#b4637a,#faf4ed"
+color-link constant.string "#ea9d34,#faf4ed"
+color-link statement "#286983,#faf4ed"
+color-link preproc "#b4637a,#faf4ed"
+color-link type "#56949f,#faf4ed"
+color-link special "#286983,#faf4ed"
+
+color-link error "#b4637a,#faf4ed"
+color-link todo "#9893a5,#faf4ed"
+
+color-link statusline "#575279,#fffaf3"
+#color-link statusline.inactive "#FF0000,#00FF00"
+#color-link statusline.suggestions "#FF0000,#00FF00"
+
+color-link tabbar "#797593,#faf4ed"
+color-link tabbar.active "#575279,#faf4ed"
+
+color-link indent-char "#9893a5,#faf4ed"
+
+color-link line-number "#797593,#fffaf3"
+color-link current-line-number "#575279,#faf4ed"
+
+color-link gutter-info "#56949f,#faf4ed"
+color-link gutter-error "#b4637a,#faf4ed"
+color-link gutter-warning "#ea9d34,#faf4ed"
+
+color-link diff-added "#56949f"
+color-link diff-modified "#d7827e"
+color-link diff-deleted "#b4637a"
+
+color-link cursor-line "#f4ede8"
+color-link color-column "#f4ede8"
+
+color-link divider "#cecacd"
+
+color-link message "#56949f"
+color-link error-message "#b4637a"
+
+color-link match-brace "#575279,#dfdad9"
+color-link hlsearch "#faf4ed,#d7827e"
+color-link tab-error "#b4637a"
+color-link trailingws "#b4637a"
