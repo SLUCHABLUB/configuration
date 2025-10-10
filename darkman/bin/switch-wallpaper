@@ -1,0 +1,7 @@
+#!/bin/sh
+
+wallpapers="$HOME/Pictures/Wallpapers/$(darkman get)"
+wallpaper="$wallpapers/$(ls "$wallpapers" | shuf -n 1)"
+
+hyprctl hyprpaper preload "$wallpaper"
+hyprctl hyprpaper wallpaper ", $wallpaper"

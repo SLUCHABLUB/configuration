@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Load hyprland environment variables for `hyprctl`
+export HYPRLAND_INSTANCE_SIGNATURE
+HYPRLAND_INSTANCE_SIGNATURE=$(cat "$XDG_RUNTIME_DIR/HYPRLAND_INSTANCE_SIGNATURE")
+
+theme_kind=$(darkman get)
+
+echo "Switching to $theme_kind mode"
+
+if [ "$theme_kind" = "light" ]
+then
+    theme_display_name='Rosé Pine Dawn'
+    theme_kebab_name=rose-pine-dawn
+else
+    theme_display_name='Rosé Pine'
+    theme_kebab_name=rose-pine
+fi
+
+kitten themes --config-file-name=themes.conf --reload-in=all "$theme_display_name"
+
+echo "include \"$theme_kebab_name\"" > ~/.config/micro/colorschemes/current.micro
+echo "source = $theme_kebab_name.conf" > ~/.config/hypr/colours.conf
+
+echo "@import \"$theme_kebab_name.css\";" > ~/.config/waybar/colours.css
+killall waybar && hyprctl dispatch exec waybar
+
+~/bin/switch-wallpaper
