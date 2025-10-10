@@ -1,0 +1,88 @@
+{
+    "spacing": 6, // same as in hyprland.conf
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "wireplumber#microphone",
+        "wireplumber#speaker",
+
+        "network",
+        "battery"
+    ],
+
+    "clock": {
+        "timezone": "Europe/Stockholm",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a %e %b}",
+        "tooltip": false,
+    },
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "wireplumber#microphone": {
+        "node-type": "Audio/Source",
+
+        "scroll-step": 1,
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+
+        "format": "{volume}% ",
+        "format-muted": " ",
+
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    },
+    "wireplumber#speaker": {
+        "node-type": "Audio/Sink",
+
+        "scroll-step": 1,
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "  {icon}",
+        "format-muted": "  {icon}",
+
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "󱡏 ",
+            "headset": " ",
+            "phone": " ",
+            "portable": "",
+            "car": " ",
+            "default": " "
+        },
+
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "network": {
+        "format-wifi": "{signalStrength}%  ",
+        "format-ethernet": "󰈁",
+
+        "tooltip-format": "{ipaddr}",
+        "tooltip-format-wifi": "{essid}: {ipaddr}"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon}󱐋",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+}

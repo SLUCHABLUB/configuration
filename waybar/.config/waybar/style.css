@@ -1,0 +1,110 @@
+@import "colours.css";
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+
+    color: @text;
+    background: @base;
+    background: transparent;
+    border-color: @highlightHigh;
+
+    box-shadow: none;
+    text-shadow: none;
+
+    /* matches hyprland.conf */
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+/* The last module */
+#battery {
+    /* matches hyprland.conf */
+    margin-right: 6px;
+}
+
+window > * {
+    /* matches hyprland.conf */
+    margin-top: 6px;
+}
+
+window {
+    background: transparent;
+}
+
+tooltip {
+    background: @base;
+}
+
+button {
+    background: @base;
+}
+
+button:hover {
+    background: @highlightMed;
+}
+
+#clock,
+#battery,
+#disk,
+#backlight,
+#network,
+#wireplumber
+{
+    background: @base;
+    padding: 0 14px;
+    border-style: solid;
+}
+
+#workspaces > * {
+    /* matches hyprland.conf */
+    margin-left: 6px;
+    color: @subtle;
+}
+
+#workspaces > *.active {
+    border-color: @iris;
+}
+
+#disk {
+    background-color: #964B00;
+}
+
+#backlight {
+    background-color: #90b1b1;
+}
+
+#wireplumber.microphone:not(.muted) {
+    border-color: @gold;
+}
+
+#wireplumber.speaker.muted {
+    border-color: @gold;
+}
+
+#network.disconnected {
+    border-color: @love;
+}
+
+#battery.charging, #battery.plugged {
+    border-color: @pine;
+}
+
+#battery.warning:not(.charging) {
+    border-color: @gold;
+}
+
+#battery.critical:not(.charging) {
+    border-color: @love;
+}
+
+#network.ethernet {
+    border-color: @pine;
+}
+
+#network.wifi {
+    border-color: @foam;
+}
+
+#network.disconnected {
+    border-color: @love;
+}
