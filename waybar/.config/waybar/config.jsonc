@@ -2,7 +2,7 @@
     "spacing": 6, // same as in hyprland.conf
 
     "modules-left": [
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
     "modules-center": [
         "clock"
