@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+export NIRI_SOCKET=${NIRI_SOCKET:-$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'niri.*' -print -quit)}
 
 theme_kind=$(darkman get)
 
