@@ -37,7 +37,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # use openjdk over `/usr/bin/java`
 export PATH="/usr/lib/jvm/java-21-openjdk/bin:$PATH"
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 

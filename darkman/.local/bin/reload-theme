@@ -23,4 +23,4 @@ echo "@import \"$theme_kebab_name.css\";" > ~/.config/waybar/colours.css
 killall waybar
 niri msg action spawn -- waybar
 
-~/bin/switch-wallpaper
+.local/bin/switch-wallpaper
