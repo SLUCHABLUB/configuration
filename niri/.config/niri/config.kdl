@@ -1,0 +1,146 @@
+// include "colours.kdl"
+
+input {
+    keyboard {
+        xkb {
+            layout "se"
+        }
+    }
+
+    touchpad {
+        natural-scroll
+        accel-profile "flat"
+        click-method "clickfinger"
+    }
+
+    mouse {
+        natural-scroll
+    }
+}
+
+// birch
+output "eDP-1" {
+    mode "1366x768@60.060"
+
+    scale 1.2
+
+    position x=0 y=0
+}
+
+output "HDMI-A-2" {
+    mode "1920x1080@60.000"
+
+    scale 1
+
+    // birch
+    position x=-391 y=-1080
+}
+
+layout {
+    gaps 6
+
+    center-focused-column "never"
+
+    default-column-width { proportion 1.0; }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+
+        // light mode
+        active-color "#907aa9"
+        inactive-color "#cecacd"
+        urgent-color "#b4637a"
+    }
+}
+
+spawn-at-startup "waybar"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+window-rule {
+    geometry-corner-radius 6
+    clip-to-geometry true
+}
+
+binds {
+    Mod+Return repeat=false { spawn "kitty"; }
+
+    Mod+B repeat=false { spawn "firefox"; }
+    Mod+C repeat=false { spawn "codium"; }
+    Mod+D repeat=false { spawn-sh "darkman toggle"; }
+    Mod+E repeat=false { quit; }
+    Mod+F repeat=false { fullscreen-window; }
+    Mod+L repeat=false { spawn "swaylock"; }
+    Mod+M repeat=false { spawn "prismlauncher"; }
+    Mod+N repeat=false { spawn "nemo"; }
+    Mod+Q repeat=false { close-window; }
+    Mod+T repeat=false { toggle-window-floating; }
+    Mod+V repeat=false { spawn "pavucontrol"; }
+
+    Mod+Shift+F repeat=false {
+        // kdl 1.0 syntax
+        spawn-sh r#"
+            niri msg action set-window-width 100%
+            niri msg action set-window-height 100%
+        "#
+    }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set +10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set 10%-"; }
+
+    XF86LaunchA repeat=false { toggle-overview; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Left  { consume-or-expel-window-left; }
+    Mod+Shift+Right { consume-or-expel-window-right; }
+
+    Mod+Ctrl+Up   { move-window-to-monitor-up;   }
+    Mod+Ctrl+Down { move-window-to-monitor-down; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
+
+    Mod+Minus { set-window-width "-16.666666666666666%"; }
+    Mod+Plus  { set-window-width "+16.666666666666666%"; }
+    Mod+Shift+Minus { set-window-height "-16.666666666666666%"; }
+    Mod+Shift+Plus  { set-window-height "+16.666666666666666%"; }
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+}
