@@ -14,7 +14,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
-fpath=("/home/nelli/.local/share/scalacli/completions/zsh" $fpath)
+fpath=("$HOME/.local/share/scalacli/completions/zsh" $fpath)
 autoload -U compinit && compinit
 
 HISTFILE=~/.histfile
