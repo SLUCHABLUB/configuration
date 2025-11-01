@@ -35,18 +35,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Make completions have colour
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# use openjdk over `/usr/bin/java`
-export PATH="/usr/lib/jvm/java-21-openjdk/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.local/share/coursier/bin"
-
 PROMPT="[%F{13}%n%f] %F{12}%~%f > "
-
-export EDITOR="micro"
-
-export MICRO_TRUECOLOR=1
-export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 alias cat='bat'
 alias edit='$EDITOR'
