@@ -58,7 +58,7 @@ layout {
 }
 
 // This spawns waybar and swaybg.
-spawn-at-startup "~/.local/bin/reload-theme"
+spawn-at-startup "reload-theme"
 
 hotkey-overlay {
     skip-at-startup
