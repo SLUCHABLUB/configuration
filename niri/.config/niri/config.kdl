@@ -1,6 +1,8 @@
 // include "colours.kdl"
 
 input {
+    focus-follows-mouse
+
     keyboard {
         xkb {
             layout "se"
