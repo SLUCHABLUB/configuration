@@ -37,8 +37,11 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 PROMPT="[%F{13}%n%f] %F{12}%~%f > "
 
+# TODO: remove
+source /usr/share/nvm/nvm.sh
+
 alias cat='bat'
-alias edit='$EDITOR'
+alias edit=$EDITOR
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 

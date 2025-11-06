@@ -7,7 +7,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
 # TODO: replace with mili
-export EDITOR="codium --wait"
+export EDITOR="micro"
 
 export MICRO_TRUECOLOR=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto
