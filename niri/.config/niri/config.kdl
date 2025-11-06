@@ -107,17 +107,20 @@ binds {
     XF86LaunchA repeat=false { toggle-overview; }
 
     Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-or-monitor-down; }
+    Mod+Up    { focus-window-or-monitor-up; }
     Mod+Right { focus-column-right; }
 
-    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
-    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
-    Mod+Shift+Left  { consume-or-expel-window-left; }
-    Mod+Shift+Right { consume-or-expel-window-right; }
+    Mod+Alt+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Alt+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Alt+Left  { consume-or-expel-window-left; }
+    Mod+Alt+Right { consume-or-expel-window-right; }
 
-    Mod+Ctrl+Up   { move-window-to-monitor-up;   }
-    Mod+Ctrl+Down { move-window-to-monitor-down; }
+    Mod+Ctrl+Up   { focus-monitor-up;   }
+    Mod+Ctrl+Down { focus-monitor-down; }
+
+    Mod+Alt+Ctrl+Up   { move-window-to-monitor-up;   }
+    Mod+Alt+Ctrl+Down { move-window-to-monitor-down; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -128,15 +131,15 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Shift+1 { move-window-to-workspace 1; }
-    Mod+Shift+2 { move-window-to-workspace 2; }
-    Mod+Shift+3 { move-window-to-workspace 3; }
-    Mod+Shift+4 { move-window-to-workspace 4; }
-    Mod+Shift+5 { move-window-to-workspace 5; }
-    Mod+Shift+6 { move-window-to-workspace 6; }
-    Mod+Shift+7 { move-window-to-workspace 7; }
-    Mod+Shift+8 { move-window-to-workspace 8; }
-    Mod+Shift+9 { move-window-to-workspace 9; }
+    Mod+Alt+1 { move-window-to-workspace 1; }
+    Mod+Alt+2 { move-window-to-workspace 2; }
+    Mod+Alt+3 { move-window-to-workspace 3; }
+    Mod+Alt+4 { move-window-to-workspace 4; }
+    Mod+Alt+5 { move-window-to-workspace 5; }
+    Mod+Alt+6 { move-window-to-workspace 6; }
+    Mod+Alt+7 { move-window-to-workspace 7; }
+    Mod+Alt+8 { move-window-to-workspace 8; }
+    Mod+Alt+9 { move-window-to-workspace 9; }
 
     Mod+Minus { set-window-width "-16.666666666666666%"; }
     Mod+Plus  { set-window-width "+16.666666666666666%"; }
