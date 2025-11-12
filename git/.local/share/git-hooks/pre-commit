@@ -7,7 +7,7 @@ exec 1>&2
 if [ -f "Cargo.toml" ]
 then
     cargo +nightly fmt    --all       --check
-    cargo          clippy --workspace --deny warnings
+    cargo          clippy --workspace -- --deny warnings
     cargo          test   --workspace
 fi
 

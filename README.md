@@ -7,6 +7,7 @@ to-do list:
 - firefox / "browser"
 - swaylock
 - gtk
+- symlink ~/Documents -> ~/iclouddrive/documents
 
 ## Wallpapers
 
