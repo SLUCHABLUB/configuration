@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+
+ESC=$'\x1b'
+RED="${ESC}[91m"
+GREEN="${ESC}[92m"
+RESET="${ESC}[0m"
+
+panic() {
+    local message="$1"
+
+    if [ -n "$message" ]
+    then
+        printf '%s\n' "$message" >&2
+    fi
+
+    exit 1
+}
+
+error() {
+    local message="$1"
+
+    printf '%s%s%s' "$RED" "$message" "$RESET"
+}
+
+
+ok() {
+    printf '%sok%s' "$GREEN" "$RESET"
+}
+
+print_repository_status() {
+    local repository="$1"
+
+    if [ ! -d "$repository" ]
+    then
+        error "not version controlled"
+        return 1
+    fi
+
+    pushd "$repository" >/dev/null || panic "cannot read $repository"
+
+    if [ ! -d ".git" ]
+    then
+        error "not version controlled"
+        return 1
+    fi
+
+    if ! git diff --quiet || ! git diff --cached --quiet
+    then
+        error "non committed changes"
+        return 1
+    fi
+
+    if [ -n "$(git ls-files --others --exclude-standard)" ]
+    then
+        error "untracked files"
+        return 1
+    fi
+
+    for branch in $(git for-each-ref --format='%(refname:short)' refs/heads/); do
+        local upstream_branch
+        upstream_branch=$(git rev-parse --abbrev-ref "$branch@{upstream}")
+
+        if [ -z "$upstream_branch" ]; then
+            error "local-only branch"
+            return 1
+        fi
+
+        local ahead
+        ahead="$(git rev-list --count "$upstream_branch..$branch")"
+
+        if [ "$ahead" -ne 0 ]; then
+            error "non pushed commits"
+            return 1
+        fi
+    done
+
+    popd >/dev/null || panic "cannot restore directory"
+
+    ok
+}
+
+print_repository_info() {
+    local repository="$1"
+
+    printf '%s: ' "$(basename "$repository")"
+
+    print_repository_status "$repository"
+    local status="$?"
+
+    printf '\n'
+
+    return "$status"
+}
+
+main() {
+    local status=0
+
+    print_repository_info "$HOME/configuration" || status=1
+    print_repository_info "$HOME/system-configuration" || status=1
+
+    readarray -d '' projects < <(find "$HOME/Projects" -mindepth 1 -maxdepth 1 -print0)
+
+    for project in "${projects[@]}"
+    do
+        print_repository_info "$project" || status=1
+    done
+
+    return "$status"
+}
+
+main "$@"
