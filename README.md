@@ -3,7 +3,6 @@
 to-do list:
 - keyboard layout
 - rclone systemd unit
-- git graph
 - firefox / "browser"
 - swaylock
 - gtk
