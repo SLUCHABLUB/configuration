@@ -17,7 +17,7 @@ fi
 
 kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "$theme_display_name"
 
-echo "include \"$theme_kebab_name\"" > ~/.config/micro/colorschemes/current.micro
+echo "include \"$theme_kind\"" > ~/.config/micro/colorschemes/current.micro
 
 echo "@import \"$theme_kebab_name.css\";" > ~/.config/waybar/colours.css
 killall waybar
