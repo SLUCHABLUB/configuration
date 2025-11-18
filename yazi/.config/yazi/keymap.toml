@@ -1,0 +1,83 @@
+# Arrow Keys
+
+[[mgr.keymap]]
+on = "<Up>"
+run = "arrow -1"
+
+[[mgr.keymap]]
+on = "<Down>"
+run = "arrow 1"
+
+[[mgr.keymap]]
+on = "<Left>"
+run = "leave"
+
+[[mgr.keymap]]
+on = "<Right>"
+run = "enter"
+
+# Ctrl + Arrows
+
+[[mgr.keymap]]
+on = "<C-Up>"
+run = "arrow top"
+
+[[mgr.keymap]]
+on = "<C-Down>"
+run = "arrow bot"
+
+[[mgr.keymap]]
+on = "<C-Left>"
+run = "cd ~"
+
+# Special Keys
+
+[[mgr.keymap]]
+on = "<Enter>"
+run = "open"
+
+[[mgr.keymap]]
+on = "<C-Enter>"
+run = "create"
+
+[[mgr.keymap]]
+on = "<Escape>"
+run = "escape"
+
+[[mgr.keymap]]
+on = "<Backspace>"
+run = "remove --force"
+
+# Ctrl + Lett
+
+[[mgr.keymap]]
+on = "<C-a>"
+run = "toggle_all --state=on"
+
+[[mgr.keymap]]
+on = "<C-c>"
+run = "yank"
+
+[[mgr.keymap]]
+on = "<C-d>"
+run = "remove --force --hovered"
+
+[[mgr.keymap]]
+on = "<C-f>"
+run = "search"
+
+[[mgr.keymap]]
+on = "<C-h>"
+run = "help"
+
+[[mgr.keymap]]
+on = "<C-r>"
+run = "rename"
+
+[[mgr.keymap]]
+on = "<C-w>"
+run = "close"
+
+[[mgr.keymap]]
+on = "<C-q>"
+run = "quit"
