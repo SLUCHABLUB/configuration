@@ -37,14 +37,23 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 PROMPT="[%F{13}%n%f] %F{12}%~%f > "
 
-# TODO: remove
-source /usr/share/nvm/nvm.sh
-
 alias cat='bat'
 alias edit=$EDITOR
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias spawn='niri msg action spawn --'
+
+# TODO: remove
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+function fm() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+}
 
 [ "$TERM" = 'xterm-kitty' ] && alias ssh='kitten ssh'
 
