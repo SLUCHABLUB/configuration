@@ -17,25 +17,26 @@ input {
 
     mouse {
         natural-scroll
+        accel-profile "flat"
     }
 }
 
-// birch
+// willow
 output "eDP-1" {
-    mode "1366x768@60.060"
+    mode "2256x1504@59.999"
 
-    scale 1.2
+    scale 2
 
     position x=0 y=0
 }
 
-output "HDMI-A-2" {
+output "DP-3" {
     mode "1920x1080@60.000"
 
     scale 1
 
-    // birch
-    position x=-391 y=-1080
+    // willow
+    position x=-426 y=-1080
 }
 
 layout {
@@ -75,6 +76,7 @@ window-rule {
 
 binds {
     Mod+Return repeat=false { spawn "kitty"; }
+    Mod+Space  repeat=false { spawn-sh "killall fuzzel || fuzzel"; }
 
     Mod+B repeat=false { spawn "firefox"; }
     Mod+C repeat=false { spawn "codium"; }
