@@ -1,14 +1,21 @@
 {
+    "Alt-Up": "MoveLinesUp",
+    "Alt-Down": "MoveLinesDown",
     "Alt-Left": "WordLeft",
     "Alt-Right": "WordRight",
+
+    "Alt-Shift-Left": "SelectWordLeft",
+    "Alt-Shift-Right": "SelectWordRight",
 
     "Ctrl-Left": "StartOfLine",
     "Ctrl-Right": "EndOfLine",
     "Ctrl-Up": "CursorStart",
     "Ctrl-Down": "CursorEnd",
 
-    "Ctrl-Alt-Up": "MoveLinesUp",
-    "Ctrl-Alt-Down": "MoveLinesDown",
+    "Ctrl-Shift-Left": "SelectToStartOfLine",
+    "Ctrl-Shift-Right": "SelectToEndOfLine",
+    "Ctrl-Shift-Up": "SelectToStart",
+    "Ctrl-Shift-Down": "SelectToEnd",
 
     "Ctrl-a": "SelectAll",
     "Ctrl-b": "command:lsp goto-definition", // TODO: go to definition

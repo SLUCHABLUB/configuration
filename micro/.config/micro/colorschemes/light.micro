@@ -1,0 +1,9 @@
+color-link default "#575279,#faf4ed"
+color-link symbol "#797593"
+
+color-link comment "#f6c177,#ea9d34"
+color-link constant.string "#99c948,#00ff00"
+color-link constant.number "#31748f,#286983"
+color-link type "#575279,#907aa9"
+# keywords
+color-link statement "#ebbcba,#d7827e"
