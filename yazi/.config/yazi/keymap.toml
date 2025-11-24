@@ -34,7 +34,7 @@ run = "cd ~"
 
 [[mgr.keymap]]
 on = "<Enter>"
-run = "open"
+run = "plugin smart-enter"
 
 [[mgr.keymap]]
 on = "<C-Enter>"
