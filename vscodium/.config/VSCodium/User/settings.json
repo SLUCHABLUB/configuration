@@ -1,64 +1,73 @@
 {
-    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    // editor controlls
+
     "editor.inertialScroll": true,
-    "workbench.layoutControl.enabled": false,
-    "window.menuBarVisibility": "toggle",
-    "files.watcherExclude": {
-        "**/.bloop": true,
-        "**/.metals": true
-    },
-    "files.autoSave": "afterDelay",
-    "cSpell.language": "en-GB,sv-SE",
-    "terminal.integrated.fontLigatures.enabled": true,
-    "editor.fontLigatures": true,
-    "cSpell.userWords": [
-        "Bindable",
-        "crossterm",
-        "eprint",
-        "eprintln",
-        "Oklab",
-        "println",
-        "Quotated",
-        "ratatui",
-        "resampler",
-        "signedness",
-        "sluchablub",
-        "unstow"
-    ],
+
+    // editor style
+
     "editor.bracketPairColorization.enabled": false,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "trailing",
+
+    // file explorer
+    
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    "files.autoSave": "afterDelay",
+
+    // integrated terminal
+
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.external.linuxExec": "kitty",
+
+    // colour scheme
+
     "window.autoDetectColorScheme": true,
+
     "workbench.preferredDarkColorTheme": "Rosé Pine",
     "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
     "workbench.iconTheme": "rose-pine-icons",
-    "workbench.panel.showLabels": false,
-    "editor.renderWhitespace": "trailing",
+
+    // general window settings
+
+    "window.menuBarVisibility": "hidden",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+
+    // spell checking
+
+    "cSpell.language": "en-GB,sv-SE",
+    "cSpell.userWords": [
+        "sluchablub",
+    ],
+
+    // git
+
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+
+    // rust
+
+    "rust-analyzer.imports.granularity.group": "module",
+    "rust-analyzer.imports.group.enable": false,
+
     "rust-analyzer.inlayHints.closingBraceHints.enable": false,
     "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "always",
     "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
-    "rust-analyzer.imports.granularity.group": "module",
     "rust-analyzer.inlayHints.typeHints.enable": false,
     "rust-analyzer.inlayHints.expressionAdjustmentHints.hideOutsideUnsafe": true,
     "rust-analyzer.inlayHints.genericParameterHints.const.enable": false,
     "rust-analyzer.inlayHints.parameterHints.enable": false,
-    "editor.minimap.enabled": false,
-    "explorer.confirmDelete": false,
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "explorer.confirmDragAndDrop": false,
-    "git.confirmSync": false,
-    "diffEditor.ignoreTrimWhitespace": true,
-    "rust-analyzer.imports.group.enable": false,
-    "workbench.secondarySideBar.defaultVisibility": "hidden",
+
     "rust-analyzer.lens.run.enable": false,
     "rust-analyzer.lens.debug.enable": false,
     "rust-analyzer.lens.enable": false,
-    "terminal.external.linuxExec": "kitty",
-    "terminal.integrated.cursorStyle": "line",
-    "qt-core.additionalQtPaths": [
-        {
-            "name": "Qt-5.15.17-linux-g++_from_PATH",
-            "path": "/usr/bin/qmake"
-        }
-    ],
+
+    // svelte
+
     "svelte.enable-ts-plugin": true,
 }
