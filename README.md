@@ -1,6 +1,10 @@
 # My configuration (dot files)
 
 to-do list:
+- add zed theme and settings
+- make a textmate theme
+    - add it to bat
+    - add it to delta
 - keyboard layout
 - rclone systemd unit
 - firefox / "browser"
