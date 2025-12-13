@@ -39,6 +39,7 @@ PROMPT="[%F{13}%n%f] %F{12}%~%f > "
 
 alias cat='bat'
 alias edit=$EDITOR
+alias ide='zeditor'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias spawn='niri msg action spawn --'
