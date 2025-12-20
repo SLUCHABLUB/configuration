@@ -2,8 +2,13 @@ color-link default "#e0def4,#191724"
 color-link symbol "#797593"
 
 color-link comment "#f6c177"
-color-link constant.string "#99c948"
+color-link todo "#f6c177"
+color-link constant.string "#A7BF90"
+# escape character
+color-link constant.specialChar "#ebbcba"
 color-link constant.number "#31748f"
 color-link type "#c4a7e7"
+# macros
+color-link preproc "#9ccfd8"
 # keywords
 color-link statement "#ebbcba"

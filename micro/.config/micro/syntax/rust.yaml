@@ -3,26 +3,38 @@ filetype: rust
 detect:
     filename: "\\.rs$"
 
-rules:
+rules: &rules
     # function definition
     - identifier: "fn [a-z0-9_]+"
-      # Reserved words
+    
+    # Keywords
     - statement: "\\b(abstract|alignof|as|async|await|become|box|break|const|continue|crate|do|dyn|else|enum|extern|false|final|fn|for|gen|if|impl|in|let|loop|macro|match|mod|move|mut|offsetof|override|priv|pub|pure|ref|return|sizeof|static|self|struct|super|true|trait|type|typeof|try|union|unsafe|unsized|use|virtual|where|while|yield)\\b"
-      # macros
-    - special: "[a-z_]+!"
-      # Constants
-    - constant: "\\b[A-Z][A-Z_0-9]+\\b"
-      # Numbers
-    - constant.number: "\\b[0-9]+\\b"
-      # Booleans
-    - constant: "\\b(true|false)\\b"
-      # Traits/Enums/Structs/Types/etc.
-    - type: "\\b[A-Z]+[a-zA-Z_0-9]*[a-z]+[a-zA-Z_0-9]*\\b"
-      # Builtin types that start with lowercase.
+
+    # Types and Traits
+    - &type
+      type: "\\b[A-Z]+[a-zA-Z_0-9]*[a-z]+[a-zA-Z_0-9]*\\b"
     - type: "\\b(bool|str|char|((i|u)(8|16|32|64|128|size))|f(16|32|64|128))\\b"
 
-    - symbol.operator: "[-+*/%=<>.:;,&|^!?]"
-    - symbol.brackets: "[(){}]|\\[|\\]"
+    # macros
+    - preproc: "[a-z_]+!"    
+    - preproc:
+        start: "#\\["
+        end: "\\]"
+        rules:
+            - *type
+    - preproc:
+        start: "#!\\["
+        end: "\\]"
+        rules: []
+
+      # Constants
+    - constant: "\\b[A-Z][A-Z_0-9]+\\b"
+
+      # Numbers
+    - constant.number: "\\b[0-9]+\\b"
+
+      # Booleans
+    - constant: "\\b(true|false)\\b"
 
     - constant.string:
         start: "[bc]?\""
@@ -63,6 +75,9 @@ rules:
         end: "'"
         rules: []
 
+    - symbol.operator: "[-+*/%=<>.:;,&|^!?]"
+    - symbol.brackets: "[(){}]|\\[|\\]"
+
     - comment:
         start: "//"
         end: "$"
@@ -74,8 +89,3 @@ rules:
         end: "\\*/"
         rules:
             - todo: "(TODO|XXX|FIXME):?"
-
-    - special:
-        start: "#!\\["
-        end: "\\]"
-        rules: []

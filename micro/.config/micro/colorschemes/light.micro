@@ -1,9 +1,14 @@
 color-link default "#575279,#faf4ed"
 color-link symbol "#797593"
 
-color-link comment "#f6c177,#ea9d34"
-color-link constant.string "#99c948,#00ff00"
-color-link constant.number "#31748f,#286983"
-color-link type "#575279,#907aa9"
+color-link comment "#ea9d34,#f9ebdb"
+color-link todo "#ea9d34,#f9ebdb"
+color-link constant.string "#818C53,#ede8db"
+# escape character
+color-link constant.specialChar "#d7827e,#f7e7e0"
+color-link constant.number "#286983,#e4e5e1"
+color-link type "#907aa9,#eee6e4"
+# macros
+color-link preproc "#56949f,#e9e9e3"
 # keywords
-color-link statement "#ebbcba,#d7827e"
+color-link statement "#d7827e,#f7e7e0"
