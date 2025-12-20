@@ -48,6 +48,8 @@ output "DP-4" {
     position x=-426 y=-1080
 }
 
+prefer-no-csd
+
 layout {
     gaps 6
 
@@ -71,6 +73,7 @@ layout {
 
 // This spawns waybar and swaybg.
 spawn-at-startup "reload-theme"
+spawn-at-startup "swayidle"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
 hotkey-overlay {
@@ -107,9 +110,13 @@ binds {
             niri msg action set-window-height 100%
         "#
     }
+    Mod+Alt+F repeat=false { toggle-windowed-fullscreen; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    Alt+XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+"; }
+    Alt+XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
+
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
