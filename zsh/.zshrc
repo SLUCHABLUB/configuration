@@ -72,3 +72,7 @@ bindkey "\e[1;3D" backward-word
 # ctrl+left/right
 bindkey "\e[1;5C" end-of-line
 bindkey "\e[1;5D" beginning-of-line
+
+eval "$(starship init zsh)"
+
+true
