@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export NIRI_SOCKET=${NIRI_SOCKET:-$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'niri.*' -print -quit)}
 
@@ -6,21 +6,12 @@ theme_kind=$(darkman get)
 
 echo "Switching to $theme_kind mode"
 
-if [ "$theme_kind" = "light" ]
-then
-    theme_display_name='Rosé Pine Dawn'
-    theme_kebab_name=rose-pine-dawn
-else
-    theme_display_name='Rosé Pine'
-    theme_kebab_name=rose-pine
-fi
-
-kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "$theme_display_name"
+kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "Tilia ($theme_kind)"
 
 echo "include \"$theme_kind\"" > ~/.config/micro/colorschemes/current.micro
 
-echo "@import \"$theme_kebab_name.css\";" > ~/.config/waybar/colours.css
+echo "@import \"$theme_kind.css\";" > ~/.config/waybar/colours.css
 killall waybar
 niri msg action spawn -- waybar
 
-.local/bin/switch-wallpaper
+~/.local/bin/switch-wallpaper

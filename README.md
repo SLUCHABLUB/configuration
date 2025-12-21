@@ -11,6 +11,7 @@ to-do list:
 - swaylock
 - gtk
 - symlink ~/Documents -> ~/iclouddrive/documents
+- move colours to a "standard" location to avoid typos &c.
 
 ## Wallpapers
 
