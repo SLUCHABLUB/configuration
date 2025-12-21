@@ -44,8 +44,8 @@ format = """\
     $untracked\
     $stashed\
     ]($style)\
-    [\\)](fg:white)\
-    ) \
+    [\\)](fg:white) \
+    )\
 """
 style = 'red'
 
