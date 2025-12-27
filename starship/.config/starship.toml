@@ -18,6 +18,7 @@ add_newline = false
 cmd_duration.disabled = true
 line_break.disabled = true
 package.disabled = true
+rust.disabled = true
 
 [username]
 format = '[$user]($style)'
