@@ -1,0 +1,207 @@
+{
+    "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+    "name": "Tilia (light)",
+    "author": "SLUCHABLUB",
+    "themes": [
+        {
+            "appearance": "light",
+            "name": "Tilia (light)",
+            "style": {
+                "background": "#faf4ed",
+                "border": "#cecacd",
+                "border.disabled": "#cecacd",
+                "border.focused": "#907aa9",
+                "border.selected": "#907aa9",
+                "border.transparent": "transparent",
+                "border.variant": "#cecacd",
+                "conflict": "#b4637a",
+                "conflict.background": "#f3e4df",
+                "conflict.border": "#cecacd",
+                "created": "#818C53",
+                "created.background": "#ede8db",
+                "created.border": "#cecacd",
+                "deleted": "#b4637a",
+                "deleted.background": "#f3e4df",
+                "deleted.border": "#cecacd",
+                "drop_target.background": "#f4ede8",
+                "editor.active_line.background": "#f4ede8",
+                "editor.active_line_number": "#575279",
+                "editor.active_wrap_guide": "#797593",
+                "editor.background": "#faf4ed",
+                "editor.document_highlight.bracket_background": "#dfdad9",
+                "editor.document_highlight.read_background": "#ede8db",
+                "editor.document_highlight.write_background": "#f7e7e0",
+                "editor.foreground": "#575279",
+                "editor.gutter.background": "#fffaf3",
+                "editor.highlighted_line.background": "#f4ede8",
+                "editor.indent_guide": "#cecacd",
+                "editor.indent_guide_active": "#cecacd",
+                "editor.invisible": "#9893a5",
+                "editor.line_number": "#797593",
+                // I'm unsure what this does.
+                "editor.subheader.background": null,
+                "editor.wrap_guide": "#9893a5",
+                // These are background colours.
+                "element.active": "#fffaf3",
+                "element.background": "#fffaf3",
+                "element.disabled": "#fffaf3",
+                "element.hover": "#f4ede8",
+                "element.selected": "#dfdad9",
+                "error": "#b4637a",
+                "error.background": "#f3e4df",
+                "error.border": "#b4637a",
+                "ghost_element.active": null,
+                "ghost_element.background": null,
+                "ghost_element.disabled": null,
+                "ghost_element.hover": "#f4ede8",
+                "ghost_element.selected": "#dfdad9",
+                "hidden": "#797593",
+                "hidden.background": null,
+                "hidden.border": null,
+                "hint": "#56949f",
+                "hint.background": "#e9e9e3",
+                "hint.border": "#cecacd",
+                "icon": "#575279",
+                "icon.accent": "#907aa9",
+                "icon.disabled": "#9893a5",
+                "icon.muted": "#797593",
+                "icon.placeholder": "#9893a5",
+                "ignored": "#797593",
+                "ignored.background": null,
+                "ignored.border": null,
+                "info": "#56949f",
+                "info.background": "#e9e9e3",
+                "info.border": "#cecacd",
+                "modified": "#d7827e",
+                "modified.background": "#f7e7e0",
+                "modified.border": "#cecacd",
+                // I'm unsure what this does.
+                "pane.focused_border": "#907aa9",
+                "pane_group.border": "#cecacd",
+                "panel.background": "#f2e9e1",
+                "panel.focused_border": "#907aa9",
+                "panel.indent_guide": "#cecacd",
+                "panel.indent_guide_active": "#cecacd",
+                "panel.indent_guide_hover": "#cecacd",
+                // I'm unsure what this does.
+                "predictive": "#286983",
+                "predictive.background": "#e4e5e1",
+                "predictive.border": "#cecacd",
+                "renamed": "#d7827e",
+                "renamed.background": "#f7e7e0",
+                "renamed.border": "#cecacd",
+                "scrollbar.thumb.background": "#0000",
+                "scrollbar.thumb.border": "#575279",
+                "scrollbar.thumb.hover_background": "#f4ede8",
+                "scrollbar.track.background": "#fffaf3",
+                "scrollbar.track.border": "#cecacd",
+                "search.match_background": "#ea9d34",
+                "success": "#818C53",
+                "success.background": "#ede8db",
+                "success.border": "#cecacd",
+                "surface.background": "#fffaf3",
+                // TODO: tab
+                "tab_bar.background": "#faf4ed",
+                // TODO: terminal
+                "text": "#575279",
+                "text.accent": "#907aa9",
+                "text.disabled": "#9893a5",
+                "text.muted": "#797593",
+                "text.placeholder": "#9893a5",
+                "title_bar.background": "#fffaf3",
+                "title_bar.inactive_background": "#fffaf3",
+                "toolbar.background": "#fffaf3",
+                "unreachable": "#9893a5",
+                "unreachable.background": "#faf4ed",
+                "unreachable.border": "#cecacd",
+                "warning": "#ea9d34",
+                "warning.background": "#f9ebdb",
+                "warning.border": "#cecacd",
+                "players": [
+                    {
+                        "background": "#faf4ed",
+                        "cursor": "#cecacd",
+                        "selection": "#dfdad9"
+                    }
+                ],
+                "syntax": {
+                    // TODO: attribute
+                    "boolean": {
+                        "color": "#d7827e",
+                        "background_color": "#f7e7e0"
+                    },
+                    // TODO: constant
+                    // TODO: constructor
+                    "comment": {
+                        "color": "#ea9d34",
+                        "background_color": "#f9ebdb"
+                    },
+                    "comment.doc": {
+                        "color": "#797593"
+                    },
+                    // TODO: embedded
+                    "emphasis": {
+                        "font_weight": 700
+                    },
+                    "emphasis.strong": {
+                        "font_style": "italic"
+                    },
+                    // TODO: enum
+                    "function": {
+                        "color": "#286983",
+                        "background_color": "#e4e5e1"
+                    },
+                    // TODO: hint
+                    "keyword": {
+                        "color": "#d7827e",
+                        "background_color": "#f7e7e0"
+                    },
+                    // TODO: label
+                    // TODO: link text
+                    // TODO: link uri
+                    // TODO: namespace
+                    "number": {
+                        "color": "#56949f",
+                        "background_color": "#e9e9e3"
+                    },
+                    "operator": {
+                        "color": "#797593"
+                    },
+                    // TODO: predictive
+                    "preproc": {
+                        "color": "#56949f",
+                        "background_color": "#e9e9e3"
+                    },
+                    // TODO: primary
+                    // TODO: property
+                    "punctuation": {
+                        "color": "#797593"
+                    },
+                    // TODO: punctuation.special?
+                    // TODO: selector
+                    // TODO: selector.pseudo
+                    "string": {
+                        "color": "#818C53",
+                        "background_color": "#ede8db"
+                    },
+                    "string.escape": {
+                        "color": "#d7827e",
+                        "background_color": "#f7e7e0"
+                    },
+                    // TODO: string.regex
+                    // TODO: string.special
+                    // TODO: string.special.symbol
+                    // TODO: tag
+                    // TODO: title
+                    "type": {
+                        "color": "#907aa9",
+                        "background_color": "#eee6e4"
+                    },
+                    "variable": {}
+                    // TODO: variable.special
+                    // TODO: variant
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+[
+    {
+        "bindings": {
+            // SPECIAL
+            "ctrl-space": "command_palette::Toggle",
+            "escape": "menu::Cancel",
+            // LETTERS
+            "ctrl-w": "pane::CloseActiveItem"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            // ARROWS
+            "alt-up": "editor::MoveLineUp",
+            "alt-down": "editor::MoveLineDown",
+            "alt-left": "editor::MoveToPreviousWordStart",
+            "alt-right": "editor::MoveToNextWordEnd",
+            "alt-shift-up": "editor::AddSelectionAbove",
+            "alt-shift-down": "editor::AddSelectionBelow",
+            "alt-shift-left": "editor::SelectToPreviousWordStart",
+            "alt-shift-right": "editor::SelectToNextWordEnd",
+            "ctrl-up": "editor::MoveToBeginning",
+            "ctrl-down": "editor::MoveToEnd",
+            "ctrl-left": "editor::MoveToBeginningOfLine",
+            "ctrl-right": "editor::MoveToEndOfLine",
+            "ctrl-shift-up": "editor::SelectToBeginning",
+            "ctrl-shift-down": "editor::SelectToEnd",
+            "ctrl-shift-left": "editor::SelectToBeginningOfLine",
+            "ctrl-shift-right": "editor::SelectToEndOfLine",
+            // SPECIAL
+            "backspace": "editor::Backspace",
+            "alt-backspace": "editor::DeleteToPreviousWordStart",
+            "ctrl-backspace": "editor::DeleteToBeginningOfLine",
+            // LETTERS
+            "ctrl-d": "editor::DeleteLine",
+            // TODO: go to file
+            "ctrl-g": "go_to_line::Toggle",
+            "ctrl-r": "editor::Rename",
+            "ctrl-u": "editor::ToggleSoftWrap",
+            "ctrl-y": "editor::Redo",
+        }
+    }
+]

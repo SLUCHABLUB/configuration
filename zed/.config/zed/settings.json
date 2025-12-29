@@ -1,0 +1,104 @@
+{
+    "ui_font_family": "JetBrainsMono Nerd Font",
+    "ui_font_weight": 400.0,
+    "git": {
+        "inline_blame": {
+            "enabled": false
+        }
+    },
+    "collaboration_panel": {
+        "button": false
+    },
+    "outline_panel": {
+        "button": false
+    },
+    "notification_panel": {
+        "button": false
+    },
+    "bottom_dock_layout": "contained",
+    "title_bar": {
+        "show_sign_in": false,
+        "show_user_picture": false,
+        "show_onboarding_banner": false
+    },
+    "debugger": {
+        "button": false
+    },
+    "search": {
+        "button": false
+    },
+    "diagnostics": {
+        "button": true
+    },
+    "status_bar": {
+        "cursor_position_button": true,
+        "active_language_button": true
+    },
+    "project_panel": {
+        "sort_mode": "directories_first",
+        "hide_root": false,
+        "folder_icons": false,
+        "hide_gitignore": false,
+        "button": true
+    },
+    "minimum_contrast_for_highlights": 0.0,
+    "sticky_scroll": {
+        "enabled": true
+    },
+    "auto_update": false,
+    "disable_ai": true,
+    "telemetry": {
+        "diagnostics": true,
+        "metrics": false
+    },
+    "terminal": {
+        "button": false,
+        "cursor_shape": "bar"
+    },
+    "minimap": {
+        "show": "never"
+    },
+    "autosave": {
+        "after_delay": {
+            "milliseconds": 1000
+        }
+    },
+    "hide_mouse": "never",
+    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "buffer_font_features": {
+        "calt": true,
+        "liga": true
+    },
+    "buffer_font_size": 13.0,
+    "show_whitespaces": "trailing",
+    "base_keymap": "JetBrains",
+    "ui_font_size": 13.0,
+    "tabs": {
+        "file_icons": true,
+        "git_status": true
+    },
+    "toolbar": {
+        "breadcrumbs": true,
+        "quick_actions": false,
+        "selections_menu": false,
+        "agent_review": false,
+        "code_actions": false
+    },
+    "theme": {
+        "mode": "system",
+        "light": "Tilia (light)",
+        "dark": "Tilia (dark)"
+    },
+    "languages": {
+        "JSON": {
+            "tab_size": 4
+        },
+        "JSONC": {
+            "tab_size": 4,
+            "formatter": "language_server",
+            "prettier": {
+                "allowed": false,
+            }
+        }
+    }
+}
