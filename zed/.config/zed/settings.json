@@ -100,5 +100,19 @@
                 "allowed": false,
             }
         }
+    },
+    "lsp": {
+        "rust-analyzer": {
+            "initialization_options": {
+                "imports": {
+                    "granularity": {
+                        "group": "item"
+                    },
+                    "group": {
+                        "enable": false,
+                    }
+                }
+            }
+        }
     }
 }
