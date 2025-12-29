@@ -3,6 +3,7 @@
 Constiguration for my system.
 
 to-do list:
+- add /etc/pam.d/system-local-login
 - Key map
 - GRUB theme
 - Locale
