@@ -99,11 +99,26 @@
             "prettier": {
                 "allowed": false,
             }
+        },
+        "Python": {
+            "language_servers": [
+                "ty",
+                "!basedpyright",
+                "..."
+            ]
         }
     },
     "lsp": {
+        "codebook": {
+            "initialization_options": {
+                "diagnosticSeverity": "warning",
+            }
+        },
         "rust-analyzer": {
             "initialization_options": {
+                "check": {
+                    "command": "clippy"
+                },
                 "imports": {
                     "granularity": {
                         "group": "item"
