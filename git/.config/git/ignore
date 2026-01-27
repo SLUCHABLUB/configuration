@@ -1,2 +1,4 @@
 .codebook.toml
 .zed
+
+*.sav
