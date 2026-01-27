@@ -5,6 +5,7 @@
             "ctrl-space": "command_palette::Toggle",
             "escape": "menu::Cancel",
             // LETTERS
+            "ctrl-t": "terminal_panel::Toggle",
             "ctrl-w": "pane::CloseActiveItem"
         }
     },
