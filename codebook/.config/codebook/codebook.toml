@@ -1,6 +1,10 @@
-dictionaries = ["en_gb", "sv"]
-
-words = [
-    "SLUCHABLUB",
-    "initialise",
+dictionaries = [
+    "en_gb",
+    "sv",
 ]
+words = [
+    "allocator",
+    "initialise",
+    "sluchablub",
+]
+flag_words = ["chanel"]
