@@ -25,6 +25,7 @@ alias edit='$EDITOR'
 alias ide='zeditor'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
+alias py='python3'
 alias spawn='niri msg action spawn --'
 
 function fm() {
