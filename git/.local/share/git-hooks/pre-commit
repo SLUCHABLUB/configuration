@@ -6,9 +6,12 @@ exec 1>&2
 
 if [ -f "Cargo.toml" ]
 then
+    export RUSTDOCFLAGS="-D warnings"
+
     cargo +nightly fmt    --all       --check
     cargo          clippy --workspace -- --deny warnings
     cargo          test   --workspace
+    cargo          doc    --workspace
 fi
 
 # TODO: run `shellcheck` on comitted files
