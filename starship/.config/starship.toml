@@ -21,10 +21,13 @@ package.disabled = true
 
 c.disabled = true
 cmake.disabled = true
+gradle.disabled = true
 haskell.disabled = true
+kotlin.disabled = true
 nodejs.disabled = true
 python.disabled = true
 rust.disabled = true
+typst.disabled = true
 zig.disabled = true
 
 [username]
