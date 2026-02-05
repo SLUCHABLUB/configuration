@@ -37,9 +37,10 @@
             "ctrl-d": "editor::DeleteLine",
             // TODO: go to file
             "ctrl-g": "go_to_line::Toggle",
+            "ctrl-k": "editor::ToggleComments",
             "ctrl-r": "editor::Rename",
             "ctrl-u": "editor::ToggleSoftWrap",
             "ctrl-y": "editor::Redo",
         }
-    }
+    },
 ]
