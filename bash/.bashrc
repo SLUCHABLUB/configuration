@@ -25,8 +25,10 @@ alias edit='$EDITOR'
 alias ide='zeditor'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
+alias open='xdg-open'
 alias py='python3'
 alias spawn='niri msg action spawn --'
+alias wm='niri'
 
 function fm() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
