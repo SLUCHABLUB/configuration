@@ -25,27 +25,21 @@ input {
 output "eDP-1" {
     mode "2256x1504@59.999"
 
+    // logical size: 1128x752
     scale 2
 
     position x=0 y=0
 }
 
-output "DP-3" {
-    mode "1920x1080@60.000"
-
-    scale 1
-
-    // willow
-    position x=-426 y=-1080
-}
-
 output "DP-4" {
-    mode "1920x1080@60.000"
+    mode "2560x1440@60"
 
-    scale 1
+    // logical size: 1920x1080
+    scale 1.3333333333333333
 
-    // willow
-    position x=-426 y=-1080
+    // calculated for willow
+    // x=(1128 - 1920)/2
+    position x=-396 y=-1080
 }
 
 prefer-no-csd
