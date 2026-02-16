@@ -42,6 +42,15 @@ output "DP-4" {
     position x=-396 y=-1080
 }
 
+output "DP-9" {
+    mode "1920x1080@60.000"
+
+    scale 1
+    transform "90"
+
+    position x=1524 y=-1500
+}
+
 prefer-no-csd
 
 layout {
@@ -67,12 +76,14 @@ layout {
 
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+    GTK_THEME "Tilia"
+    ADW_DISABLE_PORTAL "1"
 }
 
 // This spawns waybar and swaybg.
 spawn-at-startup "reload-theme"
 spawn-at-startup "swayidle"
-spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-at-startup "mako"
 
 hotkey-overlay {
     skip-at-startup
@@ -140,11 +151,15 @@ binds {
     Mod+Alt+Left  { consume-or-expel-window-left; }
     Mod+Alt+Right { consume-or-expel-window-right; }
 
-    Mod+Ctrl+Up   { focus-monitor-up;   }
-    Mod+Ctrl+Down { focus-monitor-down; }
+    Mod+Ctrl+Up    { focus-monitor-up;    }
+    Mod+Ctrl+Down  { focus-monitor-down;  }
+    Mod+Ctrl+Left  { focus-monitor-left;  }
+    Mod+Ctrl+Right { focus-monitor-right; }
 
-    Mod+Alt+Ctrl+Up   { move-window-to-monitor-up;   }
-    Mod+Alt+Ctrl+Down { move-window-to-monitor-down; }
+    Mod+Alt+Ctrl+Up    { move-window-to-monitor-up;    }
+    Mod+Alt+Ctrl+Down  { move-window-to-monitor-down;  }
+    Mod+Alt+Ctrl+Left  { move-window-to-monitor-left;  }
+    Mod+Alt+Ctrl+Right { move-window-to-monitor-right; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
