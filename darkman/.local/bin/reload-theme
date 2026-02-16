@@ -10,8 +10,12 @@ kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "Til
 
 echo "include \"$theme_kind\"" > ~/.config/micro/colorschemes/current.micro
 
+ln -sf "$HOME/.themes/Tilia/gtk-3.0/gtk-${theme_kind}.css" ~/.config/gtk-3.0/gtk.css
+
 echo "@import \"$theme_kind.css\";" > ~/.config/waybar/colours.css
 killall waybar
 niri msg action spawn -- waybar
 
 ~/.local/bin/switch-wallpaper
+
+:
