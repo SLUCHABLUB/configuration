@@ -6,6 +6,8 @@
     "hltrailingws": true,
     "scrollspeed": 1,
 
+    "mkparents": true,
+
     "divreverse": false,
     "tabreverse": false,
 
