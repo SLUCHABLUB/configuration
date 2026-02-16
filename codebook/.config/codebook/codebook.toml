@@ -7,4 +7,8 @@ words = [
     "initialise",
     "sluchablub",
 ]
-flag_words = ["chanel"]
+flag_words = [
+    "chanel",
+    "gray",
+    "grayscale"
+]
