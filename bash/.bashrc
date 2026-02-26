@@ -28,6 +28,7 @@ alias ls='ls --color=auto'
 alias open='xdg-open'
 alias py='python3'
 alias spawn='niri msg action spawn --'
+alias trash='trash-put'
 alias wm='niri'
 
 function fm() {
@@ -44,7 +45,7 @@ function fm() {
 
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -i'
+alias rm='sl'
 
 # Fun aliases
 
@@ -54,8 +55,8 @@ alias cs='cowsay'
 # Set up tools
 
 # TODO: remove
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Colours
 
