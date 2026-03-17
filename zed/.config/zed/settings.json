@@ -1,4 +1,7 @@
 {
+    "session": {
+        "trust_all_worktrees": true
+    },
     "ui_font_family": "JetBrainsMono Nerd Font",
     "ui_font_weight": 400.0,
     "git": {
