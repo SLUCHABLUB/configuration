@@ -1,7 +1,6 @@
 # My configuration (dot files)
 
 to-do list:
-- add zed theme and settings
 - make a textmate theme
     - add it to bat
     - add it to delta
@@ -12,6 +11,7 @@ to-do list:
 - gtk
 - symlink ~/Documents -> ~/iclouddrive/documents
 - move colours to a "standard" location to avoid typos &c.
+- fontconfig
 
 ## Wallpapers
 
