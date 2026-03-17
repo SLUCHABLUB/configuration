@@ -21,6 +21,7 @@ package.disabled = true
 
 c.disabled = true
 cmake.disabled = true
+golang.disabled = true
 gradle.disabled = true
 haskell.disabled = true
 kotlin.disabled = true
