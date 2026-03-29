@@ -1,4 +1,5 @@
 .codebook.toml
 .zed
+*.env
 
 *.sav
