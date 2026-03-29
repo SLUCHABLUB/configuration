@@ -4,10 +4,11 @@
 
 # Set up line editor.
 source -- /usr/share/blesh/ble.sh --attach=none --rcfile "$HOME/.config/blesh/init.sh"
-[[ ! ${BLE_VERSION-} ]] || ble-attach
 
 # Set up prompt.
 eval "$(starship init bash)"
+
+[[ ! ${BLE_VERSION-} ]] || ble-attach
 
 # Set up history
 
