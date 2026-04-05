@@ -79,8 +79,6 @@ layout {
 
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
-    GTK_THEME "Tilia"
-    ADW_DISABLE_PORTAL "1"
 }
 
 // This spawns waybar and swaybg.
