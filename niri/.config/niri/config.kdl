@@ -86,6 +86,10 @@ spawn-at-startup "reload-theme"
 spawn-at-startup "swayidle"
 spawn-at-startup "mako"
 
+// Fix the portals (copied from the Arch Wiki).
+spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
+
 hotkey-overlay {
     skip-at-startup
 }
