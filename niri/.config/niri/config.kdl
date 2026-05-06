@@ -105,7 +105,7 @@ binds {
     Mod+Return repeat=false { spawn "kitty"; }
     Mod+Space  repeat=false { spawn-sh "killall fuzzel || fuzzel"; }
 
-    Mod+B repeat=false { spawn "firefox"; }
+    Mod+B repeat=false { spawn "helium-browser"; }
     Mod+C repeat=false { spawn "codium"; }
     Mod+D repeat=false { spawn-sh "darkman toggle"; }
     Mod+E repeat=false { quit; }
