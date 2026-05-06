@@ -2,13 +2,16 @@
 
 [[ $- != *i* ]] && return
 
-# Set up line editor.
-source -- /usr/share/blesh/ble.sh --attach=none --rcfile "$HOME/.config/blesh/init.sh"
-
 # Set up prompt.
 eval "$(starship init bash)"
 
-[[ ! ${BLE_VERSION-} ]] || ble-attach
+# [[ ! ${BLE_VERSION-} ]] || ble-attach
+
+if [[ ! ${BASH_COMPLETION_VERSINFO:-} &&
+     -f /usr/share/bash-completion/bash_completion ]]
+then
+    source /usr/share/bash-completion/bash_completion
+fi
 
 # Set up history
 
@@ -22,14 +25,15 @@ shopt -s histappend
 # Aliases
 
 alias cat='bat'
+alias du='dust'
 alias edit='$EDITOR'
+alias icat='kitten icat'
 alias ide='zeditor'
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
+alias ls='eza'
 alias open='xdg-open'
 alias py='python3'
 alias spawn='niri msg action spawn --'
-alias trash='trash-put'
 alias wm='niri'
 
 function fm() {
@@ -52,10 +56,6 @@ alias rm='sl'
 
 # like `sl` but for `cd`
 alias cs='cowsay'
-
-# Colours
-
-eval "$(dircolors)"
 
 # Ensure a success status
 :
