@@ -75,6 +75,7 @@ format = '[$path]($style) '
 style = 'blue'
 truncation_length = -1
 
+# TODO: Look into pipe status.
 [status]
 format = '[\[](fg:white)[$status]($style)[\]](fg:white) '
 pipestatus = true
