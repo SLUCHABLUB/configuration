@@ -2,13 +2,17 @@ dictionaries = [
     "en_gb",
     "sv",
 ]
+
 words = [
     "allocator",
     "initialise",
     "sluchablub",
 ]
+
 flag_words = [
     "chanel",
     "gray",
     "grayscale"
 ]
+
+ignore_paths = ["Cargo.lock", "LICENSE", "LICENSE.*", "build.zig.zon"]
