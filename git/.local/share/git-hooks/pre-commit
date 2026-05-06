@@ -16,4 +16,6 @@ fi
 
 # TODO: run `shellcheck` on comitted files
 
+codebook-lsp lint -su .
+
 exit 0
