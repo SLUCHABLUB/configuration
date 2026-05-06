@@ -1,4 +1,16 @@
 {
+    "cli_default_open_behavior": "new_window",
+    "agent": {
+        "dock": "right",
+        "favorite_models": [],
+        "model_parameters": []
+    },
+    "git_panel": {
+        "dock": "left"
+    },
+    "linked_edits": true,
+    "enable_language_server": true,
+    "document_folding_ranges": "on",
     "session": {
         "trust_all_worktrees": true
     },
@@ -10,9 +22,11 @@
         }
     },
     "collaboration_panel": {
+        "dock": "left",
         "button": false
     },
     "outline_panel": {
+        "dock": "left",
         "button": false
     },
     "notification_panel": {
@@ -38,6 +52,7 @@
         "active_language_button": true
     },
     "project_panel": {
+        "dock": "left",
         "sort_mode": "directories_first",
         "hide_root": false,
         "folder_icons": false,
@@ -74,7 +89,7 @@
     },
     "buffer_font_size": 13.0,
     "show_whitespaces": "trailing",
-    "base_keymap": "JetBrains",
+    "base_keymap": "None",
     "ui_font_size": 13.0,
     "tabs": {
         "file_icons": true,
