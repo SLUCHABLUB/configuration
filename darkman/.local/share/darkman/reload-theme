@@ -1,2 +1,2 @@
 #!/bin/sh
-reload-theme "$1"
+exec "$HOME/.local/bin/reload-theme" "$1"
