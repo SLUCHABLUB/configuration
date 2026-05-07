@@ -11,6 +11,7 @@
         "wireplumber#microphone",
         "wireplumber#speaker",
 
+        "backlight",
         "network",
         "battery"
     ],
@@ -24,6 +25,11 @@
 
     "backlight": {
         // "device": "acpi_video1",
+
+        "scroll-step": 1,
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
