@@ -1,16 +1,14 @@
 # My configuration (dot files)
 
 to-do list:
-- make a textmate theme
+- textmate theme
     - add it to bat
     - add it to delta
 - keyboard layout
 - rclone systemd unit
-- firefox / "browser"
+- helium
 - swaylock
-- gtk
-- symlink ~/Documents -> ~/iclouddrive/documents
-- move colours to a "standard" location to avoid typos &c.
+- gtk?
 - fontconfig
 
 ## Wallpapers
