@@ -10,19 +10,19 @@
     box-shadow: none;
     text-shadow: none;
 
-    /* matches hyprland.conf */
+    /* matches niri config */
     border-width: 2px;
     border-radius: 6px;
 }
 
 /* The last module */
 #battery {
-    /* matches hyprland.conf */
+    /* matches niri config */
     margin-right: 6px;
 }
 
 window > * {
-    /* matches hyprland.conf */
+    /* matches niri config */
     margin-top: 6px;
 }
 
@@ -54,7 +54,7 @@ button:hover {
 }
 
 #workspaces > * {
-    /* matches hyprland.conf */
+    /* matches niri config */
     margin-left: 6px;
     color: @subtle;
 }
