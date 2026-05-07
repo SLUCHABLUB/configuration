@@ -4,7 +4,6 @@
     font-family: JetBrainsMono Nerd Font;
 
     color: @text;
-    background: @base;
     background: transparent;
     border-color: @highlightHigh;
 
