@@ -45,7 +45,6 @@ button:hover {
 
 #clock,
 #battery,
-#disk,
 #backlight,
 #network,
 #wireplumber
@@ -65,9 +64,6 @@ button:hover {
     border-color: @iris;
 }
 
-#disk {
-    background-color: #964B00;
-}
 
 
 #wireplumber.microphone:not(.muted) {
