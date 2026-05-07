@@ -1,6 +1,6 @@
 # system-configuration
 
-Constiguration for my system.
+Configuration for my system.
 
 to-do list:
 - add pam
