@@ -3,7 +3,7 @@
 Constiguration for my system.
 
 to-do list:
-- add /etc/pam.d/system-local-login
+- add pam
 - Key map
 - GRUB theme
 - Locale
@@ -11,6 +11,4 @@ to-do list:
 - Timezone
 - default shell? (passwd)
 - Root user configuration?
-
-Things that maybe should be packages:
-- tilia sddm theme
+- a login manager??
