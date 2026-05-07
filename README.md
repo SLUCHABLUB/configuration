@@ -9,6 +9,17 @@ to-do list:
 - helium
 - swaylock
 - gtk?
+- theme mako
+- theme fuzzel
+- theme KDE apps
+    - dolphin
+    - kdeconnect
+    - kdenlive
+    - ksudoku
+    - kwalletmanager
+- theme eza (colours)
+- theme prismlauncher
+- theme discord (vesktop)
 - fontconfig
 
 ## Wallpapers
