@@ -97,7 +97,3 @@ button:hover {
 #network.wifi {
     border-color: @foam;
 }
-
-#network.disconnected {
-    border-color: @love;
-}
