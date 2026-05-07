@@ -7,7 +7,7 @@
 _remote="$1"
 _url="$2"
 
-regex='^TODO|WIP'
+regex='^(TODO|WIP)'
 
 zero=$(git hash-object --stdin </dev/null | tr '0-9a-f' '0')
 
