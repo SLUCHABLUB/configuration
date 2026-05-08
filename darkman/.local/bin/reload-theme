@@ -16,6 +16,10 @@ echo "@import \"$theme_kind.css\";" > ~/.config/waybar/colours.css
 killall waybar
 niri msg action spawn -- waybar
 
+makoctl mode -s "$theme_kind"
+
+ln -sf "$HOME/.config/fuzzel/${theme_kind}.ini" ~/.config/fuzzel/fuzzel.ini
+
 ~/.local/bin/switch-wallpaper
 
 :

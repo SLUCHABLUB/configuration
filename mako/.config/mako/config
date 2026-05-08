@@ -1,1 +1,19 @@
 font=JetBrains Mono NerdFont
+border-size=2
+border-radius=6
+
+[mode=dark]
+background-color=#191724
+text-color=#e0def4
+border-color=#524f67
+
+[mode=light]
+background-color=#faf4ed
+text-color=#575279
+border-color=#cecacd
+
+[urgency=critical mode=dark]
+border-color=#eb6f92
+
+[urgency=critical mode=light]
+border-color=#b4637a
