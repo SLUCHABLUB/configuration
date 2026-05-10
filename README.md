@@ -6,7 +6,7 @@ to-do list:
     - add it to delta
 - keyboard layout
 - rclone systemd unit
-- helium
+- helium (incl. flags)
 - swaylock
 - gtk?
 - theme mako
@@ -21,6 +21,7 @@ to-do list:
 - theme prismlauncher
 - theme discord (vesktop)
 - fontconfig
+- keyboard backlight
 
 ## Wallpapers
 
