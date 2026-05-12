@@ -17,7 +17,6 @@ to-do list:
 - theme eza (colours)
 - theme prismlauncher
 - theme discord (vesktop)
-- fontconfig
 - quickshell?
 
 ## Wallpapers
