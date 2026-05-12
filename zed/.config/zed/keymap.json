@@ -34,6 +34,8 @@
             "ctrl-w": "pane::CloseActiveItem",
             "ctrl-alt-w": "pane::CloseOtherItems",
             // Other
+            "ctrl-tab": "pane::ActivateNextItem",
+            "ctrl-shift-tab": "pane::ActivatePreviousItem",
             "ctrl-space": "command_palette::Toggle",
             "ctrl-,": "zed::OpenSettings",
         }
