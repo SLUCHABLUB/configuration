@@ -15,10 +15,15 @@
     border-radius: 6px;
 }
 
-/* The last module */
+/* Outermost modules */
 #battery {
     /* matches niri config */
     margin-right: 6px;
+}
+
+#wireplumber.microphone {
+    /* matches niri config */
+    margin-left: 6px;
 }
 
 window > * {
@@ -45,22 +50,13 @@ button:hover {
 #clock,
 #battery,
 #backlight,
+#custom-kbd-backlight,
 #network,
 #wireplumber
 {
     background: @base;
-    padding: 0 14px;
+    padding: 6px 14px;
     border-style: solid;
-}
-
-#workspaces > * {
-    /* matches niri config */
-    margin-left: 6px;
-    color: @subtle;
-}
-
-#workspaces > *.active {
-    border-color: @iris;
 }
 
 

@@ -2,16 +2,16 @@
     "spacing": 6, // matches niri config
 
     "modules-left": [
-        "niri/workspaces"
+        "wireplumber#microphone",
+        "wireplumber#speaker",
+
+        "backlight",
+        "custom/kbd-backlight"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "wireplumber#microphone",
-        "wireplumber#speaker",
-
-        "backlight",
         "network",
         "battery"
     ],
@@ -32,6 +32,19 @@
 
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "custom/kbd-backlight": {
+        "exec": "brightnessctl --device='chromeos::kbd_backlight' get",
+        "interval": 1,
+
+        "scroll-step": 10,
+        "reverse-scroll": true,
+
+        "on-scroll-up": "brightnessctl --device='chromeos::kbd_backlight' set 10%-",
+        "on-scroll-down": "brightnessctl --device='chromeos::kbd_backlight' set +10%",
+
+        "format": "{}% 󰌌"
     },
 
     "wireplumber#microphone": {
