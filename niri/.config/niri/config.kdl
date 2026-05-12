@@ -113,10 +113,11 @@ binds {
     Mod+D repeat=false { spawn-sh "darkman toggle"; }
     Mod+E repeat=false { quit; }
     Mod+F repeat=false { fullscreen-window; }
-    Mod+L repeat=false { spawn "swaylock"; }
+    Mod+L repeat=false { spawn "lock"; }
     Mod+M repeat=false { spawn "prismlauncher"; }
     Mod+N repeat=false { spawn "dolphin"; }
     Mod+Q repeat=false { close-window; }
+    Mod+R repeat=false { spawn "reload-theme"; }
     Mod+T repeat=false { toggle-window-floating; }
     Mod+V repeat=false { spawn "pavucontrol"; }
 
