@@ -7,7 +7,6 @@ to-do list:
 - keyboard layout
 - rclone systemd unit
 - helium (incl. flags)
-- swaylock
 - gtk?
 - theme mako
 - theme fuzzel
@@ -22,6 +21,7 @@ to-do list:
 - theme discord (vesktop)
 - fontconfig
 - keyboard backlight
+- quickshell?
 
 ## Wallpapers
 
