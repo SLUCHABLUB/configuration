@@ -6,10 +6,8 @@ to-do list:
     - add it to delta
 - keyboard layout
 - rclone systemd unit
-- helium (incl. flags)
+- other helium config
 - gtk?
-- theme mako
-- theme fuzzel
 - theme KDE apps
     - dolphin
     - kdeconnect
