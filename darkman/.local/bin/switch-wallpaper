@@ -2,6 +2,9 @@
 
 wallpapers="$HOME/.local/share/wallpapers/$(darkman get)"
 wallpaper="$(find "$wallpapers" -type f -print | shuf -n 1)"
+current="$HOME/.local/share/wallpapers/current"
+
+ln -sf "$wallpaper" "$HOME/.local/share/wallpapers/current"
 
 killall swaybg
-niri msg action spawn -- swaybg --image "$wallpaper"
+niri msg action spawn -- swaybg --image "$current" --mode fill

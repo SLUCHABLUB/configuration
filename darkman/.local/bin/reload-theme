@@ -19,6 +19,7 @@ niri msg action spawn -- waybar
 makoctl mode -s "$theme_kind"
 
 ln -sf "$HOME/.config/fuzzel/${theme_kind}.ini" ~/.config/fuzzel/fuzzel.ini
+ln -sf "$HOME/.config/swaylock/${theme_kind}" ~/.config/swaylock/config
 
 ~/.local/bin/switch-wallpaper
 

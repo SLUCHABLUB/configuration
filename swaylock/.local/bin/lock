@@ -1,0 +1,10 @@
+#!/bin/sh
+
+current="$(readlink "$HOME/.local/share/wallpapers/current" 2>/dev/null)"
+
+if [ -n "$current" ]
+then
+    exec swaylock "$@" --image "$current"
+else
+    exec swaylock "$@"
+fi

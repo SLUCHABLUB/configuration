@@ -1,0 +1,55 @@
+font=JetBrainsMono Nerd Font
+
+scaling=fill
+# Primary Background
+color=faf4edff
+
+effect-blur=20x10
+fade-in=0.2
+
+show-failed-attempts
+
+indicator-radius=60
+indicator-thickness=2
+indicator-idle-visible
+
+clock
+timestr=%H:%M
+datestr=%a %e %b
+
+line-uses-ring
+separator-color=00000000
+
+# Tertiary Background, Border, Text, Purple, Red
+inside-color=f2e9e1ff
+ring-color=cecacdff
+text-color=575279ff
+key-hl-color=907aa9ff
+bs-hl-color=b4637aff
+
+# clear
+inside-clear-color=f2e9e1ff
+ring-clear-color=cecacdff
+text-clear-color=575279ff
+
+# verifying
+inside-ver-color=f2e9e1ff
+ring-ver-color=907aa9ff
+text-ver-color=575279ff
+
+# wrong
+inside-wrong-color=f2e9e1ff
+ring-wrong-color=b4637aff
+text-wrong-color=575279ff
+
+# caps lock (Yellow)
+inside-caps-lock-color=f2e9e1ff
+ring-caps-lock-color=ea9d34ff
+text-caps-lock-color=575279ff
+caps-lock-bs-hl-color=b4637aff
+caps-lock-key-hl-color=ea9d34ff
+
+# layout text box
+layout-bg-color=f2e9e1ff
+layout-border-color=cecacdff
+layout-text-color=575279ff
