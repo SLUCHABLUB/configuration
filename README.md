@@ -18,7 +18,6 @@ to-do list:
 - theme prismlauncher
 - theme discord (vesktop)
 - fontconfig
-- keyboard backlight
 - quickshell?
 
 ## Wallpapers
