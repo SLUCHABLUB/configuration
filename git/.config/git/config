@@ -25,5 +25,5 @@
     defaultBranch = main
 
 [alias]
-    graph = log --graph --date=relative --pretty=tformat:'%C(green)%s%C(reset) %C(magenta)%an%C(reset) %C(red)%ad%C(reset) %C(yellow)%d%C(reset)'
+    graph = log --graph --date=relative --pretty=tformat:'%C(blue)%h%C(reset) %C(green)%s%C(reset) %C(magenta)%an%C(reset) %C(red)%ad%C(reset) %C(yellow)%d%C(reset)'
     undo = reset --soft HEAD^
