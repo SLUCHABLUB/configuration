@@ -146,6 +146,15 @@
                     }
                 }
             }
+        },
+        "tinymist": {
+            "initialization_options": {
+                "preview": {
+                    "background": {
+                        "enabled": true
+                    }
+                }
+            }
         }
     }
 }
