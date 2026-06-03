@@ -1,0 +1,54 @@
+#!/bin/sh
+# Compile every *.esh template under the repo to its target file via esh.
+# Templates whose basename (sans .esh) is "MODE" or starts with "MODE." are
+# dual-mode: each one produces {dark,light}.<rest> next to it with TILIA_MODE
+# set accordingly. Everything else is a single-output template.
+#
+# Usage: ./build.sh [build|clean]   (default: build)
+
+set -e
+
+# Invoke a callback for every (mode, output, template) triple derived from
+# the *.esh files under the repo. For single-output templates, mode is empty.
+for_each_output() {
+    callback=$1
+    find . -name '*.esh' -not -path './.git/*' | while IFS= read -r template; do
+        template_base=$(basename "$template" .esh)
+        case $template_base in
+            MODE|MODE.*)
+                template_dir=$(dirname "$template")
+                output_suffix=${template_base#MODE}
+                for mode in dark light; do
+                    "$callback" "$mode" "$template_dir/$mode$output_suffix" "$template"
+                done
+                ;;
+            *)
+                "$callback" "" "${template%.esh}" "$template"
+                ;;
+        esac
+    done
+}
+
+build_one() {
+    mode=$1
+    output=$2
+    template=$3
+    if [ -n "$mode" ]; then
+        printf 'TILIA_MODE=%s esh -o %s -- %s\n' "$mode" "$output" "$template"
+        TILIA_MODE=$mode esh -o "$output" -- "$template"
+    else
+        printf 'esh -o %s -- %s\n' "$output" "$template"
+        esh -o "$output" -- "$template"
+    fi
+}
+
+clean_one() {
+    output=$2
+    rm -f "$output"
+}
+
+case ${1:-build} in
+    build) for_each_output build_one ;;
+    clean) for_each_output clean_one ;;
+    *) echo "usage: $0 [build|clean]" >&2; exit 2 ;;
+esac
