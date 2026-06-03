@@ -34,10 +34,8 @@ build_one() {
     output=$2
     template=$3
     if [ -n "$mode" ]; then
-        printf 'TILIA_MODE=%s esh -o %s -- %s\n' "$mode" "$output" "$template"
         TILIA_MODE=$mode esh -o "$output" -- "$template"
     else
-        printf 'esh -o %s -- %s\n' "$output" "$template"
         esh -o "$output" -- "$template"
     fi
 }
