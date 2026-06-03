@@ -2,25 +2,24 @@
 
 export NIRI_SOCKET=${NIRI_SOCKET:-$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'niri.*' -print -quit)}
 
-theme_kind=${1:-$(darkman get)}
+theme_kind="${1:-$(darkman get)}"
 
 echo "Switching to $theme_kind mode"
 
+# Programs with first-party mode support.
 kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "Tilia ($theme_kind)"
-
-ln -sf "$HOME/.config/micro/colorschemes/${theme_kind}.micro" ~/.config/micro/colorschemes/current.micro
-
-ln -sf "$HOME/.themes/Tilia/gtk-3.0/gtk-${theme_kind}.css" ~/.config/gtk-3.0/gtk.css
-
-ln -sf "$HOME/.config/waybar/${theme_kind}.css" ~/.config/waybar/colours.css
-killall waybar
-niri msg action spawn -- waybar
-
 makoctl mode -s "$theme_kind"
 
+# Manual theme switching.
 ln -sf "$HOME/.config/fuzzel/${theme_kind}.ini" ~/.config/fuzzel/fuzzel.ini
+ln -sf "$HOME/.config/micro/colorschemes/${theme_kind}.micro" ~/.config/micro/colorschemes/current.micro
 ln -sf "$HOME/.config/swaylock/${theme_kind}" ~/.config/swaylock/config
+ln -sf "$HOME/.config/waybar/${theme_kind}.css" ~/.config/waybar/colours.css
 
+# Signal long running programs.
+killall --signal SIGUSR2 waybar
+
+# Handle wallpapers.
 ~/.local/bin/switch-wallpaper
 
 :
