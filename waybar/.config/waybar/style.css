@@ -5,7 +5,7 @@
 
     color: @text;
     background: transparent;
-    border-color: @highlightHigh;
+    border-color: @border;
 
     box-shadow: none;
     text-shadow: none;
@@ -36,15 +36,15 @@ window {
 }
 
 tooltip {
-    background: @base;
+    background: @primary-background;
 }
 
 button {
-    background: @base;
+    background: @primary-background;
 }
 
 button:hover {
-    background: @highlightMed;
+    background: @selection;
 }
 
 #clock,
@@ -54,7 +54,7 @@ button:hover {
 #network,
 #wireplumber
 {
-    background: @base;
+    background: @primary-background;
     padding: 6px 14px;
     border-style: solid;
 }
@@ -62,33 +62,33 @@ button:hover {
 
 
 #wireplumber.microphone:not(.muted) {
-    border-color: @gold;
+    border-color: @yellow;
 }
 
 #wireplumber.speaker.muted {
-    border-color: @gold;
+    border-color: @yellow;
 }
 
 #network.disconnected {
-    border-color: @love;
+    border-color: @red;
 }
 
 #battery.charging, #battery.plugged {
-    border-color: @pine;
+    border-color: @blue;
 }
 
 #battery.warning:not(.charging) {
-    border-color: @gold;
+    border-color: @yellow;
 }
 
 #battery.critical:not(.charging) {
-    border-color: @love;
+    border-color: @red;
 }
 
 #network.ethernet {
-    border-color: @pine;
+    border-color: @blue;
 }
 
 #network.wifi {
-    border-color: @foam;
+    border-color: @cyan;
 }

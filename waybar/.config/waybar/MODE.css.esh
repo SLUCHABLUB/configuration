@@ -1,0 +1,27 @@
+@define-color primary-background    <% tilia get-colour primary-background %>;
+@define-color secondary-background  <% tilia get-colour secondary-background %>;
+@define-color tertiary-background   <% tilia get-colour tertiary-background %>;
+
+@define-color hover                 <% tilia get-colour hover %>;
+@define-color selection             <% tilia get-colour selection %>;
+@define-color border                <% tilia get-colour border %>;
+
+@define-color disabled              <% tilia get-colour disabled %>;
+@define-color unimportant           <% tilia get-colour unimportant %>;
+@define-color text                  <% tilia get-colour text %>;
+
+@define-color red                   <% tilia get-colour red %>;
+@define-color orange                <% tilia get-colour orange %>;
+@define-color yellow                <% tilia get-colour yellow %>;
+@define-color green                 <% tilia get-colour green %>;
+@define-color cyan                  <% tilia get-colour cyan %>;
+@define-color blue                  <% tilia get-colour blue %>;
+@define-color purple                <% tilia get-colour purple %>;
+
+@define-color background-red        <% tilia get-colour background-red %>;
+@define-color background-orange     <% tilia get-colour background-orange %>;
+@define-color background-yellow     <% tilia get-colour background-yellow %>;
+@define-color background-green      <% tilia get-colour background-green %>;
+@define-color background-cyan       <% tilia get-colour background-cyan %>;
+@define-color background-blue       <% tilia get-colour background-blue %>;
+@define-color background-purple     <% tilia get-colour background-purple %>;
