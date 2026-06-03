@@ -1,0 +1,51 @@
+## name: Tilia (<%= $TILIA_MODE %>)
+## author: SLUCHABLUB
+## license: GPL-3.0-or-later
+## upstream: https://github.com/SLUCHABLUB/configuration/blob/main/kitty/.config/kitty/themes/<%= $TILIA_MODE %>.conf
+## blurb:
+
+foreground <% tilia get-colour text %>
+background <% tilia get-colour primary-background %>
+
+selection_foreground <% tilia get-colour text %>
+selection_background <% tilia get-colour selection %>
+
+cursor            <% tilia get-colour border %>
+cursor_text_color <% tilia get-colour text %>
+
+url_color <% tilia get-colour blue %>
+
+active_tab_foreground   <% tilia get-colour text %>
+active_tab_background   <% tilia get-colour tertiary-background %>
+inactive_tab_foreground <% tilia get-colour disabled %>
+inactive_tab_background <% tilia get-colour primary-background %>
+
+# "Black" through "White".
+color0  <% tilia get-colour primary-background %>
+color8  <% tilia get-colour disabled %>
+color7  <% tilia get-colour unimportant %>
+color15 <% tilia get-colour text %>
+
+# Red.
+color1  <% tilia get-colour red %>
+color9  <% tilia get-colour red %>
+
+# Green.
+color2  <% tilia get-colour green %>
+color10 <% tilia get-colour green %>
+
+# Yellow (or orange for dark yellow).
+color3  <% tilia get-colour orange %>
+color11 <% tilia get-colour yellow %>
+
+# Blue.
+color4  <% tilia get-colour blue %>
+color12 <% tilia get-colour blue %>
+
+# Purple.
+color5  <% tilia get-colour purple %>
+color13 <% tilia get-colour purple %>
+
+# Cyan.
+color6  <% tilia get-colour cyan %>
+color14 <% tilia get-colour cyan %>
