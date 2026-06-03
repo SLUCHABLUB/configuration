@@ -7,13 +7,13 @@ width=2
 radius=6
 
 [colors]
-background=<% tilia get-colour tertiary-background rrggbbaa %>
-text=<% tilia get-colour text rrggbbaa %>
-prompt=<% tilia get-colour unimportant rrggbbaa %>
-placeholder=<% tilia get-colour unimportant rrggbbaa %>
-input=<% tilia get-colour text rrggbbaa %>
-match=<% tilia get-colour purple rrggbbaa %>
-selection=<% tilia get-colour selection rrggbbaa %>
-selection-text=<% tilia get-colour text rrggbbaa %>
-selection-match=<% tilia get-colour purple rrggbbaa %>
-border=<% tilia get-colour purple rrggbbaa %>
+background=<%      tilia get-colour tertiary-background rrggbbaa %>
+text=<%            tilia get-colour text                rrggbbaa %>
+prompt=<%          tilia get-colour unimportant         rrggbbaa %>
+placeholder=<%     tilia get-colour unimportant         rrggbbaa %>
+input=<%           tilia get-colour text                rrggbbaa %>
+match=<%           tilia get-colour purple              rrggbbaa %>
+selection=<%       tilia get-colour selection           rrggbbaa %>
+selection-text=<%  tilia get-colour text                rrggbbaa %>
+selection-match=<% tilia get-colour purple              rrggbbaa %>
+border=<%          tilia get-colour purple              rrggbbaa %>
