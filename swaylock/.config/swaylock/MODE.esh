@@ -1,0 +1,53 @@
+font=JetBrainsMono Nerd Font
+
+scaling=fill
+color=<% tilia get-colour primary-background rrggbbaa %>
+
+effect-blur=20x10
+fade-in=0.2
+
+show-failed-attempts
+
+indicator-radius=60
+indicator-thickness=2
+indicator-idle-visible
+
+clock
+timestr=%H:%M
+datestr=%a %e %b
+
+line-uses-ring
+separator-color=00000000
+
+inside-color=<% tilia get-colour tertiary-background rrggbbaa %>
+ring-color=<%   tilia get-colour border              rrggbbaa %>
+text-color=<%   tilia get-colour text                rrggbbaa %>
+key-hl-color=<% tilia get-colour purple              rrggbbaa %>
+bs-hl-color=<%  tilia get-colour red                 rrggbbaa %>
+
+# clear
+inside-clear-color=<% tilia get-colour tertiary-background rrggbbaa %>
+ring-clear-color=<%   tilia get-colour border              rrggbbaa %>
+text-clear-color=<%   tilia get-colour text                rrggbbaa %>
+
+# verifying
+inside-ver-color=<% tilia get-colour tertiary-background rrggbbaa %>
+ring-ver-color=<%   tilia get-colour purple              rrggbbaa %>
+text-ver-color=<%   tilia get-colour text                rrggbbaa %>
+
+# wrong
+inside-wrong-color=<% tilia get-colour tertiary-background rrggbbaa %>
+ring-wrong-color=<%   tilia get-colour red                 rrggbbaa %>
+text-wrong-color=<%   tilia get-colour text                rrggbbaa %>
+
+# caps lock
+inside-caps-lock-color=<%  tilia get-colour tertiary-background rrggbbaa %>
+ring-caps-lock-color=<%    tilia get-colour yellow              rrggbbaa %>
+text-caps-lock-color=<%    tilia get-colour text                rrggbbaa %>
+caps-lock-bs-hl-color=<%   tilia get-colour red                 rrggbbaa %>
+caps-lock-key-hl-color=<%  tilia get-colour yellow              rrggbbaa %>
+
+# layout text box
+layout-bg-color=<%     tilia get-colour tertiary-background rrggbbaa %>
+layout-border-color=<% tilia get-colour border              rrggbbaa %>
+layout-text-color=<%   tilia get-colour text                rrggbbaa %>
