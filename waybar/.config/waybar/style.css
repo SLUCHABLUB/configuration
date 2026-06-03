@@ -74,7 +74,7 @@ button:hover {
 }
 
 #battery.charging, #battery.plugged {
-    border-color: @blue;
+    border-color: @green;
 }
 
 #battery.warning:not(.charging) {
@@ -86,7 +86,7 @@ button:hover {
 }
 
 #network.ethernet {
-    border-color: @blue;
+    border-color: @green;
 }
 
 #network.wifi {
