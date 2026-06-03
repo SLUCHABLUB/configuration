@@ -13,10 +13,12 @@ makoctl mode -s "$theme_kind"
 # Manual theme switching.
 ln -sf "$HOME/.config/fuzzel/${theme_kind}.ini" ~/.config/fuzzel/fuzzel.ini
 ln -sf "$HOME/.config/micro/colorschemes/${theme_kind}.micro" ~/.config/micro/colorschemes/current.micro
+ln -sf "$HOME/.config/niri/${theme_kind}.kdl" ~/.config/niri/theme.kdl
 ln -sf "$HOME/.config/swaylock/${theme_kind}" ~/.config/swaylock/config
 ln -sf "$HOME/.config/waybar/${theme_kind}.css" ~/.config/waybar/colours.css
 
 # Signal long running programs.
+niri msg action load-config-file
 killall --signal SIGUSR2 waybar
 
 # Handle wallpapers.

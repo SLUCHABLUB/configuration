@@ -18,6 +18,7 @@ to-do list:
 - theme prismlauncher
 - theme discord (vesktop)
 - quickshell?
+- split up niri config into smaller files
 
 ## Wallpapers
 
