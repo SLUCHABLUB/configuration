@@ -1,0 +1,19 @@
+font=JetBrains Mono NerdFont
+border-size=2
+border-radius=6
+
+[mode=dark]
+background-color=<% tilia get-colour -m dark tertiary-background %>
+text-color=<% tilia get-colour -m dark text %>
+border-color=<% tilia get-colour -m dark border %>
+
+[mode=light]
+background-color=<% tilia get-colour -m light tertiary-background %>
+text-color=<% tilia get-colour -m light text %>
+border-color=<% tilia get-colour -m light border %>
+
+[urgency=critical mode=dark]
+border-color=<% tilia get-colour -m dark red %>
+
+[urgency=critical mode=light]
+border-color=<% tilia get-colour -m light red %>
