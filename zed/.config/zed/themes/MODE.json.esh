@@ -1,0 +1,207 @@
+{
+    "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+    "name": "Tilia (<%= $TILIA_MODE %>)",
+    "author": "SLUCHABLUB",
+    "themes": [
+        {
+            "appearance": "<%= $TILIA_MODE %>",
+            "name": "Tilia (<%= $TILIA_MODE %>)",
+            "style": {
+                "background": "<% tilia get-colour primary-background %>",
+                "border": "<% tilia get-colour border %>",
+                "border.disabled": "<% tilia get-colour border %>",
+                "border.focused": "<% tilia get-colour purple %>",
+                "border.selected": "<% tilia get-colour purple %>",
+                "border.transparent": "transparent",
+                "border.variant": "<% tilia get-colour border %>",
+                "conflict": "<% tilia get-colour red %>",
+                "conflict.background": "<% tilia get-background -L primary red %>",
+                "conflict.border": "<% tilia get-colour border %>",
+                "created": "<% tilia get-colour green %>",
+                "created.background": "<% tilia get-background -L primary green %>",
+                "created.border": "<% tilia get-colour border %>",
+                "deleted": "<% tilia get-colour red %>",
+                "deleted.background": "<% tilia get-background -L primary red %>",
+                "deleted.border": "<% tilia get-colour border %>",
+                "drop_target.background": "<% tilia get-colour hover %>",
+                "editor.active_line.background": "<% tilia get-colour hover %>",
+                "editor.active_line_number": "<% tilia get-colour text %>",
+                "editor.active_wrap_guide": "<% tilia get-colour unimportant %>",
+                "editor.background": "<% tilia get-colour primary-background %>",
+                "editor.document_highlight.bracket_background": "<% tilia get-colour selection %>",
+                "editor.document_highlight.read_background": "<% tilia get-background -L primary green %>",
+                "editor.document_highlight.write_background": "<% tilia get-background -L primary orange %>",
+                "editor.foreground": "<% tilia get-colour text %>",
+                "editor.gutter.background": "<% tilia get-colour secondary-background %>",
+                "editor.highlighted_line.background": "<% tilia get-colour hover %>",
+                "editor.indent_guide": "<% tilia get-colour border %>",
+                "editor.indent_guide_active": "<% tilia get-colour border %>",
+                "editor.invisible": "<% tilia get-colour disabled %>",
+                "editor.line_number": "<% tilia get-colour unimportant %>",
+                // I'm unsure what this does.
+                "editor.subheader.background": null,
+                "editor.wrap_guide": "<% tilia get-colour disabled %>",
+                // These are background colours.
+                "element.active": "<% tilia get-colour secondary-background %>",
+                "element.background": "<% tilia get-colour secondary-background %>",
+                "element.disabled": "<% tilia get-colour secondary-background %>",
+                "element.hover": "<% tilia get-colour hover %>",
+                "element.selected": "<% tilia get-colour selection %>",
+                "error": "<% tilia get-colour red %>",
+                "error.background": "<% tilia get-background -L primary red %>",
+                "error.border": "<% tilia get-colour red %>",
+                "ghost_element.active": null,
+                "ghost_element.background": null,
+                "ghost_element.disabled": null,
+                "ghost_element.hover": "<% tilia get-colour hover %>",
+                "ghost_element.selected": "<% tilia get-colour selection %>",
+                "hidden": "<% tilia get-colour unimportant %>",
+                "hidden.background": null,
+                "hidden.border": null,
+                "hint": "<% tilia get-colour cyan %>",
+                "hint.background": "<% tilia get-background -L primary cyan %>",
+                "hint.border": "<% tilia get-colour border %>",
+                "icon": "<% tilia get-colour text %>",
+                "icon.accent": "<% tilia get-colour purple %>",
+                "icon.disabled": "<% tilia get-colour disabled %>",
+                "icon.muted": "<% tilia get-colour unimportant %>",
+                "icon.placeholder": "<% tilia get-colour disabled %>",
+                "ignored": "<% tilia get-colour unimportant %>",
+                "ignored.background": null,
+                "ignored.border": null,
+                "info": "<% tilia get-colour cyan %>",
+                "info.background": "<% tilia get-background -L primary cyan %>",
+                "info.border": "<% tilia get-colour border %>",
+                "modified": "<% tilia get-colour orange %>",
+                "modified.background": "<% tilia get-background -L primary orange %>",
+                "modified.border": "<% tilia get-colour border %>",
+                // I'm unsure what this does.
+                "pane.focused_border": "<% tilia get-colour purple %>",
+                "pane_group.border": "<% tilia get-colour border %>",
+                "panel.background": "<% tilia get-colour tertiary-background %>",
+                "panel.focused_border": "<% tilia get-colour purple %>",
+                "panel.indent_guide": "<% tilia get-colour border %>",
+                "panel.indent_guide_active": "<% tilia get-colour border %>",
+                "panel.indent_guide_hover": "<% tilia get-colour border %>",
+                // I'm unsure what this does.
+                "predictive": "<% tilia get-colour blue %>",
+                "predictive.background": "<% tilia get-background -L primary blue %>",
+                "predictive.border": "<% tilia get-colour border %>",
+                "renamed": "<% tilia get-colour orange %>",
+                "renamed.background": "<% tilia get-background -L primary orange %>",
+                "renamed.border": "<% tilia get-colour border %>",
+                "scrollbar.thumb.background": "#0000",
+                "scrollbar.thumb.border": "<% tilia get-colour text %>",
+                "scrollbar.thumb.hover_background": "<% tilia get-colour hover %>",
+                "scrollbar.track.background": "<% tilia get-colour secondary-background %>",
+                "scrollbar.track.border": "<% tilia get-colour border %>",
+                "search.match_background": "<% tilia get-colour yellow %>",
+                "success": "<% tilia get-colour green %>",
+                "success.background": "<% tilia get-background -L primary green %>",
+                "success.border": "<% tilia get-colour border %>",
+                "surface.background": "<% tilia get-colour secondary-background %>",
+                // TODO: tab
+                "tab_bar.background": "<% tilia get-colour primary-background %>",
+                // TODO: terminal
+                "text": "<% tilia get-colour text %>",
+                "text.accent": "<% tilia get-colour purple %>",
+                "text.disabled": "<% tilia get-colour disabled %>",
+                "text.muted": "<% tilia get-colour unimportant %>",
+                "text.placeholder": "<% tilia get-colour disabled %>",
+                "title_bar.background": "<% tilia get-colour secondary-background %>",
+                "title_bar.inactive_background": "<% tilia get-colour secondary-background %>",
+                "toolbar.background": "<% tilia get-colour secondary-background %>",
+                "unreachable": "<% tilia get-colour disabled %>",
+                "unreachable.background": "<% tilia get-colour primary-background %>",
+                "unreachable.border": "<% tilia get-colour border %>",
+                "warning": "<% tilia get-colour yellow %>",
+                "warning.background": "<% tilia get-background -L primary yellow %>",
+                "warning.border": "<% tilia get-colour border %>",
+                "players": [
+                    {
+                        "background": "<% tilia get-colour primary-background %>",
+                        "cursor": "<% tilia get-colour border %>",
+                        "selection": "<% tilia get-colour selection %>"
+                    }
+                ],
+                "syntax": {
+                    // TODO: attribute
+                    "boolean": {
+                        "color": "<% tilia get-colour orange %>",
+                        "background_color": "<% tilia get-background -L primary orange %>"
+                    },
+                    // TODO: constant
+                    // TODO: constructor
+                    "comment": {
+                        "color": "<% tilia get-colour yellow %>",
+                        "background_color": "<% tilia get-background -L primary yellow %>"
+                    },
+                    "comment.doc": {
+                        "color": "<% tilia get-colour unimportant %>"
+                    },
+                    // TODO: embedded
+                    "emphasis": {
+                        "font_weight": 700
+                    },
+                    "emphasis.strong": {
+                        "font_style": "italic"
+                    },
+                    // TODO: enum
+                    "function": {
+                        "color": "<% tilia get-colour blue %>",
+                        "background_color": "<% tilia get-background -L primary blue %>"
+                    },
+                    // TODO: hint
+                    "keyword": {
+                        "color": "<% tilia get-colour orange %>",
+                        "background_color": "<% tilia get-background -L primary orange %>"
+                    },
+                    // TODO: label
+                    // TODO: link text
+                    // TODO: link uri
+                    // TODO: namespace
+                    "number": {
+                        "color": "<% tilia get-colour cyan %>",
+                        "background_color": "<% tilia get-background -L primary cyan %>"
+                    },
+                    "operator": {
+                        "color": "<% tilia get-colour unimportant %>"
+                    },
+                    // TODO: predictive
+                    "preproc": {
+                        "color": "<% tilia get-colour cyan %>",
+                        "background_color": "<% tilia get-background -L primary cyan %>"
+                    },
+                    // TODO: primary
+                    // TODO: property
+                    "punctuation": {
+                        "color": "<% tilia get-colour unimportant %>"
+                    },
+                    // TODO: punctuation.special?
+                    // TODO: selector
+                    // TODO: selector.pseudo
+                    "string": {
+                        "color": "<% tilia get-colour green %>",
+                        "background_color": "<% tilia get-background -L primary green %>"
+                    },
+                    "string.escape": {
+                        "color": "<% tilia get-colour orange %>",
+                        "background_color": "<% tilia get-background -L primary orange %>"
+                    },
+                    // TODO: string.regex
+                    // TODO: string.special
+                    // TODO: string.special.symbol
+                    // TODO: tag
+                    // TODO: title
+                    "type": {
+                        "color": "<% tilia get-colour purple %>",
+                        "background_color": "<% tilia get-background -L primary purple %>"
+                    },
+                    "variable": {}
+                    // TODO: variable.special
+                    // TODO: variant
+                }
+            }
+        }
+    ]
+}
