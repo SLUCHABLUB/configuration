@@ -1,11 +1,11 @@
 {
     "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
-    "name": "Tilia (<%= $TILIA_MODE %>)",
+    "name": "Tilia Arrow (<%= $TILIA_MODE %>)",
     "author": "SLUCHABLUB",
     "themes": [
         {
             "appearance": "<%= $TILIA_MODE %>",
-            "name": "Tilia (<%= $TILIA_MODE %>)",
+            "name": "Tilia Arrow (<%= $TILIA_MODE %>)",
             "style": {
                 "background": "<% tilia get-colour primary-background %>",
                 "border": "<% tilia get-colour border %>",

@@ -104,8 +104,8 @@
     },
     "theme": {
         "mode": "system",
-        "light": "Tilia (light)",
-        "dark": "Tilia (dark)"
+        "light": "Tilia Arrow (light)",
+        "dark": "Tilia Arrow (dark)"
     },
     "languages": {
         "JSON": {
