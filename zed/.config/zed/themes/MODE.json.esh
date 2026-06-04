@@ -90,7 +90,7 @@
                 "renamed": "<% tilia get-colour orange %>",
                 "renamed.background": "<% tilia get-background -L primary orange %>",
                 "renamed.border": "<% tilia get-colour border %>",
-                "scrollbar.thumb.background": "#0000",
+                "scrollbar.thumb.background": "transparent",
                 "scrollbar.thumb.border": "<% tilia get-colour text %>",
                 "scrollbar.thumb.hover_background": "<% tilia get-colour hover %>",
                 "scrollbar.track.background": "<% tilia get-colour secondary-background %>",
