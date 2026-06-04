@@ -1,0 +1,14 @@
+color-link default "<% tilia get-colour text %>,<% tilia get-colour primary-background %>"
+color-link symbol "<% tilia get-colour unimportant %>"
+
+color-link comment "<% tilia get-colour yellow %>,<% tilia get-background -L primary yellow %>"
+color-link todo "<% tilia get-colour yellow %>,<% tilia get-background -L primary yellow %>"
+color-link constant.string "<% tilia get-colour green %>,<% tilia get-background -L primary green %>"
+# escape character
+color-link constant.specialChar "<% tilia get-colour orange %>,<% tilia get-background -L primary orange %>"
+color-link constant.number "<% tilia get-colour blue %>,<% tilia get-background -L primary blue %>"
+color-link type "<% tilia get-colour purple %>,<% tilia get-background -L primary purple %>"
+# macros
+color-link preproc "<% tilia get-colour cyan %>,<% tilia get-background -L primary cyan %>"
+# keywords
+color-link statement "<% tilia get-colour orange %>,<% tilia get-background -L primary orange %>"
