@@ -11,6 +11,7 @@ kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "Til
 makoctl mode -s "$theme_kind"
 
 # Manual theme switching.
+ln -sf "$HOME/.config/git/delta-${theme_kind}.gitconfig" ~/.config/git/delta-theme.gitconfig
 ln -sf "$HOME/.config/fuzzel/${theme_kind}.ini" ~/.config/fuzzel/fuzzel.ini
 ln -sf "$HOME/.config/micro/colorschemes/${theme_kind}.micro" ~/.config/micro/colorschemes/current.micro
 ln -sf "$HOME/.config/niri/${theme_kind}.kdl" ~/.config/niri/theme.kdl

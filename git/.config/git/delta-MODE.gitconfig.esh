@@ -1,0 +1,20 @@
+[delta]
+    <%= $TILIA_MODE %> = true
+    syntax-theme = Tilia Arrow (<%= $TILIA_MODE %>)
+
+    line-numbers-minus-style = "<% tilia get-colour red %> <% tilia get-background -L primary red %>"
+    line-numbers-plus-style = "<% tilia get-colour green %> <% tilia get-background -L primary green %>"
+    line-numbers-zero-style = "<% tilia get-colour unimportant %>"
+    line-numbers-left-style = "<% tilia get-colour unimportant %>"
+    line-numbers-right-style = "<% tilia get-colour unimportant %>"
+
+    file-style = "<% tilia get-colour text %>"
+    file-decoration-style = "<% tilia get-colour border %>"
+
+    commit-style = "<% tilia get-colour text %>"
+    commit-decoration-style = "<% tilia get-colour border %>"
+
+    merge-conflict-ours-diff-header-style = "<% tilia get-colour orange %> <% tilia get-background -L primary orange %>"
+    merge-conflict-theirs-diff-header-style = "<% tilia get-colour orange %> <% tilia get-background -L primary orange %>"
+
+    whitespace-error-style = "<% tilia get-colour red %>"

@@ -1,8 +1,7 @@
 # My configuration (dot files)
 
 to-do list:
-- textmate theme
-    - add it to delta
+- diff code-background
 - keyboard layout
 - rclone systemd unit
 - other helium config

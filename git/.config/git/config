@@ -10,7 +10,14 @@
     diffFilter = delta --color-only
 
 [delta]
+    hyperlinks = true
+    line-numbers = true
     navigate = true
+
+    hunk-header-style = omit
+
+[include]
+    path = delta-theme.gitconfig
 
 [merge]
     conflictStyle = zdiff3
