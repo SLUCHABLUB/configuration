@@ -1,2 +1,2 @@
-# TODO: set the theme
-# --theme="Tilia Arrow ($(darkman get))"
+--theme-light="Tilia Arrow (light)"
+--theme-dark="Tilia Arrow (dark)"

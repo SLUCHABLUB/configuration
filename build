@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Compile every *.esh template under the repo to its target file via esh.
-# Templates whose basename (sans .esh) is "MODE" or starts with "MODE." are  dual-mode:
-# each one produces {dark,light}.<rest> next to it with TILIA_MODE set accordingly.
+# Templates whose basename (sans .esh) contains the literal token "MODE" are dual-mode:
+# each one produces two outputs with "MODE" replaced by "dark" and "light" respectively,
+# and TILIA_MODE set accordingly.
 # Everything else is a single-output template.
 #
 # Usage: ./build [generate|clean]   (default: generate)
@@ -18,12 +19,13 @@ for_each_output() {
         template_base="$(basename "$template" .esh)"
 
         case "$template_base" in
-        MODE | MODE.*)
+        *MODE*)
             template_dir="$(dirname "$template")"
-            output_suffix="${template_base#MODE}"
+            prefix="${template_base%%MODE*}"
+            suffix="${template_base#*MODE}"
 
             for mode in dark light; do
-                "$callback" "$mode" "$template_dir/$mode$output_suffix" "$template"
+                "$callback" "$mode" "$template_dir/$prefix$mode$suffix" "$template"
             done
             ;;
         *)
