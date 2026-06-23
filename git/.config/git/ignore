@@ -1,4 +1,5 @@
 .codebook.toml
+.tombi.toml
 .zed
 *.env
 
