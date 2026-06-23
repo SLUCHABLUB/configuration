@@ -27,6 +27,7 @@ shopt -s histappend
 alias cat='bat'
 alias du='dust'
 alias edit='$EDITOR'
+alias fetch='fastfetch'
 alias icat='kitten icat'
 alias ide='zeditor'
 alias grep='grep --color=auto'
