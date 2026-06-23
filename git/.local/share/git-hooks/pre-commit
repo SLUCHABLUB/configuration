@@ -4,6 +4,28 @@ set -euo pipefail
 
 exec 1>&2
 
+stashed=false
+
+# shellcheck disable=SC2329 # False positive, it's passed to `trap`.
+restore() {
+    if [ "$stashed" = true ]
+    then
+        # set working tree & index -> HEAD
+        git reset --hard --quiet
+        # move stash -> working tree & index
+        git stash pop --index --quiet
+    fi
+}
+
+if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]
+then
+    # move working tree -> stash
+    # set index -> working tree
+    git stash push --keep-index --include-untracked --quiet
+    stashed=true
+    trap restore EXIT
+fi
+
 if [ -f "Cargo.toml" ]
 then
     export RUSTDOCFLAGS="-D warnings"
