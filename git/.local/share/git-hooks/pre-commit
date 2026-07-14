@@ -42,7 +42,7 @@ if command -v codebook-lsp >/dev/null
 then
     codebook-lsp lint -su .
 else
-    read -pr 'codebook is not installed; spell checking will not be performed. press enter to continue.'
+    read -r -p 'codebook is not installed; spell checking will not be performed. press enter to continue.'
 fi
 
 exit 0
