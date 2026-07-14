@@ -38,6 +38,11 @@ fi
 
 # TODO: run `shellcheck` on comitted files
 
-codebook-lsp lint -su .
+if command -v codebook-lsp >/dev/null
+then
+    codebook-lsp lint -su .
+else
+    read -pr 'codebook is not installed; spell checking will not be performed. press enter to continue.'
+fi
 
 exit 0
