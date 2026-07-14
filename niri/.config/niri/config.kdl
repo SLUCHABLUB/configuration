@@ -70,10 +70,10 @@ environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
-// This spawns waybar and swaybg.
 spawn-at-startup "reload-theme"
 spawn-at-startup "swayidle"
 spawn-at-startup "mako"
+spawn-at-startup "waybar"
 
 spawn-at-startup "/usr/bin/kwalletd6"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
