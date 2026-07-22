@@ -68,6 +68,8 @@ layout {
 
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+
+    QT_QPA_PLATFORMTHEME "kde"
 }
 
 spawn-at-startup "reload-theme"

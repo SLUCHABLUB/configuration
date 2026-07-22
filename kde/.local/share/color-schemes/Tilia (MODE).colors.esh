@@ -1,0 +1,69 @@
+<%
+colour_group() {
+    group="$1"
+    background="$2"
+    background_alternate="$3"
+    foreground="${4:-text}"
+    state="${5:-}"
+
+    cat <<INI
+[Colors:$group]${state:+[$state]}
+BackgroundNormal=$(tilia get-colour "$background" r,g,b)
+BackgroundAlternate=$(tilia get-colour "$background_alternate" r,g,b)
+ForegroundNormal=$(tilia get-colour "$foreground" r,g,b)
+ForegroundInactive=$(tilia get-colour unimportant r,g,b)
+ForegroundActive=$(tilia get-colour purple r,g,b)
+ForegroundLink=$(tilia get-colour blue r,g,b)
+ForegroundVisited=$(tilia get-colour purple r,g,b)
+ForegroundNegative=$(tilia get-colour red r,g,b)
+ForegroundNeutral=$(tilia get-colour yellow r,g,b)
+ForegroundPositive=$(tilia get-colour green r,g,b)
+DecorationFocus=$(tilia get-colour purple r,g,b)
+DecorationHover=$(tilia get-colour purple r,g,b)
+
+INI
+}
+-%>
+[General]
+ColorScheme=Tilia (<%= $TILIA_MODE %>)
+Name=Tilia (<%= $TILIA_MODE %>)
+
+<%
+colour_group Window        primary-background   secondary-background
+colour_group View          secondary-background tertiary-background
+colour_group Button        secondary-background tertiary-background
+colour_group Header        secondary-background tertiary-background
+colour_group Header        primary-background   secondary-background unimportant Inactive
+colour_group Tooltip       tertiary-background  tertiary-background
+colour_group Complementary primary-background   secondary-background
+colour_group Selection     selection            selection
+-%>
+
+[ColorEffects:Disabled]
+# You can't set the foreground colour, you can only specify an "effect".
+# We fade the text to the background by some amount.
+ContrastEffect=1
+ContrastAmount=<% [ "$TILIA_MODE" = dark ] && echo 0.58 || echo 0.40 -%>
+
+# Breeze darkens the disabled background by default.
+IntensityEffect=0
+IntensityAmount=0
+
+[ColorEffects:Inactive]
+# Breeze dims unfocused windows by default.
+Enable=false
+
+[WM]
+activeBackground=<% tilia get-colour tertiary-background r,g,b %>
+activeForeground=<% tilia get-colour text r,g,b %>
+activeBlend=<% tilia get-colour text r,g,b %>
+inactiveBackground=<% tilia get-colour secondary-background r,g,b %>
+inactiveForeground=<% tilia get-colour unimportant r,g,b %>
+inactiveBlend=<% tilia get-colour unimportant r,g,b %>
+
+[KDE]
+# This value was copied from Breeze, has to do with how shadow colours are calculated.
+contrast=4
+# Breeze has no border colour; it blends frames from the background towards the text colour by this factor.
+# Claude says that this value gives the closest colour to the actual border colour.
+frameContrast=0.28

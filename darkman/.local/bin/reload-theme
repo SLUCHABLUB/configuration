@@ -7,8 +7,16 @@ theme_kind="${1:-$(darkman get)}"
 echo "Switching to $theme_kind mode"
 
 # Programs with first-party mode support.
+
 kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "Tilia ($theme_kind)"
 makoctl mode -s "$theme_kind"
+
+colour_scheme="$HOME/.local/share/color-schemes/Tilia ($theme_kind).colors"
+accent_colour="$(kreadconfig6 --file "$colour_scheme" --group Colors:Window --key DecorationFocus)"
+kwriteconfig6 --file kdeglobals --group General --key AccentColor "$accent_colour"
+
+kwriteconfig6 --file kdeglobals --group General --key ColorScheme --delete
+QT_QPA_PLATFORM=offscreen plasma-apply-colorscheme "Tilia ($theme_kind)"
 
 # Manual theme switching.
 ln -sf "$HOME/.config/git/delta-${theme_kind}.gitconfig" ~/.config/git/delta-theme.gitconfig

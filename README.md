@@ -7,7 +7,6 @@ to-do list:
 - other helium config
 - gtk?
 - theme KDE apps
-    - dolphin
     - kdeconnect
     - kdenlive
     - ksudoku
