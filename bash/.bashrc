@@ -31,13 +31,9 @@ alias fetch='fastfetch'
 alias icat='kitten icat'
 alias ide='zeditor'
 alias grep='grep --color=auto'
-alias la='ls -A'
-alias ll='ls -lh'
 alias ls='eza'
 alias open='xdg-open'
-alias py='python3'
 alias spawn='niri msg action spawn --'
-alias wm='niri'
 
 function fm() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -48,6 +44,13 @@ function fm() {
 }
 
 [ "$TERM" = 'xterm-kitty' ] && alias ssh='kitten ssh'
+
+# Evil aliases
+
+alias la='ls -A'
+alias ll='ls -lh'
+alias lla='ls -lhA'
+alias py='python3'
 
 # Safety aliases
 
