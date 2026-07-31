@@ -2,6 +2,8 @@
 .tombi.toml
 .zed
 *.env
+.cargo
+.rustup
 
 *.sav
 
