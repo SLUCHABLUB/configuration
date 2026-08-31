@@ -21,6 +21,12 @@ input {
     }
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 // TODO: move this to a hw config {
 
 // Framework 13 Matte Display.
