@@ -182,5 +182,11 @@
         "bindings": {
             "alt-enter": "workspace::OpenWithSystem"
         }
-    }
+    },
+    {
+        "context": "Markdown",
+        "bindings": {
+            "ctrl-c": "markdown::Copy",
+        },
+    },
 ]
