@@ -33,6 +33,7 @@ alias ide='zeditor'
 alias grep='grep --color=auto'
 alias ls='eza'
 alias open='xdg-open'
+alias rg='rg -S'
 alias spawn='niri msg action spawn --'
 
 function fm() {
