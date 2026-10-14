@@ -6,6 +6,7 @@ words = [
     "allocator",
     "initialise",
     "sluchablub",
+    "tokenise",
 ]
 flag_words = [
     "chanel",
