@@ -40,4 +40,9 @@ fi
 
 codebook-lsp lint -su .
 
-exit 0
+local_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
+
+if [ -x "$local_hook" ]
+then
+    exec "$local_hook" "$@"
+fi
