@@ -105,7 +105,8 @@ binds {
     Mod+D repeat=false { spawn-sh "darkman toggle"; }
     Mod+E repeat=false { quit; }
     Mod+F repeat=false { fullscreen-window; }
-    Mod+L repeat=false { spawn "lock"; }
+    // Allowed when locked to restart the locker if it crashes and leaves a red screen.
+    Mod+L repeat=false allow-when-locked=true { spawn "lock"; }
     Mod+M repeat=false { spawn "prismlauncher"; }
     Mod+N repeat=false { spawn "dolphin"; }
     Mod+Q repeat=false { close-window; }
