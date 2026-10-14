@@ -1,2 +1,4 @@
+--paging=never
+--pager="moor --no-linenumbers"
 --theme-light="Tilia Arrow (light)"
 --theme-dark="Tilia Arrow (dark)"
