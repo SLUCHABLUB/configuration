@@ -24,9 +24,11 @@ shopt -s histappend
 
 # Aliases
 
-alias cat='bat'
+alias ..='cd ..'
+alias cat='bat --paging=never'
 alias du='dust'
 alias edit='$EDITOR'
+alias browse='$BROWSER'
 alias fetch='fastfetch'
 alias icat='kitten icat'
 alias ide='zeditor'
