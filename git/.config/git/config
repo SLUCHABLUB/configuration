@@ -32,12 +32,19 @@
 [init]
     defaultBranch = main
 
+[difftool "diff-pdf"]
+    # Skip files that are not PDFs so the alias can be run without a path.
+    cmd = "case \"$MERGED\" in *.pdf) diff-pdf --view \"$LOCAL\" \"$REMOTE\" ;; esac"
+
 [alias]
     a = add
     c = commit
     d = diff
-    di = diff --cached
+    di = diff --staged
     s = status
-    
+
+    diff-pdf = difftool --tool=diff-pdf --no-prompt
+
+    force-push = push --force-with-lease
     graph = log --graph --date=relative --pretty=tformat:'%C(blue)%h%C(reset) %C(green)%s%C(reset) %C(magenta)%an%C(reset) %C(red)%ad%C(reset) %C(yellow)%d%C(reset)'
     undo = reset --soft HEAD^
