@@ -33,7 +33,6 @@
     defaultBranch = main
 
 [difftool "diff-pdf"]
-    # Skip files that are not PDFs so the alias can be run without a path.
     cmd = "case \"$MERGED\" in *.pdf) diff-pdf --view \"$LOCAL\" \"$REMOTE\" ;; esac"
 
 [alias]
