@@ -29,9 +29,6 @@
         "dock": "left",
         "button": false
     },
-    "notification_panel": {
-        "button": false
-    },
     "bottom_dock_layout": "contained",
     "title_bar": {
         "show_sign_in": false,
@@ -55,7 +52,7 @@
         "dock": "left",
         "sort_mode": "directories_first",
         "hide_root": false,
-        "folder_icons": false,
+        "folder_indicator": "chevron",
         "hide_gitignore": false,
         "button": true
     },
@@ -118,6 +115,9 @@
                 "allowed": false
             }
         },
+        "Markdown": {
+            "tab_size": 4
+        },
         "Python": {
             "language_servers": [
                 "ty",
@@ -152,6 +152,34 @@
                 "preview": {
                     "background": {
                         "enabled": true
+                    }
+                }
+            }
+        },
+        "jdtls": {
+            "initialization_options": {
+                "settings": {
+                    "java": {
+                        "configuration": {
+                            "updateBuildConfiguration": "automatic",
+                            "runtimes": [
+                                {
+                                "name": "JavaSE-26",
+                                "path": "/usr/lib/jvm/java-26-openjdk",
+                                "default": true
+                                }
+                            ]
+                        },
+                        "import": {
+                            "gradle": {
+                                "enabled": true,
+                                "wrapper": { "enabled": true },
+                                "java": { "home": "/usr/lib/jvm/java-26-openjdk" }
+                            }
+                        },
+                        "format": {
+                            "enabled": true,
+                        }
                     }
                 }
             }

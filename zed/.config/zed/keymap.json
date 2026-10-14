@@ -30,6 +30,7 @@
             // Control + Letters
             "ctrl-f": "search::FocusSearch",
             "ctrl-shift-f": "pane::DeploySearch",
+            "ctrl-g": "file_finder::Toggle",
             "ctrl-t": "terminal_panel::Toggle",
             "ctrl-w": "pane::CloseActiveItem",
             "ctrl-alt-w": "pane::CloseOtherItems",
@@ -100,7 +101,6 @@
             "ctrl-c": "editor::Copy",
             "ctrl-d": "editor::DeleteLine",
             "ctrl-f": "buffer_search::Deploy",
-            "ctrl-g": "file_finder::Toggle",
             "ctrl-k": "editor::ToggleComments",
             "ctrl-r": "editor::Rename",
             "ctrl-u": "editor::ToggleSoftWrap",
