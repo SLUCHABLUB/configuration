@@ -36,6 +36,11 @@ then
     cargo          doc    --workspace
 fi
 
+if [ -f "gradlew" ]
+then
+    ./gradlew check
+fi
+
 # TODO: run `shellcheck` on comitted files
 
 codebook-lsp lint -su .
