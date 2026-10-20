@@ -38,7 +38,7 @@ styles[view.STYLE_LINENUMBER] = {fore = unimportant, back = secondary_background
 styles[view.STYLE_BRACELIGHT] = {back = selection}
 styles[view.STYLE_BRACEBAD] = red
 styles[view.STYLE_INDENTGUIDE] = {fore = border}
-styles[view.STYLE_CALLTIP] = {fore = text, back = secondary_background}
+styles[view.STYLE_CALLTIP] = {fore = unimportant, back = secondary_background}
 styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = unimportant, back = secondary_background}
 
 -- Tag styles.
@@ -85,6 +85,8 @@ view.marker_back[textadept.run.MARK_ERROR] = red.fore
 view.indic_fore[ui.find.INDIC_FIND] = yellow.fore
 view.indic_fore[textadept.editing.INDIC_HIGHLIGHT] = selection
 view.indic_fore[textadept.snippets.INDIC_PLACEHOLDER] = purple.fore
+view.indic_fore[textadept.run.INDIC_WARNING] = yellow.fore
+view.indic_fore[textadept.run.INDIC_ERROR] = red.fore
 
 -- Call tips.
 view.call_tip_fore_hlt = purple.fore
