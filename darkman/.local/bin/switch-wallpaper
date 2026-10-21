@@ -1,7 +1,7 @@
 #!/bin/sh
 
 wallpapers="$HOME/.local/share/wallpapers/$(darkman get)"
-wallpaper="$(find "$wallpapers" -type f -print | shuf -n 1)"
+wallpaper="$(find -L "$wallpapers" -type f -print | shuf -n 1)"
 current="$HOME/.local/share/wallpapers/current"
 
 ln -sf "$wallpaper" "$HOME/.local/share/wallpapers/current"

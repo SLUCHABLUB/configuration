@@ -24,6 +24,14 @@ Run `./build` to compile every `*.esh` template under the repo. Templates whose 
 
 The bat theme is the one exception that needs a manual step after generation: run `bat cache --build` once the generated `.tmTheme` files are in `~/.config/bat/themes/` so bat picks them up.
 
+## Deploying
+
+The files are deployed with [dotter](https://github.com/SuperCuber/dotter), from the root of the repository:
+
+```sh
+./build && dotter deploy
+```
+
 ## Wallpapers
 
 All wallpapers are taken from the [Rosé Pine Wallpaper repository](https://github.com/rose-pine/wallpapers) and are not licensed from here.

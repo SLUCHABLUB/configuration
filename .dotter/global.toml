@@ -1,0 +1,152 @@
+[settings]
+# Never guess that a file is a handlebars template.
+default_target_type = "symbolic"
+
+[bash]
+depends = ["sh"]
+
+[bash.files]
+"bash/.bashrc" = "~/.bashrc"
+"bash/.bash_login" = "~/.bash_login"
+
+[bat.files]
+"bat/.config/bat/config" = "~/.config/bat/config"
+"bat/.config/bat/themes/Tilia Arrow (dark).tmTheme" = "~/.config/bat/themes/Tilia Arrow (dark).tmTheme"
+"bat/.config/bat/themes/Tilia Arrow (light).tmTheme" = "~/.config/bat/themes/Tilia Arrow (light).tmTheme"
+
+[blesh.files]
+"blesh/.config/blesh" = "~/.config/blesh"
+
+[btop.files]
+"btop/.config/btop" = "~/.config/btop"
+
+[codebook.files]
+"codebook/.config/codebook" = "~/.config/codebook"
+
+[darkman]
+depends = ["wallpapers"]
+
+[darkman.files]
+"darkman/.config/darkman" = "~/.config/darkman"
+"darkman/.local/bin/reload-theme" = "~/.local/bin/reload-theme"
+"darkman/.local/bin/switch-wallpaper" = "~/.local/bin/switch-wallpaper"
+"darkman/.local/share/darkman" = "~/.local/share/darkman"
+
+[fastfetch.files]
+"fastfetch/.config/fastfetch" = "~/.config/fastfetch"
+
+[fonts.files]
+"fonts/.config/fontconfig/fonts.conf" = "~/.config/fontconfig/fonts.conf"
+
+[fuzzel]
+depends = ["darkman"]
+
+[fuzzel.files]
+"fuzzel/.config/fuzzel/dark.ini" = "~/.config/fuzzel/dark.ini"
+"fuzzel/.config/fuzzel/light.ini" = "~/.config/fuzzel/light.ini"
+
+[git]
+depends = ["darkman"]
+
+[git.files]
+"git/.config/git/config" = "~/.config/git/config"
+"git/.config/git/ignore" = "~/.config/git/ignore"
+"git/.config/git/delta-dark.gitconfig" = "~/.config/git/delta-dark.gitconfig"
+"git/.config/git/delta-light.gitconfig" = "~/.config/git/delta-light.gitconfig"
+"git/.local/share/git-hooks" = "~/.local/share/git-hooks"
+
+[helium.files]
+"helium/.config/helium-browser-flags.conf" = "~/.config/helium-browser-flags.conf"
+
+[kde.files]
+"kde/.local/share/color-schemes/Tilia (dark).colors" = "~/.local/share/color-schemes/Tilia (dark).colors"
+"kde/.local/share/color-schemes/Tilia (light).colors" = "~/.local/share/color-schemes/Tilia (light).colors"
+
+[kitty]
+depends = ["darkman"]
+
+[kitty.files]
+"kitty/.config/kitty/kitty.conf" = "~/.config/kitty/kitty.conf"
+"kitty/.config/kitty/themes/dark.conf" = "~/.config/kitty/themes/dark.conf"
+"kitty/.config/kitty/themes/light.conf" = "~/.config/kitty/themes/light.conf"
+
+[mako.files]
+"mako/.config/mako/config" = "~/.config/mako/config"
+
+[micro]
+depends = ["darkman"]
+
+[micro.files]
+"micro/.config/micro/bindings.json" = "~/.config/micro/bindings.json"
+"micro/.config/micro/settings.json" = "~/.config/micro/settings.json"
+"micro/.config/micro/syntax" = "~/.config/micro/syntax"
+"micro/.config/micro/colorschemes/dark.micro" = "~/.config/micro/colorschemes/dark.micro"
+"micro/.config/micro/colorschemes/light.micro" = "~/.config/micro/colorschemes/light.micro"
+
+[niri]
+depends = ["darkman", "swaylock"]
+
+[niri.files]
+"niri/.config/niri/config.kdl" = "~/.config/niri/config.kdl"
+"niri/.config/niri/dark.kdl" = "~/.config/niri/dark.kdl"
+"niri/.config/niri/light.kdl" = "~/.config/niri/light.kdl"
+
+[portal.files]
+"portal/.config/xdg-desktop-portal" = "~/.config/xdg-desktop-portal"
+
+[sh.files]
+"sh/.profile" = "~/.profile"
+
+[shellcheck.files]
+"shellcheck/.shellcheckrc" = "~/.shellcheckrc"
+
+[starship.files]
+"starship/.config/starship.toml" = "~/.config/starship.toml"
+
+[status.files]
+"status/.local/bin/status" = "~/.local/bin/status"
+
+[swayidle]
+depends = ["swaylock"]
+
+[swayidle.files]
+"swayidle/.config/swayidle" = "~/.config/swayidle"
+
+[swaylock]
+depends = ["darkman"]
+
+[swaylock.files]
+"swaylock/.config/swaylock/dark" = "~/.config/swaylock/dark"
+"swaylock/.config/swaylock/light" = "~/.config/swaylock/light"
+"swaylock/.local/bin/lock" = "~/.local/bin/lock"
+
+[textadept]
+depends = ["kitty"]
+
+[textadept.files]
+"textadept/.textadept/init.lua" = "~/.textadept/init.lua"
+"textadept/.textadept/lexers" = "~/.textadept/lexers"
+"textadept/.textadept/modules" = "~/.textadept/modules"
+"textadept/.textadept/themes/tilia-arrow-dark.lua" = "~/.textadept/themes/tilia-arrow-dark.lua"
+"textadept/.textadept/themes/tilia-arrow-light.lua" = "~/.textadept/themes/tilia-arrow-light.lua"
+
+[wallpapers.files]
+"wallpapers/.local/share/wallpapers" = "~/.local/share/wallpapers"
+
+[waybar]
+depends = ["darkman"]
+
+[waybar.files]
+"waybar/.config/waybar/config.jsonc" = "~/.config/waybar/config.jsonc"
+"waybar/.config/waybar/style.css" = "~/.config/waybar/style.css"
+"waybar/.config/waybar/dark.css" = "~/.config/waybar/dark.css"
+"waybar/.config/waybar/light.css" = "~/.config/waybar/light.css"
+
+[yazi.files]
+"yazi/.config/yazi" = "~/.config/yazi"
+
+[zed.files]
+"zed/.config/zed/keymap.json" = "~/.config/zed/keymap.json"
+"zed/.config/zed/settings.json" = "~/.config/zed/settings.json"
+"zed/.config/zed/themes/dark.json" = "~/.config/zed/themes/dark.json"
+"zed/.config/zed/themes/light.json" = "~/.config/zed/themes/light.json"
