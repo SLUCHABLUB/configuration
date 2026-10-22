@@ -1,10 +1,12 @@
 #!/bin/sh
 
-wallpapers="$HOME/.local/share/wallpapers/$(darkman get)"
-wallpaper="$(find -L "$wallpapers" -type f -print | shuf -n 1)"
-current="$HOME/.local/share/wallpapers/current"
+data="${XDG_DATA_HOME:-$HOME/.local/share}"
 
-ln -sf "$wallpaper" "$HOME/.local/share/wallpapers/current"
+wallpapers="$data/wallpapers/$(darkman get)"
+wallpaper="$(find -L "$wallpapers" -type f -print | shuf -n 1)"
+current="$data/wallpapers/current"
+
+ln -sf "$wallpaper" "$current"
 
 killall swaybg
 niri msg action spawn -- swaybg --image "$current" --mode fill

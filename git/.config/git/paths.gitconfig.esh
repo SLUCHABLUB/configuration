@@ -1,0 +1,2 @@
+[core]
+    hooksPath = <%= "${XDG_DATA_HOME:-$HOME/.local/share}" %>/git-hooks

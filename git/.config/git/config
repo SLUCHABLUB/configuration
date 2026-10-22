@@ -3,7 +3,6 @@
     email = nelli.skogman@gmail.com
 
 [core]
-    hooksPath = ~/.local/share/git-hooks
     pager = delta
 
 [interactive]
@@ -18,6 +17,7 @@
     paging = never
 
 [include]
+    path = paths.gitconfig
     path = delta-theme.gitconfig
 
 [merge]

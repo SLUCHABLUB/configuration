@@ -22,7 +22,7 @@ to-do list:
 
 Run `./build` to compile every `*.esh` template under the repo. Templates whose basename contains the literal token `MODE` are dual-mode and produce two outputs (`dark` and `light` substituted in). Everything else is a single-output template.
 
-The bat theme is the one exception that needs a manual step after generation: run `bat cache --build` once the generated `.tmTheme` files are in `~/.config/bat/themes/` so bat picks them up.
+The bat theme is the one exception that needs a manual step after generation: run `bat cache --build` once the generated `.tmTheme` files are in `$XDG_CONFIG_HOME/bat/themes/` so bat picks them up.
 
 ## Deploying
 
@@ -30,6 +30,16 @@ The files are deployed with [dotter](https://github.com/SuperCuber/dotter), from
 
 ```sh
 ./build && dotter deploy
+```
+
+The deployment locations are read from the `XDG_*_HOME` variabels.
+The deployed `.profile` exports the XDG variables as they were at build time,
+so later builds from a login shell keep using the same locations.
+
+To use visible directories (`~/Configuration`, `~/Data` and so on) instead, source `visible-directories.sh` before building:
+
+```sh
+. ./visible-directories.sh && ./build && dotter deploy
 ```
 
 ## Wallpapers

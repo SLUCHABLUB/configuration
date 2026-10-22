@@ -1,2 +1,2 @@
 #!/bin/sh
-exec "$HOME/.local/bin/reload-theme" "$1"
+exec "${XDG_BIN_HOME:-$HOME/.local/bin}/reload-theme" "$1"
