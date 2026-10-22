@@ -1,7 +1,7 @@
 ## name: Tilia (<%= $TILIA_MODE %>)
 ## author: SLUCHABLUB
 ## license: GPL-3.0-or-later
-## upstream: https://github.com/SLUCHABLUB/configuration/blob/main/kitty/.config/kitty/themes/<%= $TILIA_MODE %>.conf
+## upstream: https://github.com/SLUCHABLUB/configuration/blob/main/kitty/configuration/kitty/themes/<%= $TILIA_MODE %>.conf
 ## blurb:
 
 foreground <% tilia get-colour text %>
