@@ -31,7 +31,7 @@ The files are deployed with [dotter](https://github.com/SuperCuber/dotter), from
 dotter deploy
 ```
 
-The deployment locations are read from the `XDG_*_HOME` variabels. The deployed `.profile` exports the XDG variables as they were at build time, so later builds from a login shell keep using the same locations.
+The deployment locations are read from the `XDG_*_HOME` variables. The deployed `.profile` exports the XDG variables as they were at build time, so later builds from a login shell keep using the same locations.
 
 To use visible directories (`~/Configuration`, `~/Data` and so on) instead, source `visible-directories.sh` before building:
 

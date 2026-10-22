@@ -112,7 +112,6 @@ binds {
     Mod+Q repeat=false { close-window; }
     Mod+R repeat=false { spawn "reload-theme"; }
     Mod+T repeat=false { toggle-window-floating; }
-    Mod+V repeat=false { spawn "pavucontrol"; }
 
     Mod+Shift+F repeat=false {
         // kdl 1.0 syntax

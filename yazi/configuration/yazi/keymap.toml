@@ -48,7 +48,7 @@ run = "escape"
 on = "<Backspace>"
 run = "remove --force"
 
-# Ctrl + Lett
+# Ctrl + Letters
 
 [[mgr.keymap]]
 on = "<C-a>"

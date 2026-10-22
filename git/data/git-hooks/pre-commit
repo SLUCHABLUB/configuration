@@ -41,7 +41,7 @@ then
     ./gradlew check
 fi
 
-# TODO: run `shellcheck` on comitted files
+# TODO: run `shellcheck` on committed files
 
 codebook-lsp lint -su .
 

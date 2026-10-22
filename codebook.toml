@@ -1,0 +1,269 @@
+use_global = false
+
+dictionaries = ["en_gb"]
+
+flag_words = [
+    "chanel",
+    "gray",
+    "grayscale",
+]
+
+words = [
+    # People and places
+    "Lund",
+    "Nelli",
+    "SLUCHABLUB",
+    "Skogman",
+    # Programs and projects
+    "basedpyright",
+    "blesh",
+    "brightnessctl",
+    "btop",
+    "clippy",
+    "cowsay",
+    "darkman",
+    "dbus",
+    "dotter",
+    "esh",
+    "eza",
+    "fastfetch",
+    "fontconfig",
+    "freedesktop",
+    "fuzzel",
+    "gitconfig",
+    "kde",
+    "kdeconnect",
+    "kdeglobals",
+    "kdenlive",
+    "kdl",
+    "killall",
+    "kreadconfig",
+    "ksudoku",
+    "kwalletmanager",
+    "kwriteconfig",
+    "mako",
+    "makoctl",
+    "niri",
+    "playerctl",
+    "prismlauncher",
+    "quickshell",
+    "rclone",
+    "readlink",
+    "rustup",
+    "sed",
+    "shellcheck",
+    "shuf",
+    "starship",
+    "swaybg",
+    "swayidle",
+    "swaylock",
+    "systemctl",
+    "textadept",
+    "textadept's",
+    "tilia",
+    "tombi",
+    "vesktop",
+    "waybar",
+    "wayland",
+    "wireplumber",
+    "wpctl",
+    "xdg",
+    "xkb",
+    "yazi",
+    # Hardware
+    "backlight",
+]
+
+ignore_paths = [
+    # Lists words on purpose.
+    "codebook.toml",
+    "**/LICENSE",
+    # Lists misspellings on purpose.
+    "codebook/configuration/codebook/codebook.toml",
+    # Generated and rewritten by btop.
+    "btop/configuration/btop/btop.conf",
+    # Third-party code.
+    "textadept/.textadept/modules/lsp/**",
+    "yazi/configuration/yazi/plugins/**",
+    # A list of patterns, not prose.
+    "micro/configuration/micro/syntax/**",
+]
+
+ignore_patterns = [
+    # Colour format specifier.
+    'rrggbbaa',
+    # KDE colour scheme files and their groups.
+    '\.colors\b',
+    '\bColors:',
+    # Constants and environment variables such as XDG_CONFIG_HOME.
+    '\b[A-Z][A-Z0-9]*_[A-Z0-9_]+\b',
+    # Command line options such as --no-linenumbers.
+    '''(?:^|[\s"'=])--?[A-Za-z][\w-]*''',
+    # Quoted paths.
+    '"[^"\n]*/[^"\n]*"',
+]
+
+# Highlight groups shared by editor themes.
+[[overrides]]
+paths = ["micro/**", "zed/**"]
+extra_words = ["preproc"]
+
+# Keys in JSON settings are defined by the program reading them.
+[[overrides]]
+paths = ["**/*.json", "**/*.jsonc"]
+extra_ignore_patterns = ['"[\w-]+"\s*:']
+
+[[overrides]]
+paths = ["bash/**"]
+extra_words = [
+    "ble",
+    "erasedups",
+    "HISTCONTROL",
+    "HISTFILE",
+    "histappend",
+    "icat",
+    "ignoredups",
+    "lla",
+    "mktemp",
+    "zeditor",
+]
+# Templates passed to mktemp.
+extra_ignore_patterns = ['X{6,}']
+
+[[overrides]]
+paths = ["**/*.tmTheme.esh"]
+extra_words = ["invisibles"]
+
+[[overrides]]
+paths = ["blesh/**"]
+extra_words = [
+    "ble",
+    "colors",
+    "gray",
+    "varname",
+]
+
+[[overrides]]
+paths = ["darkman/executables/reload-theme"]
+extra_words = ["offscreen"]
+
+[[overrides]]
+paths = ["fastfetch/configuration/fastfetch/config.jsonc"]
+# Module names.
+extra_words = [
+    "colors",
+    "terminalfont",
+]
+
+[[overrides]]
+paths = ["fuzzel/**"]
+# Section names.
+extra_ignore_patterns = ['^\[colors\]$']
+
+[[overrides]]
+paths = ["fonts/**"]
+extra_words = [
+    "Libertinus",
+    "Noto",
+    "Twemoji",
+]
+
+[[overrides]]
+paths = ["git/**"]
+extra_words = [
+    "difftool",
+    "gradlew",
+    "RUSTDOCFLAGS",
+    "tformat",
+    "WIP",
+    "zdiff",
+]
+
+[[overrides]]
+paths = [
+    "**/*.sh",
+    "bash/**",
+    "build",
+    "git/configuration/git/config",
+    "git/data/git-hooks/*",
+    "status/executables/status",
+]
+extra_words = [
+    "esac",
+    "pipefail",
+    "popd",
+    "pushd",
+    "readarray",
+    "shopt",
+]
+
+[[overrides]]
+paths = ["status/executables/status"]
+extra_words = ["ESC"]
+# Printf format strings.
+extra_ignore_patterns = ['%s\w+%s']
+
+[[overrides]]
+paths = ["niri/**/*.kdl"]
+extra_words = [
+    "accel",
+    "clickfinger",
+    "csd",
+]
+# Monitor names.
+extra_ignore_patterns = ['^output ".*"']
+
+[[overrides]]
+paths = ["sh/.profile.esh"]
+extra_words = [
+    "MANPAGER",
+    "MANROFFOPT",
+    "roff",
+]
+# Arguments passed on to roff.
+extra_ignore_patterns = ['-P-\w+']
+
+[[overrides]]
+paths = ["shellcheck/**"]
+extra_words = ["SCRIPTDIR"]
+
+[[overrides]]
+paths = ["swaylock/**"]
+extra_words = ["datestr"]
+
+[[overrides]]
+paths = ["textadept/**"]
+extra_words = [
+    "bottommost",
+    "csi",
+    "Disambiguating",
+    "EDITMSG",
+    "ESC",
+    "KEYSYMS",
+    "resends",
+]
+
+[[overrides]]
+paths = ["textadept/.textadept/themes/*"]
+extra_words = ["BBGGRR"]
+# View properties defined by textadept.
+extra_ignore_patterns = ['\bview\.\w+']
+
+[[overrides]]
+paths = ["waybar/configuration/waybar/config.jsonc"]
+extra_words = [
+    "acpi",
+    "chromeos",
+    "essid",
+]
+
+[[overrides]]
+paths = ["zed/configuration/zed/settings.json"]
+extra_words = ["calt"]
+
+[[overrides]]
+paths = ["zed/configuration/zed/keymap.json"]
+extra_ignore_patterns = [
+    '\w+::\w+', # Actions
+    '"context":\s*"[^"]*"', # Contexts
+]

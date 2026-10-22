@@ -160,7 +160,7 @@
             // Shift + Arrows
             "shift-up": "menu::SelectPrevious",
             "shift-down": "menu::SelectNext",
-            // Contol + Letters
+            // Control + Letters
             "ctrl-c": "project_panel::Copy",
             "ctrl-n": "project_panel::NewFile",
             "ctrl-alt-n": "project_panel::NewDirectory",
