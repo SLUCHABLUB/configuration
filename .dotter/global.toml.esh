@@ -151,6 +151,9 @@ depends = ["darkman"]
 "waybar/configuration/waybar/dark.css" = "<%= "$config" %>/waybar/dark.css"
 "waybar/configuration/waybar/light.css" = "<%= "$config" %>/waybar/light.css"
 
+[xdg.files]
+"xdg/configuration/environment.d/10-xdg-directories.conf" = "<%= "$config" %>/environment.d/10-xdg-directories.conf"
+
 [yazi.files]
 "yazi/configuration/yazi" = "<%= "$config" %>/yazi"
 
