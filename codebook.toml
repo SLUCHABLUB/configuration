@@ -185,6 +185,7 @@ paths = [
     "**/*.sh",
     "bash/**",
     "build",
+    "darkman/executables/reload-theme",
     "git/configuration/git/config",
     "git/data/git-hooks/*",
     "status/executables/status",
