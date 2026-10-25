@@ -39,6 +39,7 @@ words = [
     "killall",
     "kreadconfig",
     "ksudoku",
+    "kwalletd",
     "kwalletmanager",
     "kwriteconfig",
     "mako",
@@ -70,6 +71,7 @@ words = [
     "xdg",
     "xkb",
     "yazi",
+    "zeditor",
     # Hardware
     "backlight",
 ]
@@ -125,7 +127,6 @@ extra_words = [
     "ignoredups",
     "lla",
     "mktemp",
-    "zeditor",
 ]
 # Templates passed to mktemp.
 extra_ignore_patterns = ['X{6,}']

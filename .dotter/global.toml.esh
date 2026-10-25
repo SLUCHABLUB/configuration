@@ -1,4 +1,8 @@
 <%
+# Each package lists the commands it needs under [package.variables.commands],
+# keyed by its own name so the tables merge without clashing.
+# The pre-deploy hook refuses to deploy while any of them is missing.
+
 # Resolve the deployment locations from the XDG variables,
 # falling back to the defaults from the XDG Base Directory Specification.
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -17,10 +21,16 @@ depends = ["sh"]
 "bash/.bashrc" = "~/.bashrc"
 "bash/.bash_login" = "~/.bash_login"
 
+[bash.variables.commands]
+bash = ["bash", "starship"]
+
 [bat.files]
 "bat/configuration/bat/config" = "<%= "$config" %>/bat/config"
 "bat/configuration/bat/themes/Tilia Arrow (dark).tmTheme" = "<%= "$config" %>/bat/themes/Tilia Arrow (dark).tmTheme"
 "bat/configuration/bat/themes/Tilia Arrow (light).tmTheme" = "<%= "$config" %>/bat/themes/Tilia Arrow (light).tmTheme"
+
+[bat.variables.commands]
+bat = ["bat", "moor"]
 
 [blesh.files]
 "blesh/configuration/blesh" = "<%= "$config" %>/blesh"
@@ -28,8 +38,14 @@ depends = ["sh"]
 [btop.files]
 "btop/configuration/btop" = "<%= "$config" %>/btop"
 
+[btop.variables.commands]
+btop = ["btop"]
+
 [codebook.files]
 "codebook/configuration/codebook" = "<%= "$config" %>/codebook"
+
+[codebook.variables.commands]
+codebook = ["codebook-lsp"]
 
 [darkman]
 depends = ["wallpapers"]
@@ -40,8 +56,25 @@ depends = ["wallpapers"]
 "darkman/executables/switch-wallpaper" = "<%= "$executables" %>/switch-wallpaper"
 "darkman/data/darkman" = "<%= "$data" %>/darkman"
 
+[darkman.variables.commands]
+darkman = [
+    "darkman",
+    "killall",
+    "kitten",
+    "kreadconfig6",
+    "kwriteconfig6",
+    "makoctl",
+    "niri",
+    "plasma-apply-colorscheme",
+    "shuf",
+    "swaybg",
+]
+
 [fastfetch.files]
 "fastfetch/configuration/fastfetch" = "<%= "$config" %>/fastfetch"
+
+[fastfetch.variables.commands]
+fastfetch = ["fastfetch"]
 
 [fonts.files]
 "fonts/configuration/fontconfig/fonts.conf" = "<%= "$config" %>/fontconfig/fonts.conf"
@@ -52,6 +85,9 @@ depends = ["darkman"]
 [fuzzel.files]
 "fuzzel/configuration/fuzzel/dark.ini" = "<%= "$config" %>/fuzzel/dark.ini"
 "fuzzel/configuration/fuzzel/light.ini" = "<%= "$config" %>/fuzzel/light.ini"
+
+[fuzzel.variables.commands]
+fuzzel = ["fuzzel"]
 
 [git]
 depends = ["darkman"]
@@ -64,8 +100,14 @@ depends = ["darkman"]
 "git/configuration/git/delta-light.gitconfig" = "<%= "$config" %>/git/delta-light.gitconfig"
 "git/data/git-hooks" = "<%= "$data" %>/git-hooks"
 
+[git.variables.commands]
+git = ["git", "delta", "codebook-lsp"]
+
 [helium.files]
 "helium/configuration/helium-browser-flags.conf" = "<%= "$config" %>/helium-browser-flags.conf"
+
+[helium.variables.commands]
+helium = ["helium-browser"]
 
 [kde.files]
 "kde/data/color-schemes/Tilia (dark).colors" = "<%= "$data" %>/color-schemes/Tilia (dark).colors"
@@ -79,8 +121,14 @@ depends = ["darkman"]
 "kitty/configuration/kitty/themes/dark.conf" = "<%= "$config" %>/kitty/themes/dark.conf"
 "kitty/configuration/kitty/themes/light.conf" = "<%= "$config" %>/kitty/themes/light.conf"
 
+[kitty.variables.commands]
+kitty = ["kitty", "moor"]
+
 [mako.files]
 "mako/configuration/mako/config" = "<%= "$config" %>/mako/config"
+
+[mako.variables.commands]
+mako = ["mako"]
 
 [micro]
 depends = ["darkman"]
@@ -92,6 +140,9 @@ depends = ["darkman"]
 "micro/configuration/micro/colorschemes/dark.micro" = "<%= "$config" %>/micro/colorschemes/dark.micro"
 "micro/configuration/micro/colorschemes/light.micro" = "<%= "$config" %>/micro/colorschemes/light.micro"
 
+[micro.variables.commands]
+micro = ["micro"]
+
 [niri]
 depends = ["darkman", "swaylock"]
 
@@ -100,26 +151,52 @@ depends = ["darkman", "swaylock"]
 "niri/configuration/niri/dark.kdl" = "<%= "$config" %>/niri/dark.kdl"
 "niri/configuration/niri/light.kdl" = "<%= "$config" %>/niri/light.kdl"
 
+[niri.variables.commands]
+niri = [
+    "niri",
+    "brightnessctl",
+    "dbus-update-activation-environment",
+    "kwalletd6",
+    "playerctl",
+    "wpctl",
+    "/usr/lib/polkit-kde-authentication-agent-1",
+]
+
 [portal.files]
 "portal/configuration/xdg-desktop-portal" = "<%= "$config" %>/xdg-desktop-portal"
 
 [sh.files]
 "sh/.profile" = "~/.profile"
 
+[sh.variables.commands]
+sh = ["bat", "helium-browser", "textadept-curses"]
+
 [shellcheck.files]
 "shellcheck/.shellcheckrc" = "~/.shellcheckrc"
+
+[shellcheck.variables.commands]
+shellcheck = ["shellcheck"]
 
 [starship.files]
 "starship/configuration/starship.toml" = "<%= "$config" %>/starship.toml"
 
+[starship.variables.commands]
+starship = ["starship"]
+
 [status.files]
 "status/executables/status" = "<%= "$executables" %>/status"
+
+[status.variables.commands]
+status = ["bash", "git"]
 
 [swayidle]
 depends = ["swaylock"]
 
 [swayidle.files]
 "swayidle/configuration/swayidle" = "<%= "$config" %>/swayidle"
+
+[swayidle.variables.commands]
+swayidle = ["swayidle", "niri"]
 
 [swaylock]
 depends = ["darkman"]
@@ -128,6 +205,9 @@ depends = ["darkman"]
 "swaylock/configuration/swaylock/dark" = "<%= "$config" %>/swaylock/dark"
 "swaylock/configuration/swaylock/light" = "<%= "$config" %>/swaylock/light"
 "swaylock/executables/lock" = "<%= "$executables" %>/lock"
+
+[swaylock.variables.commands]
+swaylock = ["swaylock"]
 
 [textadept]
 depends = ["kitty"]
@@ -138,6 +218,9 @@ depends = ["kitty"]
 "textadept/.textadept/modules" = "~/.textadept/modules"
 "textadept/.textadept/themes/tilia-arrow-dark.lua" = "~/.textadept/themes/tilia-arrow-dark.lua"
 "textadept/.textadept/themes/tilia-arrow-light.lua" = "~/.textadept/themes/tilia-arrow-light.lua"
+
+[textadept.variables.commands]
+textadept = ["textadept-curses", "codebook-lsp", "kitten"]
 
 [wallpapers.files]
 "wallpapers/data/wallpapers" = "<%= "$data" %>/wallpapers"
@@ -151,14 +234,23 @@ depends = ["darkman"]
 "waybar/configuration/waybar/dark.css" = "<%= "$config" %>/waybar/dark.css"
 "waybar/configuration/waybar/light.css" = "<%= "$config" %>/waybar/light.css"
 
+[waybar.variables.commands]
+waybar = ["waybar", "brightnessctl", "wpctl"]
+
 [xdg.files]
 "xdg/configuration/environment.d/10-xdg-directories.conf" = "<%= "$config" %>/environment.d/10-xdg-directories.conf"
 
 [yazi.files]
 "yazi/configuration/yazi" = "<%= "$config" %>/yazi"
 
+[yazi.variables.commands]
+yazi = ["yazi"]
+
 [zed.files]
 "zed/configuration/zed/keymap.json" = "<%= "$config" %>/zed/keymap.json"
 "zed/configuration/zed/settings.json" = "<%= "$config" %>/zed/settings.json"
 "zed/configuration/zed/themes/dark.json" = "<%= "$config" %>/zed/themes/dark.json"
 "zed/configuration/zed/themes/light.json" = "<%= "$config" %>/zed/themes/light.json"
+
+[zed.variables.commands]
+zed = ["zeditor"]

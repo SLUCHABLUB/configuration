@@ -41,6 +41,8 @@ To use visible directories (`~/Configuration`, `~/Data` and so on) instead, sour
 dotter deploy
 ```
 
+Each package lists the commands it needs under `[package.variables.commands]` in `.dotter/global.toml.esh`. Before deploying, `.dotter/pre_deploy.sh` checks that every command of the selected packages is installed, and refuses to deploy otherwise.
+
 ## External Content
 
 ### Wallpapers
