@@ -12,7 +12,11 @@ export XDG_BIN_HOME="<%= "${XDG_BIN_HOME:-$HOME/.local/bin}" %>"
 export PATH="$XDG_BIN_HOME:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export BROWSER="helium-browser"
+if command -v browse >/dev/null
+then
+    export BROWSER="browse"
+fi
+
 export EDITOR="textadept-curses"
 export PAGER="bat --style header-filename"
 

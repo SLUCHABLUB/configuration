@@ -28,7 +28,6 @@ alias ..='cd ..'
 alias cat='bat --paging=never'
 alias du='dust'
 alias edit='$EDITOR'
-alias browse='$BROWSER'
 alias fetch='fastfetch'
 alias icat='kitten icat'
 alias ide='zeditor'
@@ -36,7 +35,6 @@ alias grep='grep --color=auto'
 alias ls='eza'
 alias open='xdg-open'
 alias rg='rg -S'
-alias spawn='niri msg action spawn --'
 
 function fm() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
