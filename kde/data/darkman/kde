@@ -1,0 +1,12 @@
+#!/bin/sh
+
+mode="$1"
+
+data="${XDG_DATA_HOME:-$HOME/.local/share}"
+
+colour_scheme="$data/color-schemes/Tilia ($mode).colors"
+accent_colour="$(kreadconfig6 --file "$colour_scheme" --group Colors:Window --key DecorationFocus)"
+kwriteconfig6 --file kdeglobals --group General --key AccentColor "$accent_colour"
+
+kwriteconfig6 --file kdeglobals --group General --key ColorScheme --delete
+QT_QPA_PLATFORM=offscreen plasma-apply-colorscheme "Tilia ($mode)"

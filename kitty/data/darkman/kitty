@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mode="$1"
+
+kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "Tilia ($mode)"

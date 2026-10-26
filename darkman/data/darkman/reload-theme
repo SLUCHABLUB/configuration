@@ -1,2 +1,0 @@
-#!/bin/sh
-exec "${XDG_BIN_HOME:-$HOME/.local/bin}/reload-theme" "$1"

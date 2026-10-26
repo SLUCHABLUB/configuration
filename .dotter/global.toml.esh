@@ -47,28 +47,12 @@ btop = ["btop"]
 [codebook.variables.commands]
 codebook = ["codebook-lsp"]
 
-[darkman]
-depends = ["wallpapers"]
-
 [darkman.files]
 "darkman/configuration/darkman" = "<%= "$config" %>/darkman"
 "darkman/executables/reload-theme" = "<%= "$executables" %>/reload-theme"
-"darkman/executables/switch-wallpaper" = "<%= "$executables" %>/switch-wallpaper"
-"darkman/data/darkman" = "<%= "$data" %>/darkman"
 
 [darkman.variables.commands]
-darkman = [
-    "darkman",
-    "killall",
-    "kitten",
-    "kreadconfig6",
-    "kwriteconfig6",
-    "makoctl",
-    "niri",
-    "plasma-apply-colorscheme",
-    "shuf",
-    "swaybg",
-]
+darkman = ["darkman"]
 
 [fastfetch.files]
 "fastfetch/configuration/fastfetch" = "<%= "$config" %>/fastfetch"
@@ -85,6 +69,7 @@ depends = ["darkman"]
 [fuzzel.files]
 "fuzzel/configuration/fuzzel/dark.ini" = "<%= "$config" %>/fuzzel/dark.ini"
 "fuzzel/configuration/fuzzel/light.ini" = "<%= "$config" %>/fuzzel/light.ini"
+"fuzzel/data/darkman/fuzzel" = "<%= "$data" %>/darkman/fuzzel"
 
 [fuzzel.variables.commands]
 fuzzel = ["fuzzel"]
@@ -99,6 +84,7 @@ depends = ["darkman"]
 "git/configuration/git/delta-dark.gitconfig" = "<%= "$config" %>/git/delta-dark.gitconfig"
 "git/configuration/git/delta-light.gitconfig" = "<%= "$config" %>/git/delta-light.gitconfig"
 "git/data/git-hooks" = "<%= "$data" %>/git-hooks"
+"git/data/darkman/git" = "<%= "$data" %>/darkman/git"
 
 [git.variables.commands]
 git = ["git", "delta", "codebook-lsp"]
@@ -110,9 +96,16 @@ git = ["git", "delta", "codebook-lsp"]
 [helium.variables.commands]
 helium = ["helium-browser"]
 
+[kde]
+depends = ["darkman"]
+
 [kde.files]
 "kde/data/color-schemes/Tilia (dark).colors" = "<%= "$data" %>/color-schemes/Tilia (dark).colors"
 "kde/data/color-schemes/Tilia (light).colors" = "<%= "$data" %>/color-schemes/Tilia (light).colors"
+"kde/data/darkman/kde" = "<%= "$data" %>/darkman/kde"
+
+[kde.variables.commands]
+kde = ["kreadconfig6", "kwriteconfig6", "plasma-apply-colorscheme"]
 
 [kitty]
 depends = ["darkman"]
@@ -121,12 +114,17 @@ depends = ["darkman"]
 "kitty/configuration/kitty/kitty.conf" = "<%= "$config" %>/kitty/kitty.conf"
 "kitty/configuration/kitty/themes/dark.conf" = "<%= "$config" %>/kitty/themes/dark.conf"
 "kitty/configuration/kitty/themes/light.conf" = "<%= "$config" %>/kitty/themes/light.conf"
+"kitty/data/darkman/kitty" = "<%= "$data" %>/darkman/kitty"
 
 [kitty.variables.commands]
 kitty = ["kitty", "moor"]
 
+[mako]
+depends = ["darkman"]
+
 [mako.files]
 "mako/configuration/mako/config" = "<%= "$config" %>/mako/config"
+"mako/data/darkman/mako" = "<%= "$data" %>/darkman/mako"
 
 [mako.variables.commands]
 mako = ["mako"]
@@ -140,6 +138,7 @@ depends = ["darkman"]
 "micro/configuration/micro/syntax" = "<%= "$config" %>/micro/syntax"
 "micro/configuration/micro/colorschemes/dark.micro" = "<%= "$config" %>/micro/colorschemes/dark.micro"
 "micro/configuration/micro/colorschemes/light.micro" = "<%= "$config" %>/micro/colorschemes/light.micro"
+"micro/data/darkman/micro" = "<%= "$data" %>/darkman/micro"
 
 [micro.variables.commands]
 micro = ["micro"]
@@ -152,6 +151,7 @@ depends = ["darkman", "swaylock"]
 "niri/configuration/niri/dark.kdl" = "<%= "$config" %>/niri/dark.kdl"
 "niri/configuration/niri/light.kdl" = "<%= "$config" %>/niri/light.kdl"
 "niri/executables/spawn" = "<%= "$executables" %>/spawn"
+"niri/data/darkman/niri" = "<%= "$data" %>/darkman/niri"
 
 [niri.variables.commands]
 niri = [
@@ -207,6 +207,7 @@ depends = ["darkman"]
 "swaylock/configuration/swaylock/dark" = "<%= "$config" %>/swaylock/dark"
 "swaylock/configuration/swaylock/light" = "<%= "$config" %>/swaylock/light"
 "swaylock/executables/lock" = "<%= "$executables" %>/lock"
+"swaylock/data/darkman/swaylock" = "<%= "$data" %>/darkman/swaylock"
 
 [swaylock.variables.commands]
 swaylock = ["swaylock"]
@@ -224,8 +225,17 @@ depends = ["kitty"]
 [textadept.variables.commands]
 textadept = ["textadept-curses", "codebook-lsp", "kitten"]
 
+[wallpapers]
+# Wallpapers are drawn with swaybg, spawned through niri.
+depends = ["darkman", "niri"]
+
 [wallpapers.files]
 "wallpapers/data/wallpapers" = "<%= "$data" %>/wallpapers"
+"wallpapers/executables/switch-wallpaper" = "<%= "$executables" %>/switch-wallpaper"
+"wallpapers/data/darkman/wallpapers" = "<%= "$data" %>/darkman/wallpapers"
+
+[wallpapers.variables.commands]
+wallpapers = ["darkman", "killall", "shuf", "swaybg"]
 
 [waybar]
 depends = ["darkman"]
@@ -235,9 +245,10 @@ depends = ["darkman"]
 "waybar/configuration/waybar/style.css" = "<%= "$config" %>/waybar/style.css"
 "waybar/configuration/waybar/dark.css" = "<%= "$config" %>/waybar/dark.css"
 "waybar/configuration/waybar/light.css" = "<%= "$config" %>/waybar/light.css"
+"waybar/data/darkman/waybar" = "<%= "$data" %>/darkman/waybar"
 
 [waybar.variables.commands]
-waybar = ["waybar", "brightnessctl", "wpctl"]
+waybar = ["waybar", "brightnessctl", "killall", "wpctl"]
 
 [xdg.files]
 "xdg/configuration/environment.d/10-xdg-directories.conf" = "<%= "$config" %>/environment.d/10-xdg-directories.conf"

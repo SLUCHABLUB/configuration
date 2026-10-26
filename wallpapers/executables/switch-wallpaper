@@ -1,12 +1,13 @@
 #!/bin/sh
 
 data="${XDG_DATA_HOME:-$HOME/.local/share}"
+mode="${1:-$(darkman get)}"
 
-wallpapers="$data/wallpapers/$(darkman get)"
+wallpapers="$data/wallpapers/$mode"
 wallpaper="$(find -L "$wallpapers" -type f -print | shuf -n 1)"
 current="$data/wallpapers/current"
 
 ln -sf "$wallpaper" "$current"
 
 killall swaybg
-niri msg action spawn -- swaybg --image "$current" --mode fill
+spawn swaybg --image "$current" --mode fill

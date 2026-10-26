@@ -1,49 +1,29 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-export NIRI_SOCKET=${NIRI_SOCKET:-$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'niri.*' -print -quit)}
-
-config="${XDG_CONFIG_HOME:-$HOME/.config}"
 data="${XDG_DATA_HOME:-$HOME/.local/share}"
-executables="${XDG_BIN_HOME:-$HOME/.local/bin}"
 
-theme_kind="${1:-$(darkman get)}"
+mode="${1:-$(darkman get)}"
 
 # Darkman reports "null" before it knows the mode.
-case "$theme_kind" in
+case "$mode" in
 dark | light) ;;
 *)
-    echo "Refusing to switch to unknown mode '$theme_kind'" >&2
+    echo "Refusing to switch to unknown mode '$mode'" >&2
     exit 1
     ;;
 esac
 
-echo "Switching to $theme_kind mode"
+echo "Switching to $mode mode"
 
-# Programs with first-party mode support.
+# Run the same hooks darkman runs when the mode changes.
+status=0
+for hook in "$data/darkman"/*
+do
+    if [ -x "$hook" ] && ! "$hook" "$mode"
+    then
+        echo "The hook '$hook' failed" >&2
+        status=1
+    fi
+done
 
-kitten themes --cache-age=-1 --config-file-name=themes.conf --reload-in=all "Tilia ($theme_kind)"
-makoctl mode -s "$theme_kind"
-
-colour_scheme="$data/color-schemes/Tilia ($theme_kind).colors"
-accent_colour="$(kreadconfig6 --file "$colour_scheme" --group Colors:Window --key DecorationFocus)"
-kwriteconfig6 --file kdeglobals --group General --key AccentColor "$accent_colour"
-
-kwriteconfig6 --file kdeglobals --group General --key ColorScheme --delete
-QT_QPA_PLATFORM=offscreen plasma-apply-colorscheme "Tilia ($theme_kind)"
-
-# Manual theme switching.
-ln -sfn "$config/git/delta-${theme_kind}.gitconfig" "$config/git/delta-theme.gitconfig"
-ln -sfn "$config/fuzzel/${theme_kind}.ini" "$config/fuzzel/fuzzel.ini"
-ln -sfn "$config/micro/colorschemes/${theme_kind}.micro" "$config/micro/colorschemes/current.micro"
-ln -sfn "$config/niri/${theme_kind}.kdl" "$config/niri/theme.kdl"
-ln -sfn "$config/swaylock/${theme_kind}" "$config/swaylock/config"
-ln -sfn "$config/waybar/${theme_kind}.css" "$config/waybar/colours.css"
-
-# Signal long running programs.
-niri msg action load-config-file
-killall --signal SIGUSR2 waybar
-
-# Handle wallpapers.
-"$executables/switch-wallpaper"
-
-:
+exit "$status"

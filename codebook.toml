@@ -145,7 +145,7 @@ extra_words = [
 ]
 
 [[overrides]]
-paths = ["darkman/executables/reload-theme"]
+paths = ["kde/data/darkman/kde"]
 extra_words = ["offscreen"]
 
 [[overrides]]
@@ -183,12 +183,12 @@ extra_words = [
 [[overrides]]
 paths = [
     "**/*.sh",
+    "*/data/darkman/*",
+    "*/executables/*",
     "bash/**",
     "build",
-    "darkman/executables/reload-theme",
     "git/configuration/git/config",
     "git/data/git-hooks/*",
-    "status/executables/status",
 ]
 extra_words = [
     "esac",

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+mode="$1"
+
+config="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+ln -sfn "$config/waybar/$mode.css" "$config/waybar/colours.css"
+killall --signal SIGUSR2 waybar
