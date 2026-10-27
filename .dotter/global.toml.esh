@@ -131,20 +131,6 @@ depends = ["darkman"]
 [mako.variables.commands]
 mako = ["mako"]
 
-[micro]
-depends = ["darkman"]
-
-[micro.files]
-"micro/configuration/micro/bindings.json" = "<%= "$config" %>/micro/bindings.json"
-"micro/configuration/micro/settings.json" = "<%= "$config" %>/micro/settings.json"
-"micro/configuration/micro/syntax" = "<%= "$config" %>/micro/syntax"
-"micro/configuration/micro/colorschemes/dark.micro" = "<%= "$config" %>/micro/colorschemes/dark.micro"
-"micro/configuration/micro/colorschemes/light.micro" = "<%= "$config" %>/micro/colorschemes/light.micro"
-"micro/data/theme-hooks/micro" = "<%= "$data" %>/theme-hooks/micro"
-
-[micro.variables.commands]
-micro = ["micro"]
-
 [niri]
 depends = ["darkman", "spawn", "swaylock"]
 

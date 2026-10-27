@@ -1,7 +1,0 @@
-#!/bin/sh
-
-mode="$1"
-
-config="${XDG_CONFIG_HOME:-$HOME/.config}"
-
-ln -sfn "$config/micro/colorschemes/$mode.micro" "$config/micro/colorschemes/current.micro"

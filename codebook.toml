@@ -89,8 +89,6 @@ ignore_paths = [
     # Third-party code.
     "textadept/.textadept/modules/lsp/**",
     "yazi/configuration/yazi/plugins/**",
-    # A list of patterns, not prose.
-    "micro/configuration/micro/syntax/**",
 ]
 
 ignore_patterns = [
@@ -109,7 +107,7 @@ ignore_patterns = [
 
 # Highlight groups shared by editor themes.
 [[overrides]]
-paths = ["micro/**", "zed/**"]
+paths = ["zed/**"]
 extra_words = ["preproc"]
 
 # Keys in JSON settings are defined by the program reading them.
