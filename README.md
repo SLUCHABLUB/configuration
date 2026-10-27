@@ -51,4 +51,4 @@ All wallpapers are taken from the [Rosé Pine Wallpaper repository](https://gith
 
 ### Textadept LSP module
 
-The LSP module in `textadept/.textadept/modules/lsp/` is copied unmodified from the [Textadept 13.0 modules release](https://github.com/orbitalquark/textadept/releases/tag/textadept_13.0) and is not licensed from here.
+The LSP module in `textadept/configuration/textadept/modules/lsp/` is copied unmodified from the [Textadept 13.0 modules release](https://github.com/orbitalquark/textadept/releases/tag/textadept_13.0) and is not licensed from here.

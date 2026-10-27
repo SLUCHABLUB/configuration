@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Textadept ignores the XDG directories and defaults to ~/.textadept.
+exec textadept-curses --userhome "${XDG_CONFIG_HOME:-$HOME/.config}/textadept" "$@"

@@ -87,7 +87,7 @@ ignore_paths = [
     # Generated and rewritten by btop.
     "btop/configuration/btop/btop.conf",
     # Third-party code.
-    "textadept/.textadept/modules/lsp/**",
+    "textadept/configuration/textadept/modules/lsp/**",
     "yazi/configuration/yazi/plugins/**",
 ]
 
@@ -248,7 +248,7 @@ extra_words = [
 ]
 
 [[overrides]]
-paths = ["textadept/.textadept/themes/*"]
+paths = ["textadept/configuration/textadept/themes/*"]
 extra_words = ["BBGGRR"]
 # View properties defined by textadept.
 extra_ignore_patterns = ['\bview\.\w+']

@@ -155,11 +155,14 @@ niri = [
 [portal.files]
 "portal/configuration/xdg-desktop-portal" = "<%= "$config" %>/xdg-desktop-portal"
 
+[sh]
+depends = ["textadept"]
+
 [sh.files]
 "sh/.profile" = "~/.profile"
 
 [sh.variables.commands]
-sh = ["bat", "textadept-curses"]
+sh = ["bat"]
 
 [shellcheck.files]
 "shellcheck/.shellcheckrc" = "~/.shellcheckrc"
@@ -212,11 +215,12 @@ swaylock = ["swaylock"]
 depends = ["kitty"]
 
 [textadept.files]
-"textadept/.textadept/init.lua" = "~/.textadept/init.lua"
-"textadept/.textadept/lexers" = "~/.textadept/lexers"
-"textadept/.textadept/modules" = "~/.textadept/modules"
-"textadept/.textadept/themes/tilia-arrow-dark.lua" = "~/.textadept/themes/tilia-arrow-dark.lua"
-"textadept/.textadept/themes/tilia-arrow-light.lua" = "~/.textadept/themes/tilia-arrow-light.lua"
+"textadept/configuration/textadept/init.lua" = "<%= "$config" %>/textadept/init.lua"
+"textadept/configuration/textadept/lexers" = "<%= "$config" %>/textadept/lexers"
+"textadept/configuration/textadept/modules" = "<%= "$config" %>/textadept/modules"
+"textadept/configuration/textadept/themes/tilia-arrow-dark.lua" = "<%= "$config" %>/textadept/themes/tilia-arrow-dark.lua"
+"textadept/configuration/textadept/themes/tilia-arrow-light.lua" = "<%= "$config" %>/textadept/themes/tilia-arrow-light.lua"
+"textadept/executables/edit" = "<%= "$executables" %>/edit"
 
 [textadept.variables.commands]
 textadept = ["textadept-curses", "codebook-lsp", "kitten"]
