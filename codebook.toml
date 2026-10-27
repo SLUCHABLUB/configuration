@@ -15,10 +15,14 @@ words = [
     "SLUCHABLUB",
     "Skogman",
     # Programs and projects
+    "avahi",
     "basedpyright",
     "brightnessctl",
     "btop",
+    "ccache",
+    "chsh",
     "clippy",
+    "Cloudflare",
     "cowsay",
     "darkman",
     "dbus",
@@ -27,9 +31,14 @@ words = [
     "eza",
     "fastfetch",
     "fontconfig",
+    "fprintd",
     "freedesktop",
+    "fstrim",
     "fuzzel",
     "gitconfig",
+    "glibc's",
+    "hostnamectl",
+    "initramfs",
     "kde",
     "kdeconnect",
     "kdeglobals",
@@ -41,10 +50,17 @@ words = [
     "kwalletd",
     "kwalletmanager",
     "kwriteconfig",
+    "libxkbcommon",
+    "logind",
+    "makepkg",
     "mako",
     "makoctl",
     "mkdir",
+    "mkinitcpio",
     "niri",
+    "oomd",
+    "pacman",
+    "paru",
     "playerctl",
     "prismlauncher",
     "quickshell",
@@ -60,12 +76,15 @@ words = [
     "swayidle",
     "swaylock",
     "systemctl",
+    "tailscaled",
     "textadept",
     "textadept's",
     "tilia",
+    "timesyncd",
     "tombi",
     "vesktop",
     "waybar",
+    "waydroid",
     "wayland",
     "wireplumber",
     "wpctl",
@@ -73,8 +92,15 @@ words = [
     "xkb",
     "yazi",
     "zeditor",
+    "zram",
+    "zswap",
     # Hardware
     "backlight",
+    # System files and concepts
+    "hardlinks",
+    "mirrorlist",
+    "tunables",
+    "zoneinfo",
 ]
 
 ignore_paths = [
@@ -96,6 +122,8 @@ ignore_patterns = [
     # KDE colour scheme files and their groups.
     '\.colors\b',
     '\bColors:',
+    # Plural acronyms such as UUIDs, which would otherwise split into UUI and Ds.
+    '\b[A-Z]{2,}s\b',
     # Constants and environment variables such as XDG_CONFIG_HOME.
     '\b[A-Z][A-Z0-9]*_[A-Z0-9_]+\b',
     # Command line options such as --no-linenumbers.
@@ -223,6 +251,72 @@ extra_words = ["SCRIPTDIR"]
 [[overrides]]
 paths = ["starship/**"]
 extra_words = ["pipestatus"]
+
+[[overrides]]
+paths = ["system/grub/**"]
+extra_words = [
+    "gpt",
+    "msdos",
+    "rootfstype",
+]
+
+[[overrides]]
+paths = ["system/locale/**"]
+extra_words = ["dotdecimal"]
+
+[[overrides]]
+paths = ["system/locale/usr/local/share/i18n/locales/*"]
+# Keywords of the locale definition format.
+extra_words = [
+    "abday",
+    "abmon",
+    "ampm",
+    "noexpr",
+    "nostr",
+    "yesexpr",
+    "yesstr",
+]
+# Swedish names and codes.
+extra_ignore_patterns = [
+    '"Sverige"',
+    '"SWE"',
+]
+
+[[overrides]]
+paths = ["system/mkinitcpio/**"]
+# Hook names.
+extra_words = [
+    "consolefont",
+    "kms",
+    "modconf",
+]
+
+[[overrides]]
+paths = ["system/pacman/**"]
+extra_words = [
+    "alpm",
+    "multilib",
+]
+
+[[overrides]]
+paths = ["system/pam/**"]
+extra_words = ["keyring"]
+
+[[overrides]]
+paths = ["system/systemd/etc/systemd/resolved.conf.d/*"]
+extra_words = [
+    "DNSSEC",
+    "TLS",
+]
+
+[[overrides]]
+paths = ["system/udev/**"]
+extra_words = [
+    "FPGA",
+    "FTDI",
+    "uaccess",
+    "ULX",
+]
 
 [[overrides]]
 paths = ["swaylock/**"]
