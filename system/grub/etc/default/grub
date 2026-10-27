@@ -1,0 +1,21 @@
+GRUB_DISTRIBUTOR="$(. /etc/os-release && echo "${NAME}")"
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_TIMEOUT_STYLE=menu
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+
+# Note that these are machine specific.
+GRUB_CMDLINE_LINUX="zswap.enabled=0 rootfstype=ext4"
+
+# Preload partition table formats to ensure they're loaded.
+GRUB_PRELOAD_MODULES="part_gpt part_msdos"
+
+GRUB_TERMINAL_INPUT=console
+GRUB_GFXMODE=auto
+
+# This avoids a graphical glitch by retaining the resolution between grub and linux.
+GRUB_GFXPAYLOAD_LINUX=keep
+
+GRUB_DISABLE_RECOVERY=true

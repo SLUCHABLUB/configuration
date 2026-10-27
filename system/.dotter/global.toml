@@ -1,0 +1,46 @@
+[settings]
+# Never guess that a file is a handlebars template.
+default_target_type = "symbolic"
+
+[pacman.files]
+"pacman/etc/pacman.conf" = "/etc/pacman.conf"
+
+[paru.files]
+"paru/etc/paru.conf" = "/etc/paru.conf"
+
+[locale.files]
+"locale/etc/locale.conf" = "/etc/locale.conf"
+"locale/etc/locale.gen" = "/etc/locale.gen"
+# locale-gen reads this directory before glibc's own, which is why the definition can live here.
+"locale/usr/local/share/i18n/locales/en_SE@dotdecimal" = "/usr/local/share/i18n/locales/en_SE@dotdecimal"
+
+[console.files]
+"console/etc/vconsole.conf" = "/etc/vconsole.conf"
+
+[mkinitcpio.files]
+"mkinitcpio/etc/mkinitcpio.conf" = "/etc/mkinitcpio.conf"
+
+[grub.files]
+"grub/etc/default/grub" = "/etc/default/grub"
+
+[pam.files]
+"pam/etc/pam.d/login" = "/etc/pam.d/login"
+"pam/etc/pam.d/system-local-login" = "/etc/pam.d/system-local-login"
+
+[systemd.files]
+"systemd/etc/systemd/logind.conf.d/10-power-key.conf" = "/etc/systemd/logind.conf.d/10-power-key.conf"
+"systemd/etc/systemd/resolved.conf.d/10-dns-over-tls.conf" = "/etc/systemd/resolved.conf.d/10-dns-over-tls.conf"
+"systemd/etc/systemd/system/user@1000.service.d/10-xdg-directories.conf" = "/etc/systemd/system/user@1000.service.d/10-xdg-directories.conf"
+
+[docker.files]
+"docker/etc/docker/daemon.json" = "/etc/docker/daemon.json"
+
+[udev.files]
+"udev/etc/udev/rules.d/70-ulx3s.rules" = "/etc/udev/rules.d/70-ulx3s.rules"
+
+[timezone.variables]
+timezone = "Europe/Stockholm"
+
+[shell.variables.login_shells]
+nelli = "/usr/bin/bash"
+root = "/usr/bin/bash"
