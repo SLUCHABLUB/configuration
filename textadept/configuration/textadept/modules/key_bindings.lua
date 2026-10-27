@@ -64,6 +64,5 @@ keys['ctrl+\b'] = deletion.delete_selection_or_to_line_start
 keys['\n'] = buffer.new_line
 keys['shift+\n'] = buffer.new_line
 
--- The specification only covers tab in menus, in text it indents.
 keys['\t'] = buffer.tab
 keys['shift+\t'] = buffer.back_tab

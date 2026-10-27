@@ -5,10 +5,10 @@
 -- None of this is used in other terminals,
 -- since the Linux console prints the user variable instead of ignoring it.
 
-local module = {}
+local kitty = {}
 
 -- Kitty sets TERM to xterm-kitty, which kitten ssh carries over to other machines.
-module.is_terminal = os.getenv('TERM') == 'xterm-kitty'
+kitty.is_terminal = os.getenv('TERM') == 'xterm-kitty'
 
 local ESCAPE = '\27'
 local BELL = '\7'
@@ -32,40 +32,40 @@ local THEMES_BY_SCHEME = {[1] = 'tilia-arrow-dark', [2] = 'tilia-arrow-light'}
 local function write_to_terminal(sequence) io.stdout:write(sequence):flush() end
 
 local function enter_kitty_mode()
-	write_to_terminal(SET_IN_EDITOR)
-	write_to_terminal(PUSH_DISAMBIGUATED_KEYS)
-	write_to_terminal(ENABLE_COLOUR_SCHEME_REPORTS)
-	write_to_terminal(REQUEST_COLOUR_SCHEME_REPORT)
+    write_to_terminal(SET_IN_EDITOR)
+    write_to_terminal(PUSH_DISAMBIGUATED_KEYS)
+    write_to_terminal(ENABLE_COLOUR_SCHEME_REPORTS)
+    write_to_terminal(REQUEST_COLOUR_SCHEME_REPORT)
 end
 
 local function leave_kitty_mode()
-	write_to_terminal(DISABLE_COLOUR_SCHEME_REPORTS)
-	write_to_terminal(POP_KEYBOARD_MODE)
-	write_to_terminal(UNSET_IN_EDITOR)
+    write_to_terminal(DISABLE_COLOUR_SCHEME_REPORTS)
+    write_to_terminal(POP_KEYBOARD_MODE)
+    write_to_terminal(UNSET_IN_EDITOR)
 end
 
 local function set_theme(theme)
-	for _, existing_view in ipairs(_VIEWS) do existing_view:set_theme(theme) end
+    for _, existing_view in ipairs(_VIEWS) do existing_view:set_theme(theme) end
 end
 
 local function follow_colour_scheme(command, arguments)
-	local is_colour_scheme_report = command == COLOUR_SCHEME_REPORT_COMMAND and
-		arguments[1] == COLOUR_SCHEME_REPORT_ARGUMENT
-	if not is_colour_scheme_report then return end
+    local is_colour_scheme_report = command == COLOUR_SCHEME_REPORT_COMMAND and
+        arguments[1] == COLOUR_SCHEME_REPORT_ARGUMENT
+    if not is_colour_scheme_report then return end
 
-	local theme = THEMES_BY_SCHEME[arguments[2]]
-	if theme then set_theme(theme) end
+    local theme = THEMES_BY_SCHEME[arguments[2]]
+    if theme then set_theme(theme) end
 end
 
 -- Used until kitty has reported its colour scheme, or for good in other terminals.
 view:set_theme(THEMES_BY_SCHEME[1])
 
-if module.is_terminal then
-	events.connect(events.INITIALIZED, enter_kitty_mode)
-	events.connect(events.RESUME, enter_kitty_mode)
-	events.connect(events.SUSPEND, leave_kitty_mode)
-	events.connect(events.QUIT, leave_kitty_mode)
-	events.connect(events.CSI, follow_colour_scheme)
+if kitty.is_terminal then
+    events.connect(events.INITIALIZED, enter_kitty_mode)
+    events.connect(events.RESUME, enter_kitty_mode)
+    events.connect(events.SUSPEND, leave_kitty_mode)
+    events.connect(events.QUIT, leave_kitty_mode)
+    events.connect(events.CSI, follow_colour_scheme)
 end
 
-return module
+return kitty
