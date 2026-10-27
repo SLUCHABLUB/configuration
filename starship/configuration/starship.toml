@@ -76,10 +76,12 @@ format = '[$path]($style) '
 style = 'blue'
 truncation_length = -1
 
-# TODO: Look into pipe status.
 [status]
 format = '[\[](fg:white)[$status]($style)[\]](fg:white) '
 pipestatus = true
+pipestatus_format = '[\[](fg:white)$pipestatus[\]](fg:white) '
+pipestatus_segment_format = '[$status]($style)'
+pipestatus_separator = '[ | ](fg:white)'
 disabled = false
 
 [character]

@@ -232,6 +232,10 @@ paths = ["shellcheck/**"]
 extra_words = ["SCRIPTDIR"]
 
 [[overrides]]
+paths = ["starship/**"]
+extra_words = ["pipestatus"]
+
+[[overrides]]
 paths = ["swaylock/**"]
 extra_words = ["datestr"]
 
