@@ -101,26 +101,18 @@ binds {
     Mod+Space  repeat=false { spawn-sh "killall fuzzel || fuzzel"; }
 
     Mod+B repeat=false { spawn "spawn" "browse"; }
-    Mod+C repeat=false { spawn "spawn" "codium"; }
     Mod+D repeat=false { spawn-sh "darkman toggle"; }
     Mod+E repeat=false { quit; }
     Mod+F repeat=false { fullscreen-window; }
     // Allowed when locked to restart the locker if it crashes and leaves a red screen.
     Mod+L repeat=false allow-when-locked=true { spawn "lock"; }
-    Mod+M repeat=false { spawn "spawn" "prismlauncher"; }
-    Mod+N repeat=false { spawn "spawn" "dolphin"; }
     Mod+O repeat=false { spawn-sh r#"pid="$(niri msg --json focused-window | jq '.pid // empty')" && [ -n "$pid" ] && spawn-log "$pid""#; }
     Mod+Q repeat=false { close-window; }
     Mod+R repeat=false { spawn "reload-theme"; }
-    Mod+T repeat=false { toggle-window-floating; }
+    // Allows me to spawn a terminal with one hand.
+    Mod+T repeat=false { spawn "spawn" "terminal"; }
 
-    Mod+Shift+F repeat=false {
-        // kdl 1.0 syntax
-        spawn-sh r#"
-            niri msg action set-window-width 100%
-            niri msg action set-window-height 100%
-        "#
-    }
+    Mod+Shift+F repeat=false { toggle-window-floating; }
     Mod+Alt+F repeat=false { toggle-windowed-fullscreen; }
 
     Mod+Shift+S repeat=false { spawn-sh "systemctl suspend"; }
@@ -186,6 +178,14 @@ binds {
     Mod+Plus  { set-window-width "+16.666666666666666%"; }
     Mod+Shift+Minus { set-window-height "-16.666666666666666%"; }
     Mod+Shift+Plus  { set-window-height "+16.666666666666666%"; }
+
+    Mod+0 repeat=false {
+        // kdl 1.0 syntax
+        spawn-sh r#"
+            niri msg action set-window-width 100%
+            niri msg action set-window-height 100%
+        "#
+    }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
