@@ -105,6 +105,9 @@
         "dark": "Tilia Arrow (dark)"
     },
     "languages": {
+        "Java": {
+            "tab_size": 4
+        },
         "JSON": {
             "tab_size": 4
         },
@@ -114,6 +117,9 @@
             "prettier": {
                 "allowed": false
             }
+        },
+        "Lua": {
+            "tab_size": 4
         },
         "Markdown": {
             "tab_size": 4
