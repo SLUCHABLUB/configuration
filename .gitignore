@@ -3,3 +3,6 @@
 .dotter/cache/
 .dotter/global.toml
 sh/.profile
+system/.dotter/local.toml
+system/.dotter/cache.toml
+system/.dotter/cache/
