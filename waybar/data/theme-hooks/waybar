@@ -5,4 +5,4 @@ mode="$1"
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 ln -sfn "$config/waybar/$mode.css" "$config/waybar/colours.css"
-killall --signal SIGUSR2 waybar
+killall --signal SIGUSR2 "$(command -v waybar)"

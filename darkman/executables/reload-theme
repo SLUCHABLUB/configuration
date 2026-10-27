@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 data="${XDG_DATA_HOME:-$HOME/.local/share}"
 
@@ -15,15 +15,22 @@ esac
 
 echo "Switching to $mode mode"
 
-# Run the same hooks darkman runs when the mode changes.
-status=0
-for hook in "$data/darkman"/*
+failed=()
+for hook in "$data/theme-hooks"/*
 do
     if [ -x "$hook" ] && ! "$hook" "$mode"
     then
-        echo "The hook '$hook' failed" >&2
-        status=1
+        failed+=("$(basename -- "$hook")")
     fi
 done
 
-exit "$status"
+if [ "${#failed[@]}" -gt 0 ]
+then
+    printf -v list '%s, ' "${failed[@]}"
+    message="These hooks failed: ${list%, }"
+
+    echo "$message" >&2
+    notify-send --app-name=reload-theme --urgency=critical \
+        "Switching to $mode mode failed" "$message"
+    exit 1
+fi

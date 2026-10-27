@@ -1,6 +1,7 @@
 font=JetBrainsMono Nerd Font Mono
 hide-before-typing=yes
 minimal-lines=yes
+launch-prefix=spawn
 
 [border]
 width=2

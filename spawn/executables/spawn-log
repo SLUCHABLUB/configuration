@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Open the log of a program started by spawn.
+# Takes the path to a log, or the ID of the program's process or any of its descendants.
+
+if [ "$#" -ne 1 ]
+then
+    echo "Usage: spawn-log log|process-id" >&2
+    exit 2
+fi
+
+target="$1"
+logs="${XDG_RUNTIME_DIR:?XDG_RUNTIME_DIR is not set}/spawn"
+
+fail() {
+    message="$1"
+    echo "$message" >&2
+    notify-send --app-name=spawn-log "Couldn't open the log" "$message"
+    exit 1
+}
+
+case "$target" in
+*/*)
+    log="$target"
+    ;;
+*[!0-9]* | "")
+    fail "'$target' is neither a log nor a process ID"
+    ;;
+*)
+    process="$target"
+    while [ "$process" -gt 1 ]
+    do
+        for candidate in "$logs"/*-"$process".log
+        do
+            if [ -f "$candidate" ]
+            then
+                log="$candidate"
+                break 2
+            fi
+        done
+
+        process="$(ps -o ppid= -p "$process" | tr -d ' ')"
+        [ -n "$process" ] || break
+    done
+    ;;
+esac
+
+if [ -z "$log" ]
+then
+    fail "$target was not started by spawn"
+fi
+
+if ! command -v terminal >/dev/null
+then
+    fail "No terminal is installed to show $log"
+fi
+
+# Print the whole log and keep following it, leaving scrolling to the terminal.
+exec terminal tail -n +1 -f "$log"

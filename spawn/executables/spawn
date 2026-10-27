@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Start a program detached from the caller.
+# Its output is logged to a file in the runtime directory,
+# and a notification is sent if it fails.
+
+if [ "$#" -eq 0 ]
+then
+    echo "Usage: spawn command [argument]..." >&2
+    exit 2
+fi
+
+command="$1"
+
+if ! command -v "$command" >/dev/null
+then
+    echo "$command is not installed" >&2
+    notify-send --app-name=spawn --urgency=critical "Couldn't start $(basename -- "$command")" "$command is not installed"
+    exit 127
+fi
+
+supervisor="${XDG_DATA_HOME:-$HOME/.local/share}/spawn/supervisor"
+
+# A session of its own survives the caller's terminal closing.
+setsid "$supervisor" "$@" </dev/null >/dev/null 2>&1 &

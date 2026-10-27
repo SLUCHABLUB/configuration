@@ -79,12 +79,12 @@ environment {
 }
 
 spawn-at-startup "reload-theme"
-spawn-at-startup "swayidle"
-spawn-at-startup "mako"
-spawn-at-startup "waybar"
+spawn-at-startup "spawn" "swayidle"
+spawn-at-startup "spawn" "mako"
+spawn-at-startup "spawn" "waybar"
 
-spawn-at-startup "/usr/bin/kwalletd6"
-spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-at-startup "spawn" "/usr/bin/kwalletd6"
+spawn-at-startup "spawn" "/usr/lib/polkit-kde-authentication-agent-1"
 
 // Fix the portals (copied from the Arch Wiki).
 spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -97,18 +97,19 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
-    Mod+Return repeat=false { spawn "kitty"; }
+    Mod+Return repeat=false { spawn "spawn" "terminal"; }
     Mod+Space  repeat=false { spawn-sh "killall fuzzel || fuzzel"; }
 
-    Mod+B repeat=false { spawn "browse"; }
-    Mod+C repeat=false { spawn "codium"; }
+    Mod+B repeat=false { spawn "spawn" "browse"; }
+    Mod+C repeat=false { spawn "spawn" "codium"; }
     Mod+D repeat=false { spawn-sh "darkman toggle"; }
     Mod+E repeat=false { quit; }
     Mod+F repeat=false { fullscreen-window; }
     // Allowed when locked to restart the locker if it crashes and leaves a red screen.
     Mod+L repeat=false allow-when-locked=true { spawn "lock"; }
-    Mod+M repeat=false { spawn "prismlauncher"; }
-    Mod+N repeat=false { spawn "dolphin"; }
+    Mod+M repeat=false { spawn "spawn" "prismlauncher"; }
+    Mod+N repeat=false { spawn "spawn" "dolphin"; }
+    Mod+O repeat=false { spawn-sh r#"pid="$(niri msg --json focused-window | jq '.pid // empty')" && [ -n "$pid" ] && spawn-log "$pid""#; }
     Mod+Q repeat=false { close-window; }
     Mod+R repeat=false { spawn "reload-theme"; }
     Mod+T repeat=false { toggle-window-floating; }

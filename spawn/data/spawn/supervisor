@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Run a program for spawn, logging its output and notifying if it fails.
+# The log is named after this process so spawn-log can find it from the program's.
+
+command="$1"
+name="$(basename -- "$command")"
+logs="${XDG_RUNTIME_DIR:?XDG_RUNTIME_DIR is not set}/spawn"
+log="$logs/$name-$$.log"
+
+[ -d "$logs" ] || mkdir -m 700 "$logs"
+
+echo "Started $* at $(date)" >"$log"
+
+"$@" >>"$log" 2>&1 </dev/null
+status=$?
+
+case "$status" in
+# SIGHUP | SIGINT | SIGTERM
+0 | 129 | 130 | 143)
+    echo "Exited with status $status" >>"$log"
+    exit
+    ;;
+esac
+
+last_lines="$(tail -n 3 "$log")"
+echo "Exited with status $status" >>"$log"
+
+# Notification daemons such as mako invoke the action named "default" when the notification is clicked.
+action="$(notify-send --app-name="$name" --urgency=critical --action=default="Show log" \
+    "$name failed with status $status" "$last_lines")"
+if [ "$action" = default ]
+then
+    exec "${XDG_BIN_HOME:-$HOME/.local/bin}/spawn-log" "$log"
+fi

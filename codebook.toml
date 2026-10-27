@@ -44,6 +44,7 @@ words = [
     "kwriteconfig",
     "mako",
     "makoctl",
+    "mkdir",
     "niri",
     "playerctl",
     "prismlauncher",
@@ -52,6 +53,7 @@ words = [
     "readlink",
     "rustup",
     "sed",
+    "setsid",
     "shellcheck",
     "shuf",
     "starship",
@@ -145,7 +147,7 @@ extra_words = [
 ]
 
 [[overrides]]
-paths = ["kde/data/darkman/kde"]
+paths = ["kde/data/theme-hooks/kde"]
 extra_words = ["offscreen"]
 
 [[overrides]]
@@ -183,7 +185,8 @@ extra_words = [
 [[overrides]]
 paths = [
     "**/*.sh",
-    "*/data/darkman/*",
+    "*/data/theme-hooks/*",
+    "spawn/data/spawn/*",
     "*/executables/*",
     "bash/**",
     "build",
@@ -194,6 +197,7 @@ extra_words = [
     "esac",
     "pipefail",
     "popd",
+    "ppid",
     "pushd",
     "readarray",
     "shopt",

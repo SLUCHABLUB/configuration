@@ -50,9 +50,10 @@ codebook = ["codebook-lsp"]
 [darkman.files]
 "darkman/configuration/darkman" = "<%= "$config" %>/darkman"
 "darkman/executables/reload-theme" = "<%= "$executables" %>/reload-theme"
+"darkman/data/darkman/reload-theme" = "<%= "$data" %>/darkman/reload-theme"
 
 [darkman.variables.commands]
-darkman = ["darkman"]
+darkman = ["bash", "darkman", "notify-send"]
 
 [fastfetch.files]
 "fastfetch/configuration/fastfetch" = "<%= "$config" %>/fastfetch"
@@ -64,12 +65,12 @@ fastfetch = ["fastfetch"]
 "fonts/configuration/fontconfig/fonts.conf" = "<%= "$config" %>/fontconfig/fonts.conf"
 
 [fuzzel]
-depends = ["darkman"]
+depends = ["darkman", "spawn"]
 
 [fuzzel.files]
 "fuzzel/configuration/fuzzel/dark.ini" = "<%= "$config" %>/fuzzel/dark.ini"
 "fuzzel/configuration/fuzzel/light.ini" = "<%= "$config" %>/fuzzel/light.ini"
-"fuzzel/data/darkman/fuzzel" = "<%= "$data" %>/darkman/fuzzel"
+"fuzzel/data/theme-hooks/fuzzel" = "<%= "$data" %>/theme-hooks/fuzzel"
 
 [fuzzel.variables.commands]
 fuzzel = ["fuzzel"]
@@ -84,7 +85,7 @@ depends = ["darkman"]
 "git/configuration/git/delta-dark.gitconfig" = "<%= "$config" %>/git/delta-dark.gitconfig"
 "git/configuration/git/delta-light.gitconfig" = "<%= "$config" %>/git/delta-light.gitconfig"
 "git/data/git-hooks" = "<%= "$data" %>/git-hooks"
-"git/data/darkman/git" = "<%= "$data" %>/darkman/git"
+"git/data/theme-hooks/git" = "<%= "$data" %>/theme-hooks/git"
 
 [git.variables.commands]
 git = ["git", "delta", "codebook-lsp"]
@@ -102,7 +103,7 @@ depends = ["darkman"]
 [kde.files]
 "kde/data/color-schemes/Tilia (dark).colors" = "<%= "$data" %>/color-schemes/Tilia (dark).colors"
 "kde/data/color-schemes/Tilia (light).colors" = "<%= "$data" %>/color-schemes/Tilia (light).colors"
-"kde/data/darkman/kde" = "<%= "$data" %>/darkman/kde"
+"kde/data/theme-hooks/kde" = "<%= "$data" %>/theme-hooks/kde"
 
 [kde.variables.commands]
 kde = ["kreadconfig6", "kwriteconfig6", "plasma-apply-colorscheme"]
@@ -114,7 +115,8 @@ depends = ["darkman"]
 "kitty/configuration/kitty/kitty.conf" = "<%= "$config" %>/kitty/kitty.conf"
 "kitty/configuration/kitty/themes/dark.conf" = "<%= "$config" %>/kitty/themes/dark.conf"
 "kitty/configuration/kitty/themes/light.conf" = "<%= "$config" %>/kitty/themes/light.conf"
-"kitty/data/darkman/kitty" = "<%= "$data" %>/darkman/kitty"
+"kitty/executables/terminal" = "<%= "$executables" %>/terminal"
+"kitty/data/theme-hooks/kitty" = "<%= "$data" %>/theme-hooks/kitty"
 
 [kitty.variables.commands]
 kitty = ["kitty", "moor"]
@@ -124,7 +126,7 @@ depends = ["darkman"]
 
 [mako.files]
 "mako/configuration/mako/config" = "<%= "$config" %>/mako/config"
-"mako/data/darkman/mako" = "<%= "$data" %>/darkman/mako"
+"mako/data/theme-hooks/mako" = "<%= "$data" %>/theme-hooks/mako"
 
 [mako.variables.commands]
 mako = ["mako"]
@@ -138,26 +140,26 @@ depends = ["darkman"]
 "micro/configuration/micro/syntax" = "<%= "$config" %>/micro/syntax"
 "micro/configuration/micro/colorschemes/dark.micro" = "<%= "$config" %>/micro/colorschemes/dark.micro"
 "micro/configuration/micro/colorschemes/light.micro" = "<%= "$config" %>/micro/colorschemes/light.micro"
-"micro/data/darkman/micro" = "<%= "$data" %>/darkman/micro"
+"micro/data/theme-hooks/micro" = "<%= "$data" %>/theme-hooks/micro"
 
 [micro.variables.commands]
 micro = ["micro"]
 
 [niri]
-depends = ["darkman", "swaylock"]
+depends = ["darkman", "spawn", "swaylock"]
 
 [niri.files]
 "niri/configuration/niri/config.kdl" = "<%= "$config" %>/niri/config.kdl"
 "niri/configuration/niri/dark.kdl" = "<%= "$config" %>/niri/dark.kdl"
 "niri/configuration/niri/light.kdl" = "<%= "$config" %>/niri/light.kdl"
-"niri/executables/spawn" = "<%= "$executables" %>/spawn"
-"niri/data/darkman/niri" = "<%= "$data" %>/darkman/niri"
+"niri/data/theme-hooks/niri" = "<%= "$data" %>/theme-hooks/niri"
 
 [niri.variables.commands]
 niri = [
     "niri",
     "brightnessctl",
     "dbus-update-activation-environment",
+    "jq",
     "kwalletd6",
     "playerctl",
     "wpctl",
@@ -185,6 +187,14 @@ shellcheck = ["shellcheck"]
 [starship.variables.commands]
 starship = ["starship"]
 
+[spawn.files]
+"spawn/executables/spawn" = "<%= "$executables" %>/spawn"
+"spawn/executables/spawn-log" = "<%= "$executables" %>/spawn-log"
+"spawn/data/spawn/supervisor" = "<%= "$data" %>/spawn/supervisor"
+
+[spawn.variables.commands]
+spawn = ["notify-send", "ps", "setsid"]
+
 [status.files]
 "status/executables/status" = "<%= "$executables" %>/status"
 
@@ -207,7 +217,7 @@ depends = ["darkman"]
 "swaylock/configuration/swaylock/dark" = "<%= "$config" %>/swaylock/dark"
 "swaylock/configuration/swaylock/light" = "<%= "$config" %>/swaylock/light"
 "swaylock/executables/lock" = "<%= "$executables" %>/lock"
-"swaylock/data/darkman/swaylock" = "<%= "$data" %>/darkman/swaylock"
+"swaylock/data/theme-hooks/swaylock" = "<%= "$data" %>/theme-hooks/swaylock"
 
 [swaylock.variables.commands]
 swaylock = ["swaylock"]
@@ -226,13 +236,12 @@ depends = ["kitty"]
 textadept = ["textadept-curses", "codebook-lsp", "kitten"]
 
 [wallpapers]
-# Wallpapers are drawn with swaybg, spawned through niri.
-depends = ["darkman", "niri"]
+depends = ["darkman", "spawn"]
 
 [wallpapers.files]
 "wallpapers/data/wallpapers" = "<%= "$data" %>/wallpapers"
 "wallpapers/executables/switch-wallpaper" = "<%= "$executables" %>/switch-wallpaper"
-"wallpapers/data/darkman/wallpapers" = "<%= "$data" %>/darkman/wallpapers"
+"wallpapers/data/theme-hooks/wallpapers" = "<%= "$data" %>/theme-hooks/wallpapers"
 
 [wallpapers.variables.commands]
 wallpapers = ["darkman", "killall", "shuf", "swaybg"]
@@ -245,7 +254,7 @@ depends = ["darkman"]
 "waybar/configuration/waybar/style.css" = "<%= "$config" %>/waybar/style.css"
 "waybar/configuration/waybar/dark.css" = "<%= "$config" %>/waybar/dark.css"
 "waybar/configuration/waybar/light.css" = "<%= "$config" %>/waybar/light.css"
-"waybar/data/darkman/waybar" = "<%= "$data" %>/darkman/waybar"
+"waybar/data/theme-hooks/waybar" = "<%= "$data" %>/theme-hooks/waybar"
 
 [waybar.variables.commands]
 waybar = ["waybar", "brightnessctl", "killall", "wpctl"]

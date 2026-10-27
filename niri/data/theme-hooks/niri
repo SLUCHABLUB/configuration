@@ -4,7 +4,7 @@ mode="$1"
 
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-# Darkman runs as a service outside the niri session.
+# Hooks can run outside the niri session, such as from darkman.
 export NIRI_SOCKET="${NIRI_SOCKET:-$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'niri.*' -print -quit)}"
 
 ln -sfn "$config/niri/$mode.kdl" "$config/niri/theme.kdl"
