@@ -16,7 +16,6 @@ words = [
     "Skogman",
     # Programs and projects
     "basedpyright",
-    "blesh",
     "brightnessctl",
     "btop",
     "clippy",
@@ -118,7 +117,6 @@ extra_ignore_patterns = ['"[\w-]+"\s*:']
 [[overrides]]
 paths = ["bash/**"]
 extra_words = [
-    "ble",
     "erasedups",
     "HISTCONTROL",
     "HISTFILE",
@@ -134,15 +132,6 @@ extra_ignore_patterns = ['X{6,}']
 [[overrides]]
 paths = ["**/*.tmTheme.esh"]
 extra_words = ["invisibles"]
-
-[[overrides]]
-paths = ["blesh/**"]
-extra_words = [
-    "ble",
-    "colors",
-    "gray",
-    "varname",
-]
 
 [[overrides]]
 paths = ["kde/data/theme-hooks/kde"]

@@ -7,8 +7,6 @@
 export STARSHIP_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/starship"
 eval "$(starship init bash)"
 
-# [[ ! ${BLE_VERSION-} ]] || ble-attach
-
 if [[ ! ${BASH_COMPLETION_VERSINFO:-} &&
      -f /usr/share/bash-completion/bash_completion ]]
 then

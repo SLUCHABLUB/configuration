@@ -32,9 +32,6 @@ bash = ["bash", "starship"]
 [bat.variables.commands]
 bat = ["bat", "moor"]
 
-[blesh.files]
-"blesh/configuration/blesh" = "<%= "$config" %>/blesh"
-
 [btop.files]
 "btop/configuration/btop" = "<%= "$config" %>/btop"
 
