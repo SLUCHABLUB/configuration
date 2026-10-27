@@ -2,6 +2,13 @@
 -- Setting the in_editor user variable lets kitty pass keys such as ctrl+v through (see kitty.conf).
 -- Disambiguating keys lets textadept tell apart e.g. ctrl+backspace from ctrl+h.
 -- Colour scheme reports let the theme follow kitty between light and dark.
+-- None of this is used in other terminals,
+-- since the Linux console prints the user variable instead of ignoring it.
+
+local module = {}
+
+-- Kitty sets TERM to xterm-kitty, which kitten ssh carries over to other machines.
+module.is_terminal = os.getenv('TERM') == 'xterm-kitty'
 
 local ESCAPE = '\27'
 local BELL = '\7'
@@ -50,11 +57,15 @@ local function follow_colour_scheme(command, arguments)
 	if theme then set_theme(theme) end
 end
 
--- Used until kitty has reported its colour scheme.
+-- Used until kitty has reported its colour scheme, or for good in other terminals.
 view:set_theme(THEMES_BY_SCHEME[1])
 
-events.connect(events.INITIALIZED, enter_kitty_mode)
-events.connect(events.RESUME, enter_kitty_mode)
-events.connect(events.SUSPEND, leave_kitty_mode)
-events.connect(events.QUIT, leave_kitty_mode)
-events.connect(events.CSI, follow_colour_scheme)
+if module.is_terminal then
+	events.connect(events.INITIALIZED, enter_kitty_mode)
+	events.connect(events.RESUME, enter_kitty_mode)
+	events.connect(events.SUSPEND, leave_kitty_mode)
+	events.connect(events.QUIT, leave_kitty_mode)
+	events.connect(events.CSI, follow_colour_scheme)
+end
+
+return module

@@ -211,9 +211,6 @@ depends = ["darkman"]
 [swaylock.variables.commands]
 swaylock = ["swaylock"]
 
-[textadept]
-depends = ["kitty"]
-
 [textadept.files]
 "textadept/configuration/textadept/init.lua" = "<%= "$config" %>/textadept/init.lua"
 "textadept/configuration/textadept/lexers" = "<%= "$config" %>/textadept/lexers"
@@ -223,7 +220,7 @@ depends = ["kitty"]
 "textadept/executables/edit" = "<%= "$executables" %>/edit"
 
 [textadept.variables.commands]
-textadept = ["textadept-curses", "codebook-lsp", "kitten"]
+textadept = ["textadept-curses", "codebook-lsp"]
 
 [wallpapers]
 depends = ["darkman", "spawn"]
