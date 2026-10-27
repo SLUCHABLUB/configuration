@@ -3,6 +3,8 @@
 [[ $- != *i* ]] && return
 
 # Set up prompt.
+# Starship ignores XDG_CACHE_HOME and writes its logs to ~/.cache/starship otherwise.
+export STARSHIP_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/starship"
 eval "$(starship init bash)"
 
 # [[ ! ${BLE_VERSION-} ]] || ble-attach
