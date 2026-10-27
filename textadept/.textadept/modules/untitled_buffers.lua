@@ -1,5 +1,4 @@
--- Like micro and zed, starting without files opens an untitled buffer,
--- and saving it asks for a filename.
+-- Starting without files opens an untitled buffer and saving it asks for a filename.
 
 -- The last session is only loaded when it is also saved.
 textadept.session.save_on_quit = false
