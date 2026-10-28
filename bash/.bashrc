@@ -35,14 +35,6 @@ alias ls='eza'
 alias open='xdg-open'
 alias rg='rg -S'
 
-function fm() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    IFS= read -r -d '' cwd < "$tmp"
-    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-    rm -f -- "$tmp"
-}
-
 [ "$TERM" = 'xterm-kitty' ] && alias ssh='kitten ssh'
 
 # Evil aliases

@@ -85,7 +85,7 @@ depends = ["darkman"]
 "git/data/theme-hooks/git" = "<%= "$data" %>/theme-hooks/git"
 
 [git.variables.commands]
-git = ["git", "delta", "codebook-lsp"]
+git = ["git", "delta", "codebook-lsp", "shellcheck"]
 
 [helium.files]
 "helium/configuration/helium-browser-flags.conf" = "<%= "$config" %>/helium-browser-flags.conf"

@@ -1,4 +1,7 @@
 #!/bin/sh
+<%
+# shellcheck disable=all
+-%>
 
 # These are the XDG directories from when this file was built,
 # falling back to the defaults from the XDG Base Directory Specification.

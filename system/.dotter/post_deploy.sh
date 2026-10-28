@@ -1,9 +1,5 @@
 #!/bin/sh
-
-# Regenerates whatever the deployed files are an input to, and applies the settings
-# that are not files at all.
-# Dotter runs this after every deploy, including one that changed nothing,
-# so every step below checks first and stays quiet when there is nothing to do.
+# shellcheck disable=all
 
 set -eu
 

@@ -70,6 +70,7 @@ words = [
     "sed",
     "setsid",
     "shellcheck",
+    "shellcheckrc",
     "shuf",
     "starship",
     "swaybg",

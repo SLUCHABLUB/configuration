@@ -17,6 +17,8 @@ to-do list:
 - quickshell?
 - split up niri config into smaller files
 - clipboard manager (copied text disappears when the program it was copied from exits, e.g. wl-clip-persist)
+- move `.shellcheckrc` to the XDG config directory
+- a `local.toml` template listing every package on its own line, to copy and prune when deploying on a new machine
 
 ## Building
 

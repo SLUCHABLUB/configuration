@@ -41,7 +41,38 @@ then
     ./gradlew check
 fi
 
-# TODO: run `shellcheck` on committed files
+# Checks if a file has a shell extension or shebang
+is_shell_script() {
+    file="$1"
+
+    if [ -L "$file" ] || [ ! -f "$file" ]
+    then
+        return 1
+    fi
+
+    case "$file" in
+    *.sh | *.bash | *.dash | *.ksh)
+        return 0
+        ;;
+    esac
+
+    head -n 1 -- "$file" | grep --quiet --extended-regexp '^#!\s*\S*/(env\s+)?(ba|da|k)?sh(\s|$)'
+}
+
+shell_scripts=()
+
+while IFS= read -r -d '' file
+do
+    if is_shell_script "$file"
+    then
+        shell_scripts+=("$file")
+    fi
+done < <(git ls-files -z)
+
+if [ "${#shell_scripts[@]}" -gt 0 ]
+then
+    shellcheck -- "${shell_scripts[@]}"
+fi
 
 codebook-lsp lint -su .
 
