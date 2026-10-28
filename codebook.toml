@@ -226,7 +226,10 @@ extra_words = ["ESC"]
 extra_ignore_patterns = ['%s\w+%s']
 
 [[overrides]]
-paths = ["niri/**/*.kdl"]
+paths = [
+    "niri/**/*.kdl",
+    "willow/configuration/niri/*.kdl",
+]
 extra_words = [
     "accel",
     "clickfinger",

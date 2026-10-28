@@ -133,6 +133,9 @@ depends = ["darkman", "spawn", "swaylock"]
 
 [niri.files]
 "niri/configuration/niri/config.kdl" = "<%= "$config" %>/niri/config.kdl"
+"niri/configuration/niri/binds.kdl" = "<%= "$config" %>/niri/binds.kdl"
+"niri/configuration/niri/startup.kdl" = "<%= "$config" %>/niri/startup.kdl"
+"niri/configuration/niri/window-rules.kdl" = "<%= "$config" %>/niri/window-rules.kdl"
 "niri/configuration/niri/dark.kdl" = "<%= "$config" %>/niri/dark.kdl"
 "niri/configuration/niri/light.kdl" = "<%= "$config" %>/niri/light.kdl"
 "niri/data/theme-hooks/niri" = "<%= "$data" %>/theme-hooks/niri"
@@ -242,6 +245,10 @@ depends = ["darkman"]
 
 [waybar.variables.commands]
 waybar = ["waybar", "brightnessctl", "killall", "wpctl"]
+
+# Framework 13.
+[willow.files]
+"willow/configuration/niri/outputs.kdl" = { target = "<%= "$config" %>/niri/outputs.kdl", type = "symbolic", if = "dotter.packages.niri" }
 
 [xdg.files]
 "xdg/configuration/environment.d/10-xdg-directories.conf" = "<%= "$config" %>/environment.d/10-xdg-directories.conf"

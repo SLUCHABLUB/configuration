@@ -1,0 +1,11 @@
+spawn-at-startup "reload-theme"
+spawn-at-startup "spawn" "swayidle"
+spawn-at-startup "spawn" "mako"
+spawn-at-startup "spawn" "waybar"
+
+spawn-at-startup "spawn" "/usr/bin/kwalletd6"
+spawn-at-startup "spawn" "/usr/lib/polkit-kde-authentication-agent-1"
+
+// Fix the portals (copied from the Arch Wiki).
+spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"

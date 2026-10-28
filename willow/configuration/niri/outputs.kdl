@@ -1,0 +1,28 @@
+// Framework 13 Matte Display.
+output "BOE 0x0BCA Unknown" {
+    mode "2256x1504@59.999"
+
+    // logical size: 1128x752
+    scale 2
+
+    position x=0 y=0
+}
+
+output "PNP(AOC) Q27P1B GNXJ4HA002638" {
+    mode "2560x1440@60"
+
+    // logical size: 1920x1080
+    scale 1.3333333333333333
+
+    // x=(1128 - 1920)/2
+    position x=-396 y=-1080
+}
+
+output "Dell Inc. DELL P2717H 4P9HC85NA3RS" {
+    mode "1920x1080@60.000"
+
+    scale 1
+    transform "90"
+
+    position x=1524 y=-1500
+}

@@ -1,4 +1,9 @@
 include optional=true "theme.kdl"
+// The displays of this machine, deployed by its host package.
+include optional=true "outputs.kdl"
+include "binds.kdl"
+include "startup.kdl"
+include "window-rules.kdl"
 
 input {
     focus-follows-mouse
@@ -27,39 +32,6 @@ gestures {
     }
 }
 
-// TODO: move this to a hw config {
-
-// Framework 13 Matte Display.
-output "BOE 0x0BCA Unknown" {
-    mode "2256x1504@59.999"
-
-    // logical size: 1128x752
-    scale 2
-
-    position x=0 y=0
-}
-
-output "PNP(AOC) Q27P1B GNXJ4HA002638" {
-    mode "2560x1440@60"
-
-    // logical size: 1920x1080
-    scale 1.3333333333333333
-
-    // x=(1128 - 1920)/2
-    position x=-396 y=-1080
-}
-
-output "Dell Inc. DELL P2717H 4P9HC85NA3RS" {
-    mode "1920x1080@60.000"
-
-    scale 1
-    transform "90"
-
-    position x=1524 y=-1500
-}
-
-// TODO: }
-
 prefer-no-csd
 
 layout {
@@ -78,121 +50,8 @@ environment {
     QT_QPA_PLATFORMTHEME "kde"
 }
 
-spawn-at-startup "reload-theme"
-spawn-at-startup "spawn" "swayidle"
-spawn-at-startup "spawn" "mako"
-spawn-at-startup "spawn" "waybar"
-
-spawn-at-startup "spawn" "/usr/bin/kwalletd6"
-spawn-at-startup "spawn" "/usr/lib/polkit-kde-authentication-agent-1"
-
-// Fix the portals (copied from the Arch Wiki).
-spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri"
-
 hotkey-overlay {
     skip-at-startup
 }
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-binds {
-    Mod+Return repeat=false { spawn "spawn" "terminal"; }
-    Mod+Space  repeat=false { spawn-sh "killall fuzzel || fuzzel"; }
-
-    Mod+B repeat=false { spawn "spawn" "browse"; }
-    Mod+D repeat=false { spawn-sh "darkman toggle"; }
-    Mod+E repeat=false { quit; }
-    Mod+F repeat=false { fullscreen-window; }
-    // Allowed when locked to restart the locker if it crashes and leaves a red screen.
-    Mod+L repeat=false allow-when-locked=true { spawn "lock"; }
-    Mod+O repeat=false { spawn-sh r#"pid="$(niri msg --json focused-window | jq '.pid // empty')" && [ -n "$pid" ] && spawn-log "$pid""#; }
-    Mod+Q repeat=false { close-window; }
-    Mod+R repeat=false { spawn "reload-theme"; }
-    // Allows me to spawn a terminal with one hand.
-    Mod+T repeat=false { spawn "spawn" "terminal"; }
-
-    Mod+Shift+F repeat=false { toggle-window-floating; }
-    Mod+Alt+F repeat=false { toggle-windowed-fullscreen; }
-
-    Mod+Shift+S repeat=false { spawn-sh "systemctl suspend"; }
-
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    Alt+XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+"; }
-    Alt+XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
-
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-
-    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set +10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set 10%-"; }
-
-    XF86LaunchA repeat=false { toggle-overview; }
-
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-or-monitor-down; }
-    Mod+Up    { focus-window-or-monitor-up; }
-    Mod+Right { focus-column-right; }
-
-    Mod+Alt+Up    { move-window-up-or-to-workspace-up; }
-    Mod+Alt+Down  { move-window-down-or-to-workspace-down; }
-    Mod+Alt+Left  { consume-or-expel-window-left; }
-    Mod+Alt+Right { consume-or-expel-window-right; }
-
-    Mod+Ctrl+Up    { focus-monitor-up;    }
-    Mod+Ctrl+Down  { focus-monitor-down;  }
-    Mod+Ctrl+Left  { focus-monitor-left;  }
-    Mod+Ctrl+Right { focus-monitor-right; }
-
-    Mod+Alt+Ctrl+Up    { move-window-to-monitor-up;    }
-    Mod+Alt+Ctrl+Down  { move-window-to-monitor-down;  }
-    Mod+Alt+Ctrl+Left  { move-window-to-monitor-left;  }
-    Mod+Alt+Ctrl+Right { move-window-to-monitor-right; }
-
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+Alt+1 { move-window-to-workspace 1; }
-    Mod+Alt+2 { move-window-to-workspace 2; }
-    Mod+Alt+3 { move-window-to-workspace 3; }
-    Mod+Alt+4 { move-window-to-workspace 4; }
-    Mod+Alt+5 { move-window-to-workspace 5; }
-    Mod+Alt+6 { move-window-to-workspace 6; }
-    Mod+Alt+7 { move-window-to-workspace 7; }
-    Mod+Alt+8 { move-window-to-workspace 8; }
-    Mod+Alt+9 { move-window-to-workspace 9; }
-
-    Mod+Minus { set-window-width "-16.666666666666666%"; }
-    Mod+Plus  { set-window-width "+16.666666666666666%"; }
-    Mod+Shift+Minus { set-window-height "-16.666666666666666%"; }
-    Mod+Shift+Plus  { set-window-height "+16.666666666666666%"; }
-
-    Mod+0 repeat=false {
-        // kdl 1.0 syntax
-        spawn-sh r#"
-            niri msg action set-window-width 100%
-            niri msg action set-window-height 100%
-        "#
-    }
-
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
-}
-
-window-rule {
-    match app-id="^REAPER$"
-    open-floating false
-}
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
