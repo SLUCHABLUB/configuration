@@ -54,12 +54,12 @@ IntensityAmount=0
 Enable=false
 
 [WM]
-activeBackground=<% tilia get-colour tertiary-background r,g,b %>
-activeForeground=<% tilia get-colour text r,g,b %>
-activeBlend=<% tilia get-colour text r,g,b %>
-inactiveBackground=<% tilia get-colour secondary-background r,g,b %>
-inactiveForeground=<% tilia get-colour unimportant r,g,b %>
-inactiveBlend=<% tilia get-colour unimportant r,g,b %>
+activeBackground=<%=   "$(tilia get-colour tertiary-background r,g,b )" %>
+activeForeground=<%=   "$(tilia get-colour text r,g,b                )" %>
+activeBlend=<%=        "$(tilia get-colour text r,g,b                )" %>
+inactiveBackground=<%= "$(tilia get-colour secondary-background r,g,b)" %>
+inactiveForeground=<%= "$(tilia get-colour unimportant r,g,b         )" %>
+inactiveBlend=<%=      "$(tilia get-colour unimportant r,g,b         )" %>
 
 [KDE]
 # This value was copied from Breeze, has to do with how shadow colours are calculated.

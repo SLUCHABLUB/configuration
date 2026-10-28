@@ -39,21 +39,21 @@ XML
             <key>settings</key>
             <dict>
                 <key>background</key>
-                <string><% tilia get-colour primary-background %></string>
+                <string><%= "$(tilia get-colour primary-background)" %></string>
                 <key>foreground</key>
-                <string><% tilia get-colour text %></string>
+                <string><%= "$(tilia get-colour text)" %></string>
                 <key>caret</key>
-                <string><% tilia get-colour border %></string>
+                <string><%= "$(tilia get-colour border)" %></string>
                 <key>lineHighlight</key>
-                <string><% tilia get-colour hover %></string>
+                <string><%= "$(tilia get-colour hover)" %></string>
                 <key>selection</key>
-                <string><% tilia get-colour selection %></string>
+                <string><%= "$(tilia get-colour selection)" %></string>
                 <key>gutter</key>
-                <string><% tilia get-colour secondary-background %></string>
+                <string><%= "$(tilia get-colour secondary-background)" %></string>
                 <key>gutterForeground</key>
-                <string><% tilia get-colour unimportant %></string>
+                <string><%= "$(tilia get-colour unimportant)" %></string>
                 <key>invisibles</key>
-                <string><% tilia get-colour disabled %></string>
+                <string><%= "$(tilia get-colour disabled)" %></string>
             </dict>
         </dict>
 

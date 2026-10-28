@@ -14,23 +14,23 @@ background() {
 
 local view, styles = view, view.styles
 
-local primary_background = <% colour primary-background %>
-local secondary_background = <% colour secondary-background %>
-local hover = <% colour hover %>
-local selection = <% colour selection %>
-local border = <% colour border %>
-local disabled = <% colour disabled %>
-local unimportant = <% colour unimportant %>
-local text = <% colour text %>
+local primary_background = <%=   "$(colour primary-background)" %>
+local secondary_background = <%= "$(colour secondary-background)" %>
+local hover = <%=                "$(colour hover)" %>
+local selection = <%=            "$(colour selection)" %>
+local border = <%=               "$(colour border)" %>
+local disabled = <%=             "$(colour disabled)" %>
+local unimportant = <%=          "$(colour unimportant)" %>
+local text = <%=                 "$(colour text)" %>
 
 -- Foreground colours must be accompanied by their background colour in light mode.
-local red = {fore = <% colour red %>, back = <% background red %>}
-local orange = {fore = <% colour orange %>, back = <% background orange %>}
-local yellow = {fore = <% colour yellow %>, back = <% background yellow %>}
-local green = {fore = <% colour green %>, back = <% background green %>}
-local cyan = {fore = <% colour cyan %>, back = <% background cyan %>}
-local blue = {fore = <% colour blue %>, back = <% background blue %>}
-local purple = {fore = <% colour purple %>, back = <% background purple %>}
+local red    = { fore = <%= "$(colour red   )" %>, back = <%= "$(background red   )" %>}
+local orange = { fore = <%= "$(colour orange)" %>, back = <%= "$(background orange)" %>}
+local yellow = { fore = <%= "$(colour yellow)" %>, back = <%= "$(background yellow)" %>}
+local green  = { fore = <%= "$(colour green )" %>, back = <%= "$(background green )" %>}
+local cyan   = { fore = <%= "$(colour cyan  )" %>, back = <%= "$(background cyan  )" %>}
+local blue   = { fore = <%= "$(colour blue  )" %>, back = <%= "$(background blue  )" %>}
+local purple = { fore = <%= "$(colour purple)" %>, back = <%= "$(background purple)" %>}
 
 -- Predefined styles.
 styles[view.STYLE_DEFAULT] = {fore = text, back = primary_background}

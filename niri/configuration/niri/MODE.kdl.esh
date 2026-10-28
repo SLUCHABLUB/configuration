@@ -6,9 +6,9 @@ layout {
 
         width 2
 
-        active-color   "<% tilia get-colour purple %>"
-        inactive-color "<% tilia get-colour border %>"
-        urgent-color   "<% tilia get-colour red %>"
+        active-color   "<%= "$(tilia get-colour purple)" %>"
+        inactive-color "<%= "$(tilia get-colour border)" %>"
+        urgent-color   "<%= "$(tilia get-colour red)" %>"
     }
 }
 
