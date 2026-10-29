@@ -1,25 +1,29 @@
 <%
+colour() {
+    tilia get-colour "$1" 'r,g,b'
+}
+
 colour_group() {
     group="$1"
     background="$2"
     background_alternate="$3"
-    foreground="${4:-text}"
-    state="${5:-}"
+    foreground="${4-text}"
+    state="${5-}"
 
     cat <<INI
 [Colors:$group]${state:+[$state]}
-BackgroundNormal=$(tilia get-colour "$background" r,g,b)
-BackgroundAlternate=$(tilia get-colour "$background_alternate" r,g,b)
-ForegroundNormal=$(tilia get-colour "$foreground" r,g,b)
-ForegroundInactive=$(tilia get-colour unimportant r,g,b)
-ForegroundActive=$(tilia get-colour purple r,g,b)
-ForegroundLink=$(tilia get-colour blue r,g,b)
-ForegroundVisited=$(tilia get-colour purple r,g,b)
-ForegroundNegative=$(tilia get-colour red r,g,b)
-ForegroundNeutral=$(tilia get-colour yellow r,g,b)
-ForegroundPositive=$(tilia get-colour green r,g,b)
-DecorationFocus=$(tilia get-colour purple r,g,b)
-DecorationHover=$(tilia get-colour purple r,g,b)
+BackgroundNormal=$(   colour "$background"          )
+BackgroundAlternate=$(colour "$background_alternate")
+ForegroundNormal=$(   colour "$foreground"          )
+ForegroundInactive=$( colour unimportant            )
+ForegroundActive=$(   colour purple                 )
+ForegroundLink=$(     colour blue                   )
+ForegroundVisited=$(  colour purple                 )
+ForegroundNegative=$( colour red                    )
+ForegroundNeutral=$(  colour yellow                 )
+ForegroundPositive=$( colour green                  )
+DecorationFocus=$(    colour purple                 )
+DecorationHover=$(    colour purple                 )
 
 INI
 }
@@ -54,12 +58,12 @@ IntensityAmount=0
 Enable=false
 
 [WM]
-activeBackground=<%=   "$(tilia get-colour tertiary-background r,g,b )" %>
-activeForeground=<%=   "$(tilia get-colour text r,g,b                )" %>
-activeBlend=<%=        "$(tilia get-colour text r,g,b                )" %>
-inactiveBackground=<%= "$(tilia get-colour secondary-background r,g,b)" %>
-inactiveForeground=<%= "$(tilia get-colour unimportant r,g,b         )" %>
-inactiveBlend=<%=      "$(tilia get-colour unimportant r,g,b         )" %>
+activeBackground=<%   colour tertiary-background  %>
+activeForeground=<%   colour text                 %>
+activeBlend=<%        colour text                 %>
+inactiveBackground=<% colour secondary-background %>
+inactiveForeground=<% colour unimportant          %>
+inactiveBlend=<%      colour unimportant          %>
 
 [KDE]
 # This value was copied from Breeze, has to do with how shadow colours are calculated.

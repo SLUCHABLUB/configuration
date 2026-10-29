@@ -1,19 +1,24 @@
+<%
+colour() {
+    tilia get-colour "$1"
+}
+
+segment() {
+    cat <<INI
+[mode=$TILIA_MODE]
+background-color=$(colour tertiary-background)
+text-color=$(      colour text               )
+border-color=$(    colour border             )
+
+[urgency=critical mode=$TILIA_MODE]
+border-color=$(colour red)
+INI
+}
+-%>
 font=JetBrains Mono NerdFont
 border-size=2
 border-radius=6
 
-[mode=dark]
-background-color=<%= "$(tilia get-colour -m dark tertiary-background)" %>
-text-color=<%=       "$(tilia get-colour -m dark text)" %>
-border-color=<%=     "$(tilia get-colour -m dark border)" %>
+<% TILIA_MODE=light segment -%>
 
-[mode=light]
-background-color=<%= "$(tilia get-colour -m light tertiary-background)" %>
-text-color=<%=       "$(tilia get-colour -m light text)" %>
-border-color=<%=     "$(tilia get-colour -m light border)" %>
-
-[urgency=critical mode=dark]
-border-color=<%= "$(tilia get-colour -m dark red)" %>
-
-[urgency=critical mode=light]
-border-color=<%= "$(tilia get-colour -m light red)" %>
+<% TILIA_MODE=dark  segment -%>

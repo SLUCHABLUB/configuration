@@ -1,20 +1,34 @@
+<%
+colour() {
+    colour="$1"
+    background="${2-}"
+
+    tilia get-colour "$colour" | tr -d '\n'
+
+    if [ -n "$background" ]
+    then
+        printf ' '
+        tilia get-background --level primary "$colour" | tr -d '\n'
+    fi
+}
+-%>
 [delta]
     <%= $TILIA_MODE %> = true
     syntax-theme = Tilia Arrow (<%= $TILIA_MODE %>)
 
-    line-numbers-minus-style = "<%= "$(tilia get-colour red        )" %> <%= "$(tilia get-background -L primary red)" %>"
-    line-numbers-plus-style = "<%=  "$(tilia get-colour green      )" %> <%= "$(tilia get-background -L primary green)" %>"
-    line-numbers-zero-style = "<%=  "$(tilia get-colour unimportant)" %>"
-    line-numbers-left-style = "<%=  "$(tilia get-colour unimportant)" %>"
-    line-numbers-right-style = "<%= "$(tilia get-colour unimportant)" %>"
+    line-numbers-minus-style = "<% colour red         with-background %>"
+    line-numbers-plus-style  = "<% colour green       with-background %>"
+    line-numbers-zero-style  = "<% colour unimportant                 %>"
+    line-numbers-left-style  = "<% colour unimportant                 %>"
+    line-numbers-right-style = "<% colour unimportant                 %>"
 
-    file-style = "<%= "$(tilia get-colour text)" %>"
-    file-decoration-style = "<%= "$(tilia get-colour border)" %>"
+    file-style            = "<% colour text   %>"
+    file-decoration-style = "<% colour border %>"
 
-    commit-style = "<%= "$(tilia get-colour text)" %>"
-    commit-decoration-style = "<%= "$(tilia get-colour border)" %>"
+    commit-style            = "<% colour text   %>"
+    commit-decoration-style = "<% colour border %>"
 
-    merge-conflict-ours-diff-header-style = "<%= "$(tilia get-colour orange)" %> <%= "$(tilia get-background -L primary orange)" %>"
-    merge-conflict-theirs-diff-header-style = "<%= "$(tilia get-colour orange)" %> <%= "$(tilia get-background -L primary orange)" %>"
+    merge-conflict-ours-diff-header-style   = "<% colour orange with-background %>"
+    merge-conflict-theirs-diff-header-style = "<% colour orange with-background %>"
 
-    whitespace-error-style = "<%= "$(tilia get-colour red)" %>"
+    whitespace-error-style = "<% colour red %>"

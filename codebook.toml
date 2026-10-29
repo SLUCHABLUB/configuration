@@ -120,6 +120,7 @@ ignore_paths = [
 ignore_patterns = [
     # Colour format specifier.
     'rrggbbaa',
+    '0xbbggrr',
     # KDE colour scheme files and their groups.
     '\.colors\b',
     '\bColors:',

@@ -1,3 +1,8 @@
+<%
+colour() {
+    tilia get-colour "$1" | tr -d '\n'
+}
+-%>
 layout {
     gaps 6
 
@@ -6,9 +11,9 @@ layout {
 
         width 2
 
-        active-color   "<%= "$(tilia get-colour purple)" %>"
-        inactive-color "<%= "$(tilia get-colour border)" %>"
-        urgent-color   "<%= "$(tilia get-colour red)" %>"
+        active-color   "<% colour purple %>"
+        inactive-color "<% colour border %>"
+        urgent-color   "<% colour red    %>"
     }
 }
 

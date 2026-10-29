@@ -1,7 +1,12 @@
+<%
+colour() {
+    tilia get-colour "$1" rrggbbaa | tr -d '\n'
+}
+-%>
 font=JetBrainsMono Nerd Font
 
 scaling=fill
-color=<%= "$(tilia get-colour primary-background rrggbbaa)" %>
+color=<% colour primary-background %>
 
 effect-blur=20x10
 fade-in=0.2
@@ -19,35 +24,35 @@ datestr=%a %e %b
 line-uses-ring
 separator-color=00000000
 
-inside-color=<%= "$(tilia get-colour tertiary-background rrggbbaa)" %>
-ring-color=<%=   "$(tilia get-colour border              rrggbbaa)" %>
-text-color=<%=   "$(tilia get-colour text                rrggbbaa)" %>
-key-hl-color=<%= "$(tilia get-colour purple              rrggbbaa)" %>
-bs-hl-color=<%=  "$(tilia get-colour red                 rrggbbaa)" %>
+inside-color=<% colour tertiary-background %>
+ring-color=<%   colour border              %>
+text-color=<%   colour text                %>
+key-hl-color=<% colour purple              %>
+bs-hl-color=<%  colour red                 %>
 
 # clear
-inside-clear-color=<%= "$(tilia get-colour tertiary-background rrggbbaa)" %>
-ring-clear-color=<%=   "$(tilia get-colour border              rrggbbaa)" %>
-text-clear-color=<%=   "$(tilia get-colour text                rrggbbaa)" %>
+inside-clear-color=< colour tertiary-background %>
+ring-clear-color=<   colour border              %>
+text-clear-color=<   colour text                %>
 
 # verifying
-inside-ver-color=<%= "$(tilia get-colour tertiary-background rrggbbaa)" %>
-ring-ver-color=<%=   "$(tilia get-colour purple              rrggbbaa)" %>
-text-ver-color=<%=   "$(tilia get-colour text                rrggbbaa)" %>
+inside-ver-color=<% colour tertiary-background %>
+ring-ver-color=<%   colour purple              %>
+text-ver-color=<%   colour text                %>
 
 # wrong
-inside-wrong-color=<%= "$(tilia get-colour tertiary-background rrggbbaa)" %>
-ring-wrong-color=<%=   "$(tilia get-colour red                 rrggbbaa)" %>
-text-wrong-color=<%=   "$(tilia get-colour text                rrggbbaa)" %>
+inside-wrong-color=<% colour tertiary-background %>
+ring-wrong-color=<%   colour red                 %>
+text-wrong-color=<%   colour text                %>
 
 # caps lock
-inside-caps-lock-color=<%=  "$(tilia get-colour tertiary-background rrggbbaa)" %>
-ring-caps-lock-color=<%=    "$(tilia get-colour yellow              rrggbbaa)" %>
-text-caps-lock-color=<%=    "$(tilia get-colour text                rrggbbaa)" %>
-caps-lock-bs-hl-color=<%=   "$(tilia get-colour red                 rrggbbaa)" %>
-caps-lock-key-hl-color=<%=  "$(tilia get-colour yellow              rrggbbaa)" %>
+inside-caps-lock-color=<%  colour tertiary-background %>
+ring-caps-lock-color=<%    colour yellow              %>
+text-caps-lock-color=<%    colour text                %>
+caps-lock-bs-hl-color=<%   colour red                 %>
+caps-lock-key-hl-color=<%  colour yellow              %>
 
 # layout text box
-layout-bg-color=<%=     "$(tilia get-colour tertiary-background rrggbbaa)" %>
-layout-border-color=<%= "$(tilia get-colour border              rrggbbaa)" %>
-layout-text-color=<%=   "$(tilia get-colour text                rrggbbaa)" %>
+layout-bg-color=<%     colour tertiary-background %>
+layout-border-color=<% colour border              %>
+layout-text-color=<%   colour text                %>

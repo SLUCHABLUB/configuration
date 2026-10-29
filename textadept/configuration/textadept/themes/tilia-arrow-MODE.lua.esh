@@ -1,49 +1,45 @@
 <%
-# Textadept wants colours as 0xBBGGRR integers.
-to_textadept_colour() {
-    sed 's/^#\(..\)\(..\)\(..\)$/0x\3\2\1/'
+foreground() {
+    tilia get-colour "$1" "0xbbggrr" | tr -d '\n'
 }
-colour() {
-    tilia get-colour "$1" | to_textadept_colour
-}
+
 background() {
-    tilia get-background -L primary "$1" | to_textadept_colour
+    tilia get-background --level primary "$1" "0xbbggrr" | tr -d '\n'
 }
 -%>
 -- Tilia Arrow (<%= $TILIA_MODE %>) theme for Textadept.
 
 local view, styles = view, view.styles
 
-local primary_background = <%=   "$(colour primary-background)" %>
-local secondary_background = <%= "$(colour secondary-background)" %>
-local hover = <%=                "$(colour hover)" %>
-local selection = <%=            "$(colour selection)" %>
-local border = <%=               "$(colour border)" %>
-local disabled = <%=             "$(colour disabled)" %>
-local unimportant = <%=          "$(colour unimportant)" %>
-local text = <%=                 "$(colour text)" %>
+local primary_background   = "<% foreground primary-background   %>"
+local secondary_background = "<% foreground secondary-background %>"
+local hover                = "<% foreground hover                %>"
+local selection            = "<% foreground selection            %>"
+local border               = "<% foreground border               %>"
+local disabled             = "<% foreground disabled             %>"
+local unimportant          = "<% foreground unimportant          %>"
+local text                 = "<% foreground text                 %>"
 
--- Foreground colours must be accompanied by their background colour in light mode.
-local red    = { fore = <%= "$(colour red   )" %>, back = <%= "$(background red   )" %>}
-local orange = { fore = <%= "$(colour orange)" %>, back = <%= "$(background orange)" %>}
-local yellow = { fore = <%= "$(colour yellow)" %>, back = <%= "$(background yellow)" %>}
-local green  = { fore = <%= "$(colour green )" %>, back = <%= "$(background green )" %>}
-local cyan   = { fore = <%= "$(colour cyan  )" %>, back = <%= "$(background cyan  )" %>}
-local blue   = { fore = <%= "$(colour blue  )" %>, back = <%= "$(background blue  )" %>}
-local purple = { fore = <%= "$(colour purple)" %>, back = <%= "$(background purple)" %>}
+local red    = { fore = "<% foreground red    %>", back = "<% background red    %>" }
+local orange = { fore = "<% foreground orange %>", back = "<% background orange %>" }
+local yellow = { fore = "<% foreground yellow %>", back = "<% background yellow %>" }
+local green  = { fore = "<% foreground green  %>", back = "<% background green  %>" }
+local cyan   = { fore = "<% foreground cyan   %>", back = "<% background cyan   %>" }
+local blue   = { fore = "<% foreground blue   %>", back = "<% background blue   %>" }
+local purple = { fore = "<% foreground purple %>", back = "<% background purple %>" }
 
 -- Predefined styles.
-styles[view.STYLE_DEFAULT] = {fore = text, back = primary_background}
-styles[view.STYLE_LINENUMBER] = {fore = unimportant, back = secondary_background}
-styles[view.STYLE_BRACELIGHT] = {back = selection}
+styles[view.STYLE_DEFAULT] = { fore = text, back = primary_background }
+styles[view.STYLE_LINENUMBER] = { fore = unimportant, back = secondary_background }
+styles[view.STYLE_BRACELIGHT] = { back = selection }
 styles[view.STYLE_BRACEBAD] = red
-styles[view.STYLE_INDENTGUIDE] = {fore = border}
-styles[view.STYLE_CALLTIP] = {fore = unimportant, back = secondary_background}
-styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = unimportant, back = secondary_background}
+styles[view.STYLE_INDENTGUIDE] = { fore = border }
+styles[view.STYLE_CALLTIP] = { fore = unimportant, back = secondary_background }
+styles[view.STYLE_FOLDDISPLAYTEXT] = { fore = unimportant, back = secondary_background }
 
 -- Tag styles.
 -- Tags not listed here use the default style (miscellaneous tokens).
-styles[lexer.BOLD] = {bold = true}
+styles[lexer.BOLD] = { bold = true }
 styles[lexer.CLASS] = purple
 styles[lexer.COMMENT] = yellow
 styles[lexer.CONSTANT_BUILTIN] = cyan
@@ -51,24 +47,24 @@ styles[lexer.ERROR] = red
 styles[lexer.FUNCTION] = blue
 styles[lexer.FUNCTION_BUILTIN] = blue
 styles[lexer.FUNCTION_METHOD] = blue
-styles[lexer.HEADING] = {bold = true}
+styles[lexer.HEADING] = { bold = true }
 styles[lexer.KEYWORD] = orange
-styles[lexer.LINK] = {underline = true}
+styles[lexer.LINK] = { underline = true }
 styles[lexer.NUMBER] = cyan
-styles[lexer.OPERATOR] = {fore = unimportant}
+styles[lexer.OPERATOR] = { fore = unimportant }
 styles[lexer.PREPROCESSOR] = blue
-styles[lexer.REFERENCE] = {underline = true}
+styles[lexer.REFERENCE] = { underline = true }
 styles[lexer.REGEX] = green
 styles[lexer.STRING] = green
 styles[lexer.TYPE] = purple
-styles[lexer.UNDERLINE] = {underline = true}
+styles[lexer.UNDERLINE] = { underline = true }
 
 -- Diff.
 styles.addition = green
 styles.deletion = red
 styles.change = orange
 -- Output.
-styles.csi = {visible = false}
+styles.csi = { visible = false }
 
 -- Element colours.
 view.element_color[view.ELEMENT_SELECTION_BACK] = selection

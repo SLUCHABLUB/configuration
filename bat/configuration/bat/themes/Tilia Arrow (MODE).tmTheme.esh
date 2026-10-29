@@ -1,13 +1,18 @@
 <%
-# Emit a <dict> block that paints `scope` with the named Tilia colour.
-# In light mode the background is the colour's tinted variant; in dark
-# mode `tilia get-background` collapses to the editor canvas.
-arrow_scope() {
+entry() {
+    key="$1"
+    colour="$2"
+    get="${3:-get-colour}"
+
+    cat <<XML
+                <key>$key</key>
+                <string>$(tilia $get "$colour")</string>
+XML
+}
+
+scope() {
     scope="$1"
     colour="$2"
-
-    foreground="$(tilia get-colour "$colour")"
-    background="$(tilia get-background -L primary "$colour")"
 
     cat <<XML
         <dict>
@@ -15,15 +20,14 @@ arrow_scope() {
             <string>$scope</string>
             <key>settings</key>
             <dict>
-                <key>foreground</key>
-                <string>$foreground</string>
-                <key>background</key>
-                <string>$background</string>
+$(              entry foreground "$colour"                                 )
+$(              entry background "$colour" "get-background --level primary")
             </dict>
         </dict>
 XML
 }
-%><?xml version="1.0" encoding="UTF-8"?>
+-%>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -38,32 +42,24 @@ XML
         <dict>
             <key>settings</key>
             <dict>
-                <key>background</key>
-                <string><%= "$(tilia get-colour primary-background)" %></string>
-                <key>foreground</key>
-                <string><%= "$(tilia get-colour text)" %></string>
-                <key>caret</key>
-                <string><%= "$(tilia get-colour border)" %></string>
-                <key>lineHighlight</key>
-                <string><%= "$(tilia get-colour hover)" %></string>
-                <key>selection</key>
-                <string><%= "$(tilia get-colour selection)" %></string>
-                <key>gutter</key>
-                <string><%= "$(tilia get-colour secondary-background)" %></string>
-                <key>gutterForeground</key>
-                <string><%= "$(tilia get-colour unimportant)" %></string>
-                <key>invisibles</key>
-                <string><%= "$(tilia get-colour disabled)" %></string>
+<%              entry background primary-background -%>
+<%              entry foreground text               -%>
+<%              entry caret border                  -%>
+<%              entry lineHighlight hover           -%>
+<%              entry selection selection           -%>
+<%              entry gutter secondary-background   -%>
+<%              entry gutterForeground unimportant  -%>
+<%              entry invisibles disabled           -%>
             </dict>
         </dict>
 
-<% arrow_scope 'punctuation, meta.brace, meta.delimiter, keyword.operator' unimportant %>
-<% arrow_scope 'comment' yellow %>
-<% arrow_scope 'string' green %>
-<% arrow_scope 'constant.numeric, constant.language, constant.other, support.constant' blue %>
-<% arrow_scope 'entity.name.function, support.function, meta.function-call, variable.function, entity.name.macro, support.macro' cyan %>
-<% arrow_scope 'entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.union, entity.name.trait, entity.name.interface, entity.name.namespace, support.type, support.class' purple %>
-<% arrow_scope 'keyword, storage.type, storage.modifier, constant.character.escape' orange %>
+<%      scope 'punctuation, meta.brace, meta.delimiter, keyword.operator' unimportant                                                                                                                             -%>
+<%      scope 'comment' yellow                                                                                                                                                                                    -%>
+<%      scope 'string' green                                                                                                                                                                                      -%>
+<%      scope 'constant.numeric, constant.language, constant.other, support.constant' blue                                                                                                                        -%>
+<%      scope 'entity.name.function, support.function, meta.function-call, variable.function, entity.name.macro, support.macro' cyan                                                                              -%>
+<%      scope 'entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.union, entity.name.trait, entity.name.interface, entity.name.namespace, support.type, support.class' purple -%>
+<%      scope 'keyword, storage.type, storage.modifier, constant.character.escape' orange                                                                                                                         -%>
     </array>
 </dict>
 </plist>

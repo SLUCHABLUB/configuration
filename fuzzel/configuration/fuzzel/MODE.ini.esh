@@ -1,3 +1,8 @@
+<%
+colour() {
+    tilia get-colour "$1" rrggbbaa
+}
+-%>
 font=JetBrainsMono Nerd Font Mono
 hide-before-typing=yes
 minimal-lines=yes
@@ -8,13 +13,13 @@ width=2
 radius=6
 
 [colors]
-background=<%=      "$(tilia get-colour tertiary-background rrggbbaa)" %>
-text=<%=            "$(tilia get-colour text                rrggbbaa)" %>
-prompt=<%=          "$(tilia get-colour unimportant         rrggbbaa)" %>
-placeholder=<%=     "$(tilia get-colour unimportant         rrggbbaa)" %>
-input=<%=           "$(tilia get-colour text                rrggbbaa)" %>
-match=<%=           "$(tilia get-colour purple              rrggbbaa)" %>
-selection=<%=       "$(tilia get-colour selection           rrggbbaa)" %>
-selection-text=<%=  "$(tilia get-colour text                rrggbbaa)" %>
-selection-match=<%= "$(tilia get-colour purple              rrggbbaa)" %>
-border=<%=          "$(tilia get-colour purple              rrggbbaa)" %>
+background=<%      colour tertiary-background -%>
+text=<%            colour text                -%>
+prompt=<%          colour unimportant         -%>
+placeholder=<%     colour unimportant         -%>
+input=<%           colour text                -%>
+match=<%           colour purple              -%>
+selection=<%       colour selection           -%>
+selection-text=<%  colour text                -%>
+selection-match=<% colour purple              -%>
+border=<%          colour purple              -%>
