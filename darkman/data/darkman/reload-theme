@@ -4,8 +4,7 @@ mode="$1"
 
 executables="${XDG_BIN_HOME:-$HOME/.local/bin}"
 
-# Darkman runs as a service outside the graphical session,
-# so it may have started before the session existed and lacks its environment.
+# Darkman runs as a service outside the wayland session.
 export PATH="$executables:$PATH"
 export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'wayland-*' ! -name '*.lock' -print -quit)}"
 

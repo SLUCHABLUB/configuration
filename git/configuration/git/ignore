@@ -1,10 +1,8 @@
+.claude
 .codebook.toml
-.tombi.toml
 .zed
+
 *.env
+
 .cargo
 .rustup
-
-*.sav
-
-.claude

@@ -1,17 +1,9 @@
 <%
-# Each package lists the commands it needs under [package.variables.commands],
-# keyed by its own name so the tables merge without clashing.
-# The pre-deploy hook refuses to deploy while any of them is missing.
-
-# Resolve the deployment locations from the XDG variables,
-# falling back to the defaults from the XDG Base Directory Specification.
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
 data="${XDG_DATA_HOME:-$HOME/.local/share}"
-# XDG_BIN_HOME is not part of the specification but is commonly used.
 executables="${XDG_BIN_HOME:-$HOME/.local/bin}"
 -%>
 [settings]
-# Never guess that a file is a handlebars template.
 default_target_type = "symbolic"
 
 [bash]

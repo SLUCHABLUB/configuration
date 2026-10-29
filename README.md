@@ -1,127 +1,122 @@
 # My configuration (dot files)
 
-to-do list:
-- diff code-background
-- keyboard layout
-- rclone systemd unit
-- other helium config
-- gtk?
-- theme KDE apps
-    - kdeconnect
-    - kdenlive
-    - ksudoku
-    - kwalletmanager
-- theme eza (colours)
-- theme prismlauncher
-- theme discord (vesktop)
-- quickshell?
-- split up niri config into smaller files
-- clipboard manager (copied text disappears when the program it was copied from exits, e.g. wl-clip-persist)
-- move `.shellcheckrc` to the XDG config directory
-- a `local.toml` template listing every package on its own line, to copy and prune when deploying on a new machine
+## Dependencies
 
-## Building
+- [dotter](https://github.com/SuperCuber/dotter)
+    For deploying
+- [esh](https://github.com/jirutka/esh)
+    For building
 
-Run `./build` to compile every `*.esh` template. Templates whose basename contains the literal token `MODE` are dual-mode and produce two outputs (`dark` and `light` substituted in). Everything else is a single-output template.
+Each package may have additional dependencies but these are checked by dotter in pre-deploy.
 
-## Deploying
+## Installation
 
-The files are deployed with [dotter](https://github.com/SuperCuber/dotter), from the root of the repository:
+> The deployment locations are read from the `XDG_*_HOME` variables. The deployed `.profile` exports the XDG variables as they were at build time, so later builds from a login shell keep using the same locations.
+>
+> To use an XDG-user-directories style of naming for the XDG base directories, source `user-style-directories.sh` before running `./build`.
+
+Unless you want to deploy all packages, you can create a custom `local.toml`:
+```sh
+cp .dotter/local.toml.template .dotter/local.toml
+edit .dotter/local.toml
+```
 
 ```sh
 ./build
 dotter deploy
 ```
 
-The deployment locations are read from the `XDG_*_HOME` variables. The deployed `.profile` exports the XDG variables as they were at build time, so later builds from a login shell keep using the same locations.
+## System Configuration
 
-To use visible directories (`~/Configuration`, `~/Data` and so on) instead, source `visible-directories.sh` before building:
-
-```sh
-. ./visible-directories.sh
-./build
-dotter deploy
-```
-
-Each package lists the commands it needs under `[package.variables.commands]` in `.dotter/global.toml.esh`. Before deploying, `.dotter/pre_deploy.sh` checks that every command of the selected packages is installed, and refuses to deploy otherwise.
-
-## System configuration
-
-### Layout
-
-The system packages live in `system/`, which has its own dotter configuration.
-They are deployed from a separate clone owned by root, so `/etc` never links into a user's home directory.
+The system packages live in the `system` directory, which has its own dotter configuration. They are deployed from a separate clone owned by root, so `/etc` never links into a user's home directory.
 
 ```
 GitHub                       origin
   |  clone as user
 ~/.../configuration          for editing
   |  pull as root
-/opt/configuration           what /etc actually links to
+/.../configuration           what /etc actually links to
 ```
 
 | Repository            | Creation                  | Role      |
 | --------------------- | ------------------------- | --------- |
 | GitHub                |                           | origin    |
 | `~/.../configuration` | clone as user from GitHub | editing   |
-| `/opt/configuration`  | clone as root from user   | deploying |
+| `/.../configuration`  | clone as root from user   | deploying |
+
+### Installation
 
 > NOTE: The root clone needs to be cloned with `--no-hardlinks`.
 
-Deploy as root from the `system/` directory of the root clone:
+For example if the system configuration is put into `/opt` and the user configuration is in `~/Projects`:
 
 ```sh
-cd /opt/configuration/system
-dotter deploy
+cd /opt
+sudo git clone --no-hardlinks ~/Projects/configuration
+cd configuration/system
+sudo dotter deploy
 ```
 
-### Portability
+## To-Do List
 
-The system packages assume Arch and glibc to varying degrees, and two of them do not travel at all.
+- fix whatever is going on the the btop config
+- move `.shellcheckrc` to the XDG config directory
+- a `local.toml` template (both normal and system settings)
+- source .profile in bashrc?
+- look over fastfetch (it also prints the C locale)
+- a clipboard manager or at least wl-clip-persist
+- find a nice serif/math font that isn't just the typst default
+- make themes more switchable
+- a keyboard layout (console && Wayland)
+- a console font (of jetbrains mono)
+- make parts of the git commit hook skippable
 
-`pacman` and `paru` are Arch only, and `mkinitcpio` nearly so.
+- sudo configuration
+- general browser setting
+- browser extensions
+- the root user's configuration (another clone?)
+- `packages.txt` from `pacman -Qqe`
+- a package that sets up a user `nelli` and warns if no password is set
+- a package that set's the host name from local.toml or that warns if none is set
+- list of enabled services that are started by post-deploy
+- fstab validation?
+- makepkg config
+- reflector config (Arch)
 
-`locale` is glibc only.
+### Theme
 
-The rest, `console`, `grub`, `pam`, `systemd`, `docker` and `udev`, are about the kernel, systemd or a
-specific daemon, and care about neither the distribution nor the libc.
+- gtk
+- KDE apps
+    - kdeconnect
+    - kdenlive
+    - ksudoku
+    - kwalletmanager
+- eza (colours)
+- prismlauncher
+- discord (vesktop)
+- GRUB
 
-### What cannot be deployed
+- diff background
+- font size discrepancies
 
-Not everything on a system is a file you can symlink, and a few files are a bad idea to symlink here.
+### Key-Bindings
 
-- **Login shells** live in `/etc/passwd`, which is a database, not configuration. Handled by the `shell` package, which keeps one entry per account.
-- **Timezone** is `/etc/localtime`, a symlink into `/usr/share/zoneinfo` rather than a file with contents. Handled by the `timezone` package.
-- **Users and groups** likewise: `useradd -m -G wheel,input,docker nelli && passwd nelli`.
-- **Hostname** differs per machine: `hostnamectl hostname <name>`.
-- **`/etc/fstab`** holds this machine's partition UUIDs and cannot be shared.
-- **`/etc/sudoers.d`** must be owned by root, and sudo refuses files that are not.
-- **Enabled services** are symlinks that `systemctl enable` manages under `/etc/systemd/system`.
-  Deploying them would fight with systemd, so keep a list instead.
+- kitty: go to the top of scrollback
+- bash line editor
+- moor (or other page) key-binds
 
-Currently enabled beyond the defaults:
-`NetworkManager`, `systemd-resolved`, `systemd-timesyncd`, `systemd-oomd`, `bluetooth`, `cups`, `avahi-daemon`, `docker`, `tailscaled`, `waydroid-container`, `fstrim.timer`.
+### Potential Additions
 
-### Ideas
+- a login manager
+- quickshell
+- `/etc/skel`
+- switch to LibreWolf
+- switch shell
 
-Still on the list:
-
-- A GRUB theme. `GRUB_THEME` is in place but commented out, and `GRUB_GFXMODE` wants pinning to a real resolution first.
-- A keyboard layout. `libxkbcommon` searches `/etc/xkb/symbols` before `/usr/share/X11/xkb`, so a custom layout is deployable as its own package.
-- A login manager
-- Root's own configuration. `/root` is deployable the same way as `/etc`.
-- A console font. Left out for now because the right size depends entirely on the panel.
-
-Worth adding at some point:
-
-- `packages.txt` from `pacman -Qqe`, so a new machine is one `pacman -S --needed - < packages.txt` away.
-- `/etc/sysctl.d` drop-ins for kernel tunables.
-- `/etc/modprobe.d` for blacklisting and module options.
-- `/etc/systemd/zram-generator.conf`, which would replace the swap file and make the `zswap.enabled=0` kernel parameter moot.
-- `/etc/xdg/reflector/reflector.conf` so the mirrorlist stays fresh on its own.
-- `/etc/makepkg.conf.d` for parallel builds and ccache.
-- `/etc/skel`, which decides what a newly created user starts with.
-- `/etc/systemd/system/<unit>.d` overrides, for the times a shipped unit is almost right.
+- zram
+- `/etc/systemd/system/<unit>.d` overrides
+- sysctl config
+- modprobe config
 
 ## External Content
 

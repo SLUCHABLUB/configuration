@@ -50,6 +50,7 @@ words = [
     "kwalletd",
     "kwalletmanager",
     "kwriteconfig",
+    "libre",
     "libxkbcommon",
     "logind",
     "makepkg",
