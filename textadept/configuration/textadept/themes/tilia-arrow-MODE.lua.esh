@@ -11,22 +11,22 @@ background() {
 
 local view, styles = view, view.styles
 
-local primary_background   = "<% foreground primary-background   %>"
-local secondary_background = "<% foreground secondary-background %>"
-local hover                = "<% foreground hover                %>"
-local selection            = "<% foreground selection            %>"
-local border               = "<% foreground border               %>"
-local disabled             = "<% foreground disabled             %>"
-local unimportant          = "<% foreground unimportant          %>"
-local text                 = "<% foreground text                 %>"
+local primary_background   = <% foreground primary-background   %>
+local secondary_background = <% foreground secondary-background %>
+local hover                = <% foreground hover                %>
+local selection            = <% foreground selection            %>
+local border               = <% foreground border               %>
+local disabled             = <% foreground disabled             %>
+local unimportant          = <% foreground unimportant          %>
+local text                 = <% foreground text                 %>
 
-local red    = { fore = "<% foreground red    %>", back = "<% background red    %>" }
-local orange = { fore = "<% foreground orange %>", back = "<% background orange %>" }
-local yellow = { fore = "<% foreground yellow %>", back = "<% background yellow %>" }
-local green  = { fore = "<% foreground green  %>", back = "<% background green  %>" }
-local cyan   = { fore = "<% foreground cyan   %>", back = "<% background cyan   %>" }
-local blue   = { fore = "<% foreground blue   %>", back = "<% background blue   %>" }
-local purple = { fore = "<% foreground purple %>", back = "<% background purple %>" }
+local red    = { fore = <% foreground red    %>, back = <% background red    %> }
+local orange = { fore = <% foreground orange %>, back = <% background orange %> }
+local yellow = { fore = <% foreground yellow %>, back = <% background yellow %> }
+local green  = { fore = <% foreground green  %>, back = <% background green  %> }
+local cyan   = { fore = <% foreground cyan   %>, back = <% background cyan   %> }
+local blue   = { fore = <% foreground blue   %>, back = <% background blue   %> }
+local purple = { fore = <% foreground purple %>, back = <% background purple %> }
 
 -- Predefined styles.
 styles[view.STYLE_DEFAULT] = { fore = text, back = primary_background }
