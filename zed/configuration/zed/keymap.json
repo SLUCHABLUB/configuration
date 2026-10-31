@@ -32,6 +32,7 @@
             "ctrl-shift-f": "pane::DeploySearch",
             "ctrl-g": "file_finder::Toggle",
             "ctrl-w": "pane::CloseActiveItem",
+            "ctrl-shift-w": "pane::CloseAllItems",
             "ctrl-alt-w": "pane::CloseOtherItems",
             // Other
             "ctrl-tab": "pane::ActivateNextItem",
@@ -43,6 +44,7 @@
     {
         "context": "Workspace",
         "bindings": {
+            "ctrl-n": "workspace::NewFile",
             "ctrl-s": "workspace::Save"
         }
     },
@@ -90,6 +92,10 @@
             "backspace": "editor::Backspace",
             "alt-backspace": "editor::DeleteToPreviousWordStart",
             "ctrl-backspace": "editor::DeleteToBeginningOfLine",
+            // Shift + Backspace
+            "shift-backspace": "editor::Delete",
+            "shift-alt-backspace": "editor::DeleteToNextWordEnd",
+            "ctrl-shift-backspace": "editor::DeleteToEndOfLine",
             // Special Characters
             "tab": "editor::Tab",
             "shift-tab": "editor::Backtab",
@@ -134,7 +140,6 @@
     {
         "context": "Editor && showing_completions",
         "bindings": {
-            "enter": "editor::ConfirmCompletion",
             "tab": "editor::ConfirmCompletion",
             "up": "editor::ContextMenuPrevious",
             "down": "editor::ContextMenuNext",
