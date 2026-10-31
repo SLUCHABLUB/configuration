@@ -31,7 +31,6 @@
             "ctrl-f": "search::FocusSearch",
             "ctrl-shift-f": "pane::DeploySearch",
             "ctrl-g": "file_finder::Toggle",
-            "ctrl-t": "terminal_panel::Toggle",
             "ctrl-w": "pane::CloseActiveItem",
             "ctrl-alt-w": "pane::CloseOtherItems",
             // Other
