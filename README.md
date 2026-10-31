@@ -96,8 +96,12 @@ sudo dotter deploy
 - discord (vesktop)
 - GRUB
 
-- diff background
-- font size discrepancies
+- waybar: hover colour for hovered buttons
+
+Once tilia-cli supports tints:
+- delta: diff backgrounds (`plus-style`, `minus-style` and their `emph` variants) from tints
+- zed: `created` and `deleted` backgrounds from tints (currently invisible in dark mode)
+- zed & textadept: strong yellow tint for search results
 
 ### Key-Bindings
 
