@@ -245,12 +245,6 @@ waybar = ["waybar", "brightnessctl", "killall", "wpctl"]
 [xdg.files]
 "xdg/configuration/environment.d/10-xdg-directories.conf" = "<%= "$config" %>/environment.d/10-xdg-directories.conf"
 
-[yazi.files]
-"yazi/configuration/yazi" = "<%= "$config" %>/yazi"
-
-[yazi.variables.commands]
-yazi = ["yazi"]
-
 [zed.files]
 "zed/configuration/zed/keymap.json" = "<%= "$config" %>/zed/keymap.json"
 "zed/configuration/zed/settings.json" = "<%= "$config" %>/zed/settings.json"

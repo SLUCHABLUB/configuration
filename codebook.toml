@@ -93,7 +93,6 @@ words = [
     "wpctl",
     "xdg",
     "xkb",
-    "yazi",
     "zeditor",
     "zram",
     "zswap",
@@ -116,7 +115,6 @@ ignore_paths = [
     "btop/configuration/btop/btop.conf",
     # Third-party code.
     "textadept/configuration/textadept/modules/lsp/**",
-    "yazi/configuration/yazi/plugins/**",
 ]
 
 ignore_patterns = [
