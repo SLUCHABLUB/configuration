@@ -60,6 +60,9 @@ keys['ctrl+meta+shift+down'] = cursors.add_to_end
 keys['\b'] = buffer.delete_back
 keys['meta+\b'] = deletion.delete_selection_or_word
 keys['ctrl+\b'] = deletion.delete_selection_or_to_line_start
+keys['shift+\b'] = buffer.clear
+keys['meta+shift+\b'] = deletion.delete_selection_or_next_word
+keys['ctrl+shift+\b'] = deletion.delete_selection_or_to_line_end
 
 keys['\n'] = buffer.new_line
 keys['shift+\n'] = buffer.new_line

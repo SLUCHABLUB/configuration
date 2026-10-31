@@ -1,4 +1,4 @@
--- Deletion behind the cursor, which deletes the selection instead if there is one.
+-- Deletion around the cursor, which deletes the selection instead if there is one.
 
 local deletion = {}
 
@@ -14,5 +14,7 @@ end
 
 deletion.delete_selection_or_word = delete_selection_or(buffer.del_word_left)
 deletion.delete_selection_or_to_line_start = delete_selection_or(buffer.del_line_left)
+deletion.delete_selection_or_next_word = delete_selection_or(buffer.del_word_right_end)
+deletion.delete_selection_or_to_line_end = delete_selection_or(buffer.del_line_right)
 
 return deletion
