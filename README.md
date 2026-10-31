@@ -105,18 +105,9 @@ Once tilia-cli supports tints:
 
 ### Key-Bindings
 
-- kitty: go to the top of scrollback
 - bash line editor
 - moor (or other page) key-binds
-- zed
-    - enter inserts a newline while completions are shown (remove `editor::ConfirmCompletion` from enter)
-    - `ctrl-shift-w` closes all tabs (`pane::CloseAllItems`)
-    - shift + backspace deletes forwards (also with alt and ctrl)
-    - `ctrl-n` for a new file in the editor
-- kitty
-    - `ctrl+i` interrupts instead of `ctrl+shift+c`
-    - `ctrl+c` copies the entire prompt if nothing is selected (probably needs shell integration or readline)
-- textadept: shift + backspace deletes forwards (also with alt and ctrl)
+- kitty: `ctrl+c` copies the entire prompt if nothing is selected (probably needs shell integration or readline)
 
 ### Potential Additions
 
