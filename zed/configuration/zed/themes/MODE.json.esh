@@ -104,10 +104,12 @@ background() {
                 "scrollbar.thumb.hover_background": "<% colour hover %>",
                 "scrollbar.track.background": "<% colour secondary-background %>",
                 "scrollbar.track.border": "<% colour border %>",
+                // TODO: Use a strong yellow tint once tilia-cli supports tints, solid yellow makes the text hard to read.
                 "search.match_background": "<% colour yellow %>",
                 "success": "<% colour green %>",
                 "success.background": "<% background green %>",
                 "success.border": "<% colour border %>",
+                // TODO: Set elevated_surface.background to the tertiary background since it is used for popups.
                 "surface.background": "<% colour secondary-background %>",
                 // TODO: tab
                 "tab_bar.background": "<% colour primary-background %>",
@@ -136,7 +138,7 @@ background() {
                 "syntax": {
                     // TODO: attribute
                     "boolean": {
-                        "color": "<% colour orange %>",
+                        "color": "<% colour cyan %>",
                         "background_color": "<% background orange %>"
                     },
                     // TODO: constant
@@ -150,10 +152,10 @@ background() {
                     },
                     // TODO: embedded
                     "emphasis": {
-                        "font_weight": 700
+                        "font_style": "italic"
                     },
                     "emphasis.strong": {
-                        "font_style": "italic"
+                        "font_weight": 700
                     },
                     // TODO: enum
                     "function": {
@@ -178,7 +180,7 @@ background() {
                     },
                     // TODO: predictive
                     "preproc": {
-                        "color": "<% colour cyan %>",
+                        "color": "<% colour blue %>",
                         "background_color": "<% background cyan %>"
                     },
                     // TODO: primary
