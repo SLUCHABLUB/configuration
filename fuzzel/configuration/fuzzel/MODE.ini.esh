@@ -3,7 +3,7 @@ colour() {
     tilia get-colour "$1" rrggbbaa
 }
 -%>
-font=JetBrainsMono Nerd Font Mono
+font=JetBrainsMono Nerd Font
 hide-before-typing=yes
 minimal-lines=yes
 launch-prefix=spawn
