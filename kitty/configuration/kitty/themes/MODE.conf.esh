@@ -22,7 +22,7 @@ url_color <% colour blue -%>
 
 active_tab_foreground   <% colour text                -%>
 active_tab_background   <% colour tertiary-background -%>
-inactive_tab_foreground <% colour disabled            -%>
+inactive_tab_foreground <% colour unimportant         -%>
 inactive_tab_background <% colour primary-background  -%>
 
 # "Black" through "White".
