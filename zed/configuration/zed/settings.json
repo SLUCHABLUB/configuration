@@ -79,7 +79,7 @@
         }
     },
     "hide_mouse": "never",
-    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "buffer_font_family": "JetBrainsMono Nerd Font Mono",
     "buffer_font_features": {
         "calt": true,
         "liga": true
