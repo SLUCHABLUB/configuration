@@ -56,8 +56,8 @@ XML
 <%      scope 'punctuation, meta.brace, meta.delimiter, keyword.operator' unimportant                                                                                                                             -%>
 <%      scope 'comment' yellow                                                                                                                                                                                    -%>
 <%      scope 'string' green                                                                                                                                                                                      -%>
-<%      scope 'constant.numeric, constant.language, constant.other, support.constant' blue                                                                                                                        -%>
-<%      scope 'entity.name.function, support.function, meta.function-call, variable.function, entity.name.macro, support.macro' cyan                                                                              -%>
+<%      scope 'constant.numeric, constant.language, constant.other, support.constant' cyan                                                                                                                        -%>
+<%      scope 'entity.name.function, support.function, meta.function-call, variable.function, entity.name.macro, support.macro' blue                                                                              -%>
 <%      scope 'entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.union, entity.name.trait, entity.name.interface, entity.name.namespace, support.type, support.class' purple -%>
 <%      scope 'keyword, storage.type, storage.modifier, constant.character.escape' orange                                                                                                                         -%>
     </array>
