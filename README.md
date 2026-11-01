@@ -60,7 +60,6 @@ sudo dotter deploy
 ## To-Do List
 
 - fix whatever is going on the the btop config
-- move `.shellcheckrc` to the XDG config directory
 - a `local.toml` template (both normal and system settings)
 - source .profile in bashrc?
 - look over fastfetch (it also prints the C locale)

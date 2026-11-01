@@ -168,7 +168,7 @@ depends = ["textadept"]
 sh = ["bat"]
 
 [shellcheck.files]
-"shellcheck/.shellcheckrc" = "~/.shellcheckrc"
+"shellcheck/configuration/shellcheckrc" = "<%= "$config" %>/shellcheckrc"
 
 [shellcheck.variables.commands]
 shellcheck = ["shellcheck"]
