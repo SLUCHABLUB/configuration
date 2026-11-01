@@ -44,6 +44,17 @@ codebook = ["codebook-lsp"]
 [darkman.variables.commands]
 darkman = ["bash", "darkman", "notify-send"]
 
+[eza]
+depends = ["darkman"]
+
+[eza.files]
+"eza/configuration/eza/dark.yml" = "<%= "$config" %>/eza/dark.yml"
+"eza/configuration/eza/light.yml" = "<%= "$config" %>/eza/light.yml"
+"eza/data/theme-hooks/eza" = "<%= "$data" %>/theme-hooks/eza"
+
+[eza.variables.commands]
+eza = ["eza"]
+
 [fastfetch.files]
 "fastfetch/configuration/fastfetch" = "<%= "$config" %>/fastfetch"
 

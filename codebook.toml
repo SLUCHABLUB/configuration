@@ -159,6 +159,11 @@ extra_words = [
 # Templates passed to mktemp.
 extra_ignore_patterns = ['X{6,}']
 
+# Keys in the theme are defined by eza.
+[[overrides]]
+paths = ["eza/**"]
+extra_ignore_patterns = ['^\s*\w+:']
+
 [[overrides]]
 paths = ["**/*.tmTheme.esh"]
 extra_words = ["invisibles"]

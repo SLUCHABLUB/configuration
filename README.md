@@ -91,7 +91,6 @@ sudo dotter deploy
     - kdenlive
     - ksudoku
     - kwalletmanager
-- eza (colours)
 - prismlauncher
 - discord (vesktop)
 - GRUB

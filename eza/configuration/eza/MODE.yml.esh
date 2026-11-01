@@ -1,0 +1,120 @@
+<%
+# Prints a complete style, since eza keeps its own default for any property that is left out.
+style() {
+    colour="$1"
+    header="${2:-false}"
+
+    foreground="$(tilia get-colour "$colour")"
+    background="$(tilia get-background --level primary "$colour")"
+
+    printf '{ foreground: "%s", background: "%s", ' "$foreground" "$background"
+    printf 'is_bold: %s, is_dimmed: false, is_italic: false, is_underline: %s }\n' "$header" "$header"
+}
+-%>
+style:
+  text: &text <% style text -%>
+  unimportant: &unimportant <% style unimportant -%>
+  red: &red <% style red -%>
+  orange: &orange <% style orange -%>
+  yellow: &yellow <% style yellow -%>
+  green: &green <% style green -%>
+  cyan: &cyan <% style cyan -%>
+  blue: &blue <% style blue -%>
+  purple: &purple <% style purple -%>
+  header: &header <% style text true -%>
+
+filekinds:
+  normal: *text
+  directory: *purple
+  symlink: *green
+  pipe: *text
+  block_device: *orange
+  char_device: *orange
+  socket: *text
+  special: *text
+  executable: *blue
+  mount_point: *green
+
+broken_symlink: *red
+broken_path_overlay: *red
+# The directories leading up to the target of a symbolic link.
+symlink_path: *purple
+
+punctuation: *unimportant
+
+header: *header
+
+git:
+  new: *green
+  modified: *orange
+  deleted: *red
+  renamed: *orange
+  typechange: *orange
+  ignored: *text
+  conflicted: *orange
+
+git_repo:
+  branch_main: *text
+  branch_other: *yellow
+  git_clean: *green
+  git_dirty: *red
+
+perms:
+  user_read: *green
+  user_write: *red
+  user_execute_file: *blue
+  user_execute_other: *blue
+  group_read: *green
+  group_write: *red
+  group_execute: *blue
+  other_read: *green
+  other_write: *red
+  other_execute: *blue
+  special_user_file: *text
+  special_other: *text
+  attribute: *text
+
+size:
+  major: *cyan
+  minor: *cyan
+  number_byte: *cyan
+  number_kilo: *cyan
+  number_mega: *cyan
+  number_giga: *cyan
+  number_huge: *cyan
+  unit_byte: *cyan
+  unit_kilo: *cyan
+  unit_mega: *cyan
+  unit_giga: *cyan
+  unit_huge: *cyan
+
+users:
+  user_you: *purple
+  user_root: *orange
+  user_other: *red
+  group_yours: *purple
+  group_other: *orange
+  group_root: *red
+
+links:
+  normal: *cyan
+  multi_link_file: *yellow
+
+file_type:
+  image: *text
+  video: *text
+  music: *text
+  crypto: *text
+  document: *text
+  compressed: *text
+  temp: *text
+  compiled: *text
+  build: *text
+  source: *text
+
+date: *cyan
+inode: *cyan
+blocks: *text
+octal: *cyan
+flags: *text # Not on Linux
+control_char: *orange
