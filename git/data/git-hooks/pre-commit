@@ -4,11 +4,24 @@ set -euo pipefail
 
 exec 1>&2
 
+# Checks can be skipped by listing their names in SKIP, separated by commas,
+# following the pre-commit framework, for example `SKIP=codebook,shellcheck git commit`.
+should_run() {
+    check="$1"
+
+    case ",${SKIP:-}," in
+    *",$check,"*)
+        echo "Skipping $check"
+        return 1
+        ;;
+    esac
+}
+
 stashed=false
 
 # shellcheck disable=SC2329 # False positive, it's passed to `trap`.
 restore() {
-    if [ "$stashed" = true ]
+    if "$stashed"
     then
         # set working tree & index -> HEAD
         git reset --hard --quiet
@@ -17,26 +30,36 @@ restore() {
     fi
 }
 
-if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]
+trap restore EXIT
+
+has_unstaged_changes=false
+if ! git diff --quiet
+then
+    has_unstaged_changes=true
+fi
+
+untracked_files="$(git ls-files --others --exclude-standard)"
+
+# The checks should see exactly what is staged, so everything else is stashed while they run.
+if "$has_unstaged_changes" || [ -n "$untracked_files" ]
 then
     # move working tree -> stash
     # set index -> working tree
     git stash push --keep-index --include-untracked --quiet
     stashed=true
-    trap restore EXIT
 fi
 
-if [ -f "Cargo.toml" ]
+if [ -f "Cargo.toml" ] && should_run cargo
 then
     export RUSTDOCFLAGS="-D warnings"
 
-    cargo +nightly fmt    --all       --check
-    cargo          clippy --workspace -- --deny warnings
-    cargo          test   --workspace
-    cargo          doc    --workspace
+    should_run fmt  && cargo +nightly fmt    --all       --check
+    should_run lint && cargo          clippy --workspace -- --deny warnings
+    should_run test && cargo          test   --workspace
+    should_run doc  && cargo          doc    --workspace
 fi
 
-if [ -f "gradlew" ]
+if [ -f "gradlew" ] && should_run gradle
 then
     ./gradlew check
 fi
@@ -59,26 +82,33 @@ is_shell_script() {
     head -n 1 -- "$file" | grep --quiet --extended-regexp '^#!\s*\S*/(env\s+)?(ba|da|k)?sh(\s|$)'
 }
 
-shell_scripts=()
-
-while IFS= read -r -d '' file
-do
-    if is_shell_script "$file"
-    then
-        shell_scripts+=("$file")
-    fi
-done < <(git ls-files -z)
-
-if [ "${#shell_scripts[@]}" -gt 0 ]
+if should_run shellcheck
 then
-    shellcheck -- "${shell_scripts[@]}"
+    shell_scripts=()
+
+    while IFS= read -r -d '' file
+    do
+        if is_shell_script "$file"
+        then
+            shell_scripts+=("$file")
+        fi
+    done < <(git ls-files -z)
+
+    if [ "${#shell_scripts[@]}" -gt 0 ]
+    then
+        shellcheck -- "${shell_scripts[@]}"
+    fi
 fi
 
-codebook-lsp lint -su .
+if should_run codebook
+then
+    codebook-lsp lint -su .
+fi
 
 local_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
 
-if [ -x "$local_hook" ]
+# Not `exec`, since that would skip restoring the stash when exiting.
+if [ -x "$local_hook" ] && should_run local
 then
-    exec "$local_hook" "$@"
+    "$local_hook" "$@"
 fi

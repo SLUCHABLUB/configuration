@@ -69,7 +69,6 @@ sudo dotter deploy
 - make themes more switchable
 - a keyboard layout (console && Wayland)
 - a console font (of jetbrains mono)
-- make parts of the git commit hook skippable
 
 - sudo configuration
 - general browser setting

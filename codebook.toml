@@ -154,7 +154,6 @@ extra_words = [
     "icat",
     "ignoredups",
     "lla",
-    "mktemp",
 ]
 # Templates passed to mktemp.
 extra_ignore_patterns = ['X{6,}']
@@ -217,6 +216,7 @@ paths = [
 ]
 extra_words = [
     "esac",
+    "mktemp",
     "pipefail",
     "popd",
     "ppid",
