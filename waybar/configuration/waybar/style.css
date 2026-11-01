@@ -59,6 +59,16 @@ button:hover {
     border-style: solid;
 }
 
+/* The modules that react to clicking or scrolling. */
+#clock:hover,
+#battery:hover,
+#backlight:hover,
+#custom-kbd-backlight:hover,
+#wireplumber:hover
+{
+    background: @hover;
+}
+
 
 
 #wireplumber.microphone:not(.muted) {

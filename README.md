@@ -95,8 +95,6 @@ sudo dotter deploy
 - discord (vesktop)
 - GRUB
 
-- waybar: hover colour for hovered buttons
-
 Once tilia-cli supports tints:
 - delta: diff backgrounds (`plus-style`, `minus-style` and their `emph` variants) from tints
 - zed: `created` and `deleted` backgrounds from tints (currently invisible in dark mode)
