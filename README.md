@@ -15,7 +15,8 @@ Each package may have additional dependencies but these are checked by dotter in
 >
 > To use an XDG-user-directories style of naming for the XDG base directories, source `user-style-directories.sh` before running `./build`.
 
-Unless you want to deploy all packages, you can create a custom `local.toml`:
+Dotter needs a `local.toml` that selects the packages for this machine.
+The template lists every package, so copy it and remove the ones this machine should not have:
 ```sh
 cp .dotter/local.toml.template .dotter/local.toml
 edit .dotter/local.toml
@@ -54,13 +55,14 @@ For example if the system configuration is put into `/opt` and the user configur
 cd /opt
 sudo git clone --no-hardlinks ~/Projects/configuration
 cd configuration/system
+sudo cp .dotter/local.toml.template .dotter/local.toml
+sudoedit .dotter/local.toml
 sudo dotter deploy
 ```
 
 ## To-Do List
 
 - fix whatever is going on the the btop config
-- a `local.toml` template (both normal and system settings)
 - source .profile in bashrc?
 - look over fastfetch (it also prints the C locale)
 - a clipboard manager or at least wl-clip-persist

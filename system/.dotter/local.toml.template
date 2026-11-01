@@ -1,0 +1,21 @@
+packages = [
+    "console",
+    "docker",
+    "grub",
+    "locale",
+    "mkinitcpio",
+    "pacman",
+    "pam",
+    "paru",
+    "shell",
+    "systemd",
+    "timezone",
+    "udev",
+]
+
+# The variables in global.toml can be overridden for this machine, for example:
+# [variables]
+# timezone = "Europe/Stockholm"
+#
+# [variables.login_shells]
+# root = "/usr/bin/bash"
