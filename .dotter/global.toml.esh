@@ -90,6 +90,19 @@ depends = ["darkman"]
 [git.variables.commands]
 git = ["git", "delta", "codebook-lsp", "shellcheck"]
 
+[gtk]
+depends = ["darkman"]
+
+[gtk.files]
+"gtk/configuration/gtk-3.0/dark.css" = "<%= "$config" %>/gtk-3.0/dark.css"
+"gtk/configuration/gtk-3.0/light.css" = "<%= "$config" %>/gtk-3.0/light.css"
+"gtk/configuration/gtk-4.0/dark.css" = "<%= "$config" %>/gtk-4.0/dark.css"
+"gtk/configuration/gtk-4.0/light.css" = "<%= "$config" %>/gtk-4.0/light.css"
+"gtk/data/theme-hooks/gtk" = "<%= "$data" %>/theme-hooks/gtk"
+
+[gtk.variables.commands]
+gtk = ["gsettings"]
+
 [helium.files]
 "helium/configuration/helium-browser-flags.conf" = "<%= "$config" %>/helium-browser-flags.conf"
 "helium/executables/browse" = "<%= "$executables" %>/browse"

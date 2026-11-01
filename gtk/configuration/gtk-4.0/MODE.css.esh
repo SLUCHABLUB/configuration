@@ -1,0 +1,16 @@
+<%
+. ./gtk/colours.sh
+-%>
+/* Tilia (<%= "$TILIA_MODE" %>) colours for libadwaita and GTK 4. */
+
+:root {
+<%
+printf '%s\n' "$gtk_colours" | while read -r name colour
+do
+    if [ -n "$name" ]
+    then
+        printf '    --%s: %s;\n' "$name" "$(tilia get-colour "$colour")"
+    fi
+done
+-%>
+}

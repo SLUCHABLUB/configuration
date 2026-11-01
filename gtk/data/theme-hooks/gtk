@@ -1,0 +1,15 @@
+#!/bin/sh
+
+mode="$1"
+
+config="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+ln -sfn "$config/gtk-3.0/$mode.css" "$config/gtk-3.0/gtk.css"
+ln -sfn "$config/gtk-4.0/$mode.css" "$config/gtk-4.0/gtk.css"
+
+case "$mode" in
+dark) theme="adw-gtk3-dark" ;;
+light) theme="adw-gtk3" ;;
+esac
+
+gsettings set org.gnome.desktop.interface gtk-theme "$theme"

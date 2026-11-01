@@ -85,7 +85,6 @@ sudo dotter deploy
 
 ### Theme
 
-- gtk
 - KDE apps
     - kdeconnect
     - kdenlive

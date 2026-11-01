@@ -1,0 +1,21 @@
+<%
+. ./gtk/colours.sh
+-%>
+/* Tilia (<%= "$TILIA_MODE" %>) colours for GTK 3 with the adw-gtk3 theme. */
+
+<%
+printf '%s\n' "$gtk_colours" | while read -r name colour
+do
+    if [ -n "$name" ]
+    then
+        printf '@define-color %s %s;\n' "$(printf '%s' "$name" | tr '-' '_')" "$(tilia get-colour "$colour")"
+    fi
+done
+-%>
+
+/* The adw-gtk3 theme hard-codes white instead of using the accent foreground for these. */
+button.suggested-action,
+button.suggested-action:hover,
+button.suggested-action:checked {
+    color: @accent_fg_color;
+}

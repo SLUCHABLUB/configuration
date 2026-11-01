@@ -38,6 +38,7 @@ words = [
     "fuzzel",
     "gitconfig",
     "glibc's",
+    "gsettings",
     "hostnamectl",
     "initramfs",
     "kde",
@@ -201,6 +202,14 @@ extra_words = [
     "tformat",
     "WIP",
     "zdiff",
+]
+
+[[overrides]]
+paths = ["gtk/**"]
+extra_words = [
+    "adw",
+    "headerbar",
+    "libadwaita",
 ]
 
 [[overrides]]
