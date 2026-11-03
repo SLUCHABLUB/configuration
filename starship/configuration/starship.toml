@@ -10,7 +10,7 @@ format = """\
     $directory\
     $all\
     $status\
-    $character\
+    $shell\
 """
 
 add_newline = false
@@ -31,6 +31,12 @@ python.disabled = true
 rust.disabled = true
 typst.disabled = true
 zig.disabled = true
+
+# We use the shell module instead.
+character.disabled = true
+
+# TODO: Why does it display 3 normally?
+shlvl.disabled = true
 
 [username]
 format = '[$user]($style)'
@@ -76,6 +82,18 @@ format = '[$path]($style) '
 style = 'blue'
 truncation_length = -1
 
+[sudo]
+disabled = false
+symbol = "\U0001F9D9\u200D\u2640" # Witch Emoji.
+
+[jobs]
+symbol = ''
+
+[os]
+disabled = false
+[os.symbols]
+Arch = "" # Arch is main for now.
+
 [status]
 format = '[\[](fg:white)[$status]($style)[\]](fg:white) '
 pipestatus = true
@@ -84,5 +102,8 @@ pipestatus_segment_format = '[$status]($style)'
 pipestatus_separator = '[ | ](fg:white)'
 disabled = false
 
-[character]
-format = '> '
+[shell]
+bash_indicator = '\$'
+nu_indicator = '>'
+unknown_indicator = '?'
+disabled = false
