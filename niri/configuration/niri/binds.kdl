@@ -13,10 +13,11 @@ binds {
     Mod+R repeat=false { spawn "reload-theme"; }
     // Allows me to spawn a terminal with one hand.
     Mod+T repeat=false { spawn "spawn" "terminal"; }
+    Mod+Aring repeat=false { toggle-window-floating; }
 
-    Mod+Shift+F repeat=false { toggle-window-floating; }
     Mod+Alt+F repeat=false { toggle-windowed-fullscreen; }
 
+    // Shift in order to not accidentally press.
     Mod+Shift+S repeat=false { spawn-sh "systemctl suspend"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
@@ -59,8 +60,8 @@ binds {
 
     Mod+Minus { set-window-width "-16.666666666666666%"; }
     Mod+Plus  { set-window-width "+16.666666666666666%"; }
-    Mod+Shift+Minus { set-window-height "-16.666666666666666%"; }
-    Mod+Shift+Plus  { set-window-height "+16.666666666666666%"; }
+    Mod+Alt+Plus  { set-window-height "+16.666666666666666%"; }
+    Mod+Alt+Minus { set-window-height "-16.666666666666666%"; }
 
     Mod+0 repeat=false {
         // kdl 1.0 syntax
