@@ -83,6 +83,8 @@ sudo dotter deploy
 - makepkg config
 - reflector config (Arch)
 
+- nu shell bindings and theme
+
 ### Theme
 
 - KDE apps
@@ -94,14 +96,16 @@ sudo dotter deploy
 - discord (vesktop)
 - GRUB
 
-Once tilia-cli supports tints:
+- the big theme refactor (json & jinja)
+
+blocked on the big theme refactor:
 - delta: diff backgrounds (`plus-style`, `minus-style` and their `emph` variants) from tints
 - zed: `created` and `deleted` backgrounds from tints (currently invisible in dark mode)
 - zed & textadept: strong yellow tint for search results
 
 ### Key-Bindings
 
-- bash line editor
+- bash line editor?
 - moor (or other page) key-binds
 - kitty: `ctrl+c` copies the entire prompt if nothing is selected (probably needs shell integration or readline)
 
