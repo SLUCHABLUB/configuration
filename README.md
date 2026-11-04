@@ -67,7 +67,6 @@ sudo dotter deploy
 - look over fastfetch (it also prints the C locale)
 - a clipboard manager or at least wl-clip-persist
 - find a nice serif/math font that isn't just the typst default
-- make themes more switchable
 - a keyboard layout (console && Wayland)
 - a console font (of jetbrains mono)
 
