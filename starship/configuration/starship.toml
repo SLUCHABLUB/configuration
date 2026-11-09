@@ -84,7 +84,8 @@ truncation_length = -1
 
 [sudo]
 disabled = false
-symbol = "\U0001F9D9\u200D\u2640" # Witch Emoji.
+symbol = "\U0001F9D9\u200D\u2640 " # Witch Emoji.
+style = 'white'
 
 [jobs]
 symbol = ''
@@ -104,6 +105,7 @@ disabled = false
 
 [shell]
 bash_indicator = '\$'
+fish_indicator = ''
 nu_indicator = '>'
 unknown_indicator = '?'
 disabled = false
