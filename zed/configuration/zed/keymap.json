@@ -141,6 +141,7 @@
         "context": "Editor && showing_completions",
         "bindings": {
             "tab": "editor::ConfirmCompletion",
+            "enter": "editor::ConfirmCompletion",
             "up": "editor::ContextMenuPrevious",
             "down": "editor::ContextMenuNext",
         }
