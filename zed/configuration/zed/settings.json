@@ -1,4 +1,7 @@
 {
+    "preview_tabs": {
+        "enabled": false
+    },
     "cli_default_open_behavior": "new_window",
     "agent": {
         "dock": "right",
